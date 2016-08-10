@@ -1,0 +1,32 @@
+﻿tất cả các bảng phải có cột 
+	-> Active 
+	-> Ngày tạo
+	-> Ngày sửa chữa
+	-> Người tạo 
+	-> người sửa chữa
+	
+	-> Tạo bảng vị trí hiển thị bài tin
+		-> bắt chỉ 1 bài viết dc hiển thị ở vị trí đặc biệt
+		
+		
+	Quảng cáo 
+	 -> title 
+	 -> image 
+	 -> Link web cần quảng cáo
+	 -> Thông tin khach1 quảng cáo
+	 
+Thư mục:
+	- các hàm lấy dữ liệu từ data sẽ tạo trong thư mục Dat
+	- Các hàm gọi thực thi Dat để trả về model hoặc cái gì đó thì viết trong Com
+	Quy định đặt tên: Dat(Name chức năng_Dat)
+			  Com(Name chức năng_Com)
+	- Các page sẽ có 1 model riêng để lấy dữ liệu(ViewProDuct: title,name,add)
+	- Controller -> Gọi tới class Com->Gọi chức năng trong Com
+	- Class Com -> Gọi tới class Dat->Gọi chức năng trong Dat
+<script type="text/javascript" src="~/Content/Plugin/js/main.js"></script>
+    <script type="text/javascript" src="~/Content/Plugin/js/charts.js"></script>
+    <script type="text/javascript" src="~/Content/Plugin/js/amcharts/amcharts.js"></script>
+    <script type="text/javascript" src="~/Content/Plugin/js/amcharts/serial.js"></script>
+    <script type="text/javascript" src="~/Content/Plugin/js/amcharts/pie.js"></script>
+	 
+	 

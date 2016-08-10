@@ -1,0 +1,102 @@
+﻿@model List<KoK_Source.Models.Banner.BannerModel>
+@using KoK_Source.Models.Banner
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Index", "Banner", FormMethod.Post, new {id = "myBanner"}))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <article class="widget">
+                <div class="btn-group">
+                    @Html.ActionLink("THÊM MỚI","Edit",null,new {@class= "btn violet inverse glyphicon glyphicon-plus",@id= "btnAdd" })
+                    @*<button id="btnAdd" hr="@Url.Action("Edit")" class="btn violet inverse glyphicon glyphicon-plus"> THÊM MỚI</button>*@
+                </div>
+                <header class="widget__header">
+                    <div class="widget__title">
+                        <i class="pe-7s-menu"></i>
+                        <h3>Banner List</h3>
+                    </div>
+                    <div class="widget__config">
+                        <a href="#"><i class="pe-7f-refresh"></i></a>
+                        <a href="#"><i class="pe-7s-close"></i></a>
+                    </div>
+                </header>
+                <div class="widget__content table-responsive">
+                    @if (Model.Count() > 0 && Model != null)
+                    {
+                        <table id="tbl_Banner" class="table table-striped media-table">
+                            <thead>
+                            <tr>
+                                <th width="20%">@Html.LabelFor(m => m.First().BANNER_ID)</th>
+                                <th width="20%">@Html.LabelFor(m => m.First().CREATE_USER)</th>
+                                <th width="40%">@Html.LabelFor(m => m.First().BANNER_DESC)</th>
+                                <th width="10%">@Html.LabelFor(m => m.First().ACTIVE)</th>
+                                <th width="5%">Del</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="spacer"></tr>
+                                <tr>
+                                    <td>
+                                        <div class="media">
+                                            <figure class="pull-left post__img">
+                                                <a href="@Url.Action("Edit", "Banner", new BannerModel {BANNER_ID = item.BANNER_ID})">
+                                                    @if (item.BANNER_FILE != null && item.BANNER_FILE != "")
+                                                    {
+                                                        <img class="media-object" style="width: 50px; height: 50px" src="@Url.Content(item.BANNER_FILE)" >
+                                                    }
+                                                    else
+                                                    {
+                                                        <img class="media-object" style="width: 50px;height: 50px" src="@item.BANNER_FILE" >
+                                                    }
+                                                </a>
+                                            </figure>
+                                            <div class="media-body post_desc">
+                                                <h3>@item.BANNER_TYPE</h3>
+                                                <p>@item.BANNER_DESC</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="post__date">@item.CREATE_USER<br>@item.CREATE_DATE</p>
+                                    </td>
+                                    <td>
+                                        <p class="post__info">@item.BANNER_DESC</p>
+                                    </td>
+                                    <td>
+                                        @if (item.ACTIVE == true)
+                                        {
+                                            <input type="checkbox" id="@item.BANNER_ID" class="sw" onchange="AjaxUpdateActive(this)" checked/>
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" id="@item.BANNER_ID" class="sw" onchange="AjaxUpdateActive(this)" />
+                                        }
+                                        <label class="switch blue" for="@item.BANNER_ID"></label>
+                                    </td>
+                                    <td>
+                                        <a href="#" onclick="AjaxRemoveBanner(this,@item.BANNER_ID)" class="post__del"><i class="pe-7f-close"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    }
+                </div> <!-- /widget__content -->
+            </article><!-- /widget -->
+        </div>
+
+    </div>
+    <!-- /row -->
+}
+<input id ="UrlAjaxUpdateActive" type="hidden" data-request-url="@Url.Action("AjaxUpdateActive","Banner")">
+<input id="UrlAjaxDeleteBanner" type="hidden" data-request-url="@Url.Action("AjaxDeleteBanner","Banner")"/>
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/kok_source/BannerInfo.js")"></script>
+<script>
+    var oTable = $('#tbl_Banner').dataTables();
+</script>

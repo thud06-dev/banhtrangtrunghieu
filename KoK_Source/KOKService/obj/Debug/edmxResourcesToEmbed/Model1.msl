@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KOK_DATAModelStoreContainer" CdmEntityContainer="KOK_DATAEntities">
+    <EntitySetMapping Name="GROUP_MENU">
+      <EntityTypeMapping TypeName="KOK_DATAModel.GROUP_MENU">
+        <MappingFragment StoreEntitySet="GROUP_MENU">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+          <ScalarProperty Name="MENU_ID" ColumnName="MENU_ID" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KOK_BANNER">
+      <EntityTypeMapping TypeName="KOK_DATAModel.KOK_BANNER">
+        <MappingFragment StoreEntitySet="KOK_BANNER">
+          <ScalarProperty Name="BANNER_NAME" ColumnName="BANNER_NAME" />
+          <ScalarProperty Name="BANNER_ID" ColumnName="BANNER_ID" />
+          <ScalarProperty Name="BANNER_DESC" ColumnName="BANNER_DESC" />
+          <ScalarProperty Name="BANNER_FILE" ColumnName="BANNER_FILE" />
+          <ScalarProperty Name="BANNER_LANGUAGE" ColumnName="BANNER_LANGUAGE" />
+          <ScalarProperty Name="BANNER_ORDER" ColumnName="BANNER_ORDER" />
+          <ScalarProperty Name="BANNER_PUBLISHDATE" ColumnName="BANNER_PUBLISHDATE" />
+          <ScalarProperty Name="BANNER_TYPE" ColumnName="BANNER_TYPE" />
+          <ScalarProperty Name="BANNER_WIDTH" ColumnName="BANNER_WIDTH" />
+          <ScalarProperty Name="BANNER_HEIGHT" ColumnName="BANNER_HEIGHT" />
+          <ScalarProperty Name="BANNER_FIELD1" ColumnName="BANNER_FIELD1" />
+          <ScalarProperty Name="BANNER_FIELD2" ColumnName="BANNER_FIELD2" />
+          <ScalarProperty Name="BANNER_FIELD3" ColumnName="BANNER_FIELD3" />
+          <ScalarProperty Name="BANNER_FIELD4" ColumnName="BANNER_FIELD4" />
+          <ScalarProperty Name="BANNER_FIELD5" ColumnName="BANNER_FIELD5" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KOK_CATEGORIES">
+      <EntityTypeMapping TypeName="KOK_DATAModel.KOK_CATEGORIES">
+        <MappingFragment StoreEntitySet="KOK_CATEGORIES">
+          <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+          <ScalarProperty Name="CAT_CODE" ColumnName="CAT_CODE" />
+          <ScalarProperty Name="CAT_NAME" ColumnName="CAT_NAME" />
+          <ScalarProperty Name="CAT_DESC" ColumnName="CAT_DESC" />
+          <ScalarProperty Name="CAT_URL" ColumnName="CAT_URL" />
+          <ScalarProperty Name="CAT_TARGET" ColumnName="CAT_TARGET" />
+          <ScalarProperty Name="CAT_STATUS" ColumnName="CAT_STATUS" />
+          <ScalarProperty Name="CAT_ACCESS" ColumnName="CAT_ACCESS" />
+          <ScalarProperty Name="CAT_POSITION" ColumnName="CAT_POSITION" />
+          <ScalarProperty Name="CAT_SHOWFOOTER" ColumnName="CAT_SHOWFOOTER" />
+          <ScalarProperty Name="CAT_ORDER" ColumnName="CAT_ORDER" />
+          <ScalarProperty Name="CAT_PARENT_ID" ColumnName="CAT_PARENT_ID" />
+          <ScalarProperty Name="CAT_PARENT_PATH" ColumnName="CAT_PARENT_PATH" />
+          <ScalarProperty Name="CAT_RANK" ColumnName="CAT_RANK" />
+          <ScalarProperty Name="CAT_ROWITEM" ColumnName="CAT_ROWITEM" />
+          <ScalarProperty Name="CAT_PAGEITEM" ColumnName="CAT_PAGEITEM" />
+          <ScalarProperty Name="CAT_SHOWITEM" ColumnName="CAT_SHOWITEM" />
+          <ScalarProperty Name="CAT_PERIOD" ColumnName="CAT_PERIOD" />
+          <ScalarProperty Name="CAT_PERIOD_ORDER" ColumnName="CAT_PERIOD_ORDER" />
+          <ScalarProperty Name="CAT_TYPE" ColumnName="CAT_TYPE" />
+          <ScalarProperty Name="CAT_LANGUAGE" ColumnName="CAT_LANGUAGE" />
+          <ScalarProperty Name="CAT_COUNT" ColumnName="CAT_COUNT" />
+          <ScalarProperty Name="CAT_SEO_TITLE" ColumnName="CAT_SEO_TITLE" />
+          <ScalarProperty Name="CAT_SEO_DESC" ColumnName="CAT_SEO_DESC" />
+          <ScalarProperty Name="CAT_SEO_KEYWORD" ColumnName="CAT_SEO_KEYWORD" />
+          <ScalarProperty Name="CAT_SEO_URL" ColumnName="CAT_SEO_URL" />
+          <ScalarProperty Name="CAT_IMAGE1" ColumnName="CAT_IMAGE1" />
+          <ScalarProperty Name="CAT_IMAGE2" ColumnName="CAT_IMAGE2" />
+          <ScalarProperty Name="CAT_HISTORY" ColumnName="CAT_HISTORY" />
+          <ScalarProperty Name="CAT_FIELD1" ColumnName="CAT_FIELD1" />
+          <ScalarProperty Name="CAT_FIELD2" ColumnName="CAT_FIELD2" />
+          <ScalarProperty Name="CAT_FIELD3" ColumnName="CAT_FIELD3" />
+          <ScalarProperty Name="CAT_FIELD4" ColumnName="CAT_FIELD4" />
+          <ScalarProperty Name="CAT_FIELD5" ColumnName="CAT_FIELD5" />
+          <ScalarProperty Name="CAT_CODE_EN" ColumnName="CAT_CODE_EN" />
+          <ScalarProperty Name="CAT_NAME_EN" ColumnName="CAT_NAME_EN" />
+          <ScalarProperty Name="CAT_DESC_EN" ColumnName="CAT_DESC_EN" />
+          <ScalarProperty Name="CAT_SEO_TITLE_EN" ColumnName="CAT_SEO_TITLE_EN" />
+          <ScalarProperty Name="CAT_SEO_DESC_EN" ColumnName="CAT_SEO_DESC_EN" />
+          <ScalarProperty Name="CAT_SEO_KEYWORD_EN" ColumnName="CAT_SEO_KEYWORD_EN" />
+          <ScalarProperty Name="CAT_SEO_URL_EN" ColumnName="CAT_SEO_URL_EN" />
+          <ScalarProperty Name="CAT_IMAGE3" ColumnName="CAT_IMAGE3" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KOK_CONFIG">
+      <EntityTypeMapping TypeName="KOK_DATAModel.KOK_CONFIG">
+        <MappingFragment StoreEntitySet="KOK_CONFIG">
+          <ScalarProperty Name="CONFIG_ID" ColumnName="CONFIG_ID" />
+          <ScalarProperty Name="CONFIG_TITLE" ColumnName="CONFIG_TITLE" />
+          <ScalarProperty Name="CONFIG_KEYWORD" ColumnName="CONFIG_KEYWORD" />
+          <ScalarProperty Name="CONFIG_DESCRIPTION" ColumnName="CONFIG_DESCRIPTION" />
+          <ScalarProperty Name="CONFIG_HITCOUNTER" ColumnName="CONFIG_HITCOUNTER" />
+          <ScalarProperty Name="CONFIG_FAVICON" ColumnName="CONFIG_FAVICON" />
+          <ScalarProperty Name="CONFIG_ORDER" ColumnName="CONFIG_ORDER" />
+          <ScalarProperty Name="CONFIG_LANGUAGE" ColumnName="CONFIG_LANGUAGE" />
+          <ScalarProperty Name="CONFIG_FIELD1" ColumnName="CONFIG_FIELD1" />
+          <ScalarProperty Name="CONFIG_FIELD2" ColumnName="CONFIG_FIELD2" />
+          <ScalarProperty Name="CONFIG_FIELD3" ColumnName="CONFIG_FIELD3" />
+          <ScalarProperty Name="CONFIG_FIELD4" ColumnName="CONFIG_FIELD4" />
+          <ScalarProperty Name="CONFIG_FIELD5" ColumnName="CONFIG_FIELD5" />
+          <ScalarProperty Name="CONFIG_TITLE_EN" ColumnName="CONFIG_TITLE_EN" />
+          <ScalarProperty Name="CONFIG_KEYWORD_EN" ColumnName="CONFIG_KEYWORD_EN" />
+          <ScalarProperty Name="CONFIG_DESCRIPTION_EN" ColumnName="CONFIG_DESCRIPTION_EN" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KOK_EMAIL">
+      <EntityTypeMapping TypeName="KOK_DATAModel.KOK_EMAIL">
+        <MappingFragment StoreEntitySet="KOK_EMAIL">
+          <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL_ID" />
+          <ScalarProperty Name="EMAIL_STT" ColumnName="EMAIL_STT" />
+          <ScalarProperty Name="EMAIL_DESC" ColumnName="EMAIL_DESC" />
+          <ScalarProperty Name="EMAIL_FROM" ColumnName="EMAIL_FROM" />
+          <ScalarProperty Name="EMAIL_TO" ColumnName="EMAIL_TO" />
+          <ScalarProperty Name="EMAIL_CC" ColumnName="EMAIL_CC" />
+          <ScalarProperty Name="EMAIL_BCC" ColumnName="EMAIL_BCC" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KOK_GROUP">
+      <EntityTypeMapping TypeName="KOK_DATAModel.KOK_GROUP">
+        <MappingFragment StoreEntitySet="KOK_GROUP">
+          <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+          <ScalarProperty Name="GROUP_CODE" ColumnName="GROUP_CODE" />
+          <ScalarProperty Name="GROUP_NAME" ColumnName="GROUP_NAME" />
+          <ScalarProperty Name="GROUP_TYPE" ColumnName="GROUP_TYPE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KOK_NEWS">
+      <EntityTypeMapping TypeName="KOK_DATAModel.KOK_NEWS">
+        <MappingFragment StoreEntitySet="KOK_NEWS">
+          <ScalarProperty Name="NEWS_ID" ColumnName="NEWS_ID" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="NEWS_CODE" ColumnName="NEWS_CODE" />
+          <ScalarProperty Name="NEWS_TITLE" ColumnName="NEWS_TITLE" />
+          <ScalarProperty Name="NEWS_DESC" ColumnName="NEWS_DESC" />
+          <ScalarProperty Name="NEWS_SEO_KEYWORD" ColumnName="NEWS_SEO_KEYWORD" />
+          <ScalarProperty Name="NEWS_SEO_DESC" ColumnName="NEWS_SEO_DESC" />
+          <ScalarProperty Name="NEWS_SEO_URL" ColumnName="NEWS_SEO_URL" />
+          <ScalarProperty Name="NEWS_SEO_TITLE" ColumnName="NEWS_SEO_TITLE" />
+          <ScalarProperty Name="NEWS_FILEHTML" ColumnName="NEWS_FILEHTML" />
+          <ScalarProperty Name="NEWS_PUBLISHDATE" ColumnName="NEWS_PUBLISHDATE" />
+          <ScalarProperty Name="NEWS_UPDATE" ColumnName="NEWS_UPDATE" />
+          <ScalarProperty Name="NEWS_URL" ColumnName="NEWS_URL" />
+          <ScalarProperty Name="NEWS_TARGET" ColumnName="NEWS_TARGET" />
+          <ScalarProperty Name="NEWS_SHOWTYPE" ColumnName="NEWS_SHOWTYPE" />
+          <ScalarProperty Name="NEWS_SHOWINDETAIL" ColumnName="NEWS_SHOWINDETAIL" />
+          <ScalarProperty Name="NEWS_FEEDBACKTYPE" ColumnName="NEWS_FEEDBACKTYPE" />
+          <ScalarProperty Name="NEWS_TYPE" ColumnName="NEWS_TYPE" />
+          <ScalarProperty Name="NEWS_LANGUAGE" ColumnName="NEWS_LANGUAGE" />
+          <ScalarProperty Name="NEWS_PRINTTYPE" ColumnName="NEWS_PRINTTYPE" />
+          <ScalarProperty Name="NEWS_COUNT" ColumnName="NEWS_COUNT" />
+          <ScalarProperty Name="NEWS_PERIOD" ColumnName="NEWS_PERIOD" />
+          <ScalarProperty Name="NEWS_ORDER_PERIOD" ColumnName="NEWS_ORDER_PERIOD" />
+          <ScalarProperty Name="NEWS_ORDER" ColumnName="NEWS_ORDER" />
+          <ScalarProperty Name="NEWS_IMAGE1" ColumnName="NEWS_IMAGE1" />
+          <ScalarProperty Name="NEWS_IMAGE2" ColumnName="NEWS_IMAGE2" />
+          <ScalarProperty Name="NEWS_IMAGE3" ColumnName="NEWS_IMAGE3" />
+          <ScalarProperty Name="NEWS_IMAGE4" ColumnName="NEWS_IMAGE4" />
+          <ScalarProperty Name="NEWS_IMAGE5" ColumnName="NEWS_IMAGE5" />
+          <ScalarProperty Name="NEWS_FIELD1" ColumnName="NEWS_FIELD1" />
+          <ScalarProperty Name="NEWS_FIELD2" ColumnName="NEWS_FIELD2" />
+          <ScalarProperty Name="NEWS_FIELD3" ColumnName="NEWS_FIELD3" />
+          <ScalarProperty Name="NEWS_FIELD4" ColumnName="NEWS_FIELD4" />
+          <ScalarProperty Name="NEWS_FIELD5" ColumnName="NEWS_FIELD5" />
+          <ScalarProperty Name="NEWS_SENDEMAIL" ColumnName="NEWS_SENDEMAIL" />
+          <ScalarProperty Name="NEWS_SENDDATE" ColumnName="NEWS_SENDDATE" />
+          <ScalarProperty Name="NEWS_PRICE1" ColumnName="NEWS_PRICE1" />
+          <ScalarProperty Name="NEWS_PRICE2" ColumnName="NEWS_PRICE2" />
+          <ScalarProperty Name="NEWS_PRICE3" ColumnName="NEWS_PRICE3" />
+          <ScalarProperty Name="UNIT_ID1" ColumnName="UNIT_ID1" />
+          <ScalarProperty Name="UNIT_ID2" ColumnName="UNIT_ID2" />
+          <ScalarProperty Name="UNIT_ID3" ColumnName="UNIT_ID3" />
+          <ScalarProperty Name="NEWS_PACKAGE" ColumnName="NEWS_PACKAGE" />
+          <ScalarProperty Name="NEWS_KEYWORD_ASCII" ColumnName="NEWS_KEYWORD_ASCII" />
+          <ScalarProperty Name="NEWS_VIDEO_URL" ColumnName="NEWS_VIDEO_URL" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KOK_NEWS_ATT">
+      <EntityTypeMapping TypeName="KOK_DATAModel.KOK_NEWS_ATT">
+        <MappingFragment StoreEntitySet="KOK_NEWS_ATT">
+          <ScalarProperty Name="NEWS_ATT_ID" ColumnName="NEWS_ATT_ID" />
+          <ScalarProperty Name="NEWS_ATT_NAME" ColumnName="NEWS_ATT_NAME" />
+          <ScalarProperty Name="NEWS_ATT_FILE" ColumnName="NEWS_ATT_FILE" />
+          <ScalarProperty Name="NEWS_ATT_URL" ColumnName="NEWS_ATT_URL" />
+          <ScalarProperty Name="NEWS_ATT_ORDER" ColumnName="NEWS_ATT_ORDER" />
+          <ScalarProperty Name="EXT_ID" ColumnName="EXT_ID" />
+          <ScalarProperty Name="NEWS_ID" ColumnName="NEWS_ID" />
+          <ScalarProperty Name="NEWS_ATT_FIELD1" ColumnName="NEWS_ATT_FIELD1" />
+          <ScalarProperty Name="NEWS_ATT_FIELD2" ColumnName="NEWS_ATT_FIELD2" />
+          <ScalarProperty Name="NEWS_ATT_FIELD3" ColumnName="NEWS_ATT_FIELD3" />
+          <ScalarProperty Name="NEWS_ATT_FIELD4" ColumnName="NEWS_ATT_FIELD4" />
+          <ScalarProperty Name="NEWS_ATT_FIELD5" ColumnName="NEWS_ATT_FIELD5" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KOK_NEWS_CAT">
+      <EntityTypeMapping TypeName="KOK_DATAModel.KOK_NEWS_CAT">
+        <MappingFragment StoreEntitySet="KOK_NEWS_CAT">
+          <ScalarProperty Name="NEWS_CAT_ID" ColumnName="NEWS_CAT_ID" />
+          <ScalarProperty Name="NEWS_ID" ColumnName="NEWS_ID" />
+          <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KOK_NEWS_IMAGE">
+      <EntityTypeMapping TypeName="KOK_DATAModel.KOK_NEWS_IMAGE">
+        <MappingFragment StoreEntitySet="KOK_NEWS_IMAGE">
+          <ScalarProperty Name="NEWS_IMG_ID" ColumnName="NEWS_IMG_ID" />
+          <ScalarProperty Name="NEWS_IMG_IMAGE1" ColumnName="NEWS_IMG_IMAGE1" />
+          <ScalarProperty Name="NEWS_IMG_IMAGE2" ColumnName="NEWS_IMG_IMAGE2" />
+          <ScalarProperty Name="NEWS_IMG_IMAGE3" ColumnName="NEWS_IMG_IMAGE3" />
+          <ScalarProperty Name="NEWS_IMG_DESC" ColumnName="NEWS_IMG_DESC" />
+          <ScalarProperty Name="NEWS_IMG_ORDER" ColumnName="NEWS_IMG_ORDER" />
+          <ScalarProperty Name="NEWS_IMG_SHOWTYPE" ColumnName="NEWS_IMG_SHOWTYPE" />
+          <ScalarProperty Name="NEWS_ID" ColumnName="NEWS_ID" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MENU">
+      <EntityTypeMapping TypeName="KOK_DATAModel.MENU">
+        <MappingFragment StoreEntitySet="MENU">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MENU_NAME" ColumnName="MENU_NAME" />
+          <ScalarProperty Name="MENU_LINK" ColumnName="MENU_LINK" />
+          <ScalarProperty Name="MENU_RANK" ColumnName="MENU_RANK" />
+          <ScalarProperty Name="MENU_PARENT_ID" ColumnName="MENU_PARENT_ID" />
+          <ScalarProperty Name="MENU_ORDER" ColumnName="MENU_ORDER" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="KOK_DATAModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="KOK_DATAModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="KOK_DATAModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="KOK_DATAModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="KOK_DATAModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="KOK_DATAModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="KOK_DATAModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="KOK_DATAModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="KOK_DATAModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="KOK_DATAModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

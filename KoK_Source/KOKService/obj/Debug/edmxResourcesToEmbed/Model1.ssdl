@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KOK_DATAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="GROUP_MENU">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GROUP_ID" Type="int" />
+    <Property Name="MENU_ID" Type="int" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="CREATE_USER" Type="nvarchar" MaxLength="400" />
+    <Property Name="UPDATE_USER" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="KOK_BANNER">
+    <Key>
+      <PropertyRef Name="BANNER_ID" />
+    </Key>
+    <Property Name="BANNER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BANNER_DESC" Type="nvarchar" MaxLength="400" />
+    <Property Name="BANNER_FILE" Type="nvarchar" MaxLength="1000" />
+    <Property Name="BANNER_LANGUAGE" Type="int" />
+    <Property Name="BANNER_ORDER" Type="int" />
+    <Property Name="BANNER_PUBLISHDATE" Type="datetime" />
+    <Property Name="BANNER_TYPE" Type="int" />
+    <Property Name="BANNER_WIDTH" Type="int" />
+    <Property Name="BANNER_HEIGHT" Type="int" />
+    <Property Name="BANNER_FIELD1" Type="nvarchar" MaxLength="400" />
+    <Property Name="BANNER_FIELD2" Type="nvarchar" MaxLength="400" />
+    <Property Name="BANNER_FIELD3" Type="nvarchar" MaxLength="400" />
+    <Property Name="BANNER_FIELD4" Type="nvarchar" MaxLength="400" />
+    <Property Name="BANNER_FIELD5" Type="nvarchar" MaxLength="400" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="CREATE_USER" Type="nvarchar" MaxLength="400" />
+    <Property Name="UPDATE_USER" Type="nvarchar" MaxLength="400" />
+    <Property Name="BANNER_NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="KOK_CATEGORIES">
+    <Key>
+      <PropertyRef Name="CAT_ID" />
+    </Key>
+    <Property Name="CAT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CAT_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="CAT_NAME" Type="nvarchar" MaxLength="400" />
+    <Property Name="CAT_DESC" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CAT_URL" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CAT_TARGET" Type="nvarchar" MaxLength="50" />
+    <Property Name="CAT_STATUS" Type="int" />
+    <Property Name="CAT_ACCESS" Type="int" />
+    <Property Name="CAT_POSITION" Type="int" />
+    <Property Name="CAT_SHOWFOOTER" Type="int" />
+    <Property Name="CAT_ORDER" Type="int" />
+    <Property Name="CAT_PARENT_ID" Type="int" />
+    <Property Name="CAT_PARENT_PATH" Type="varchar" MaxLength="400" />
+    <Property Name="CAT_RANK" Type="int" />
+    <Property Name="CAT_ROWITEM" Type="int" />
+    <Property Name="CAT_PAGEITEM" Type="int" />
+    <Property Name="CAT_SHOWITEM" Type="int" />
+    <Property Name="CAT_PERIOD" Type="int" />
+    <Property Name="CAT_PERIOD_ORDER" Type="int" />
+    <Property Name="CAT_TYPE" Type="int" />
+    <Property Name="CAT_LANGUAGE" Type="int" />
+    <Property Name="CAT_COUNT" Type="int" />
+    <Property Name="CAT_SEO_TITLE" Type="nvarchar" MaxLength="400" />
+    <Property Name="CAT_SEO_DESC" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CAT_SEO_KEYWORD" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CAT_SEO_URL" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CAT_IMAGE1" Type="nvarchar" MaxLength="400" />
+    <Property Name="CAT_IMAGE2" Type="nvarchar" MaxLength="400" />
+    <Property Name="CAT_HISTORY" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CAT_FIELD1" Type="nvarchar" MaxLength="400" />
+    <Property Name="CAT_FIELD2" Type="nvarchar" MaxLength="400" />
+    <Property Name="CAT_FIELD3" Type="nvarchar" MaxLength="400" />
+    <Property Name="CAT_FIELD4" Type="nvarchar" MaxLength="400" />
+    <Property Name="CAT_FIELD5" Type="nvarchar" MaxLength="400" />
+    <Property Name="CAT_CODE_EN" Type="nvarchar" MaxLength="50" />
+    <Property Name="CAT_NAME_EN" Type="nvarchar" MaxLength="400" />
+    <Property Name="CAT_DESC_EN" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CAT_SEO_TITLE_EN" Type="nvarchar" MaxLength="400" />
+    <Property Name="CAT_SEO_DESC_EN" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CAT_SEO_KEYWORD_EN" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CAT_SEO_URL_EN" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CAT_IMAGE3" Type="nvarchar" MaxLength="400" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="CREATE_USER" Type="nvarchar" MaxLength="400" />
+    <Property Name="UPDATE_USER" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="KOK_CONFIG">
+    <Key>
+      <PropertyRef Name="CONFIG_ID" />
+    </Key>
+    <Property Name="CONFIG_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CONFIG_TITLE" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CONFIG_KEYWORD" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CONFIG_DESCRIPTION" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CONFIG_HITCOUNTER" Type="int" />
+    <Property Name="CONFIG_FAVICON" Type="nvarchar" MaxLength="400" />
+    <Property Name="CONFIG_ORDER" Type="int" />
+    <Property Name="CONFIG_LANGUAGE" Type="int" />
+    <Property Name="CONFIG_FIELD1" Type="nvarchar" MaxLength="400" />
+    <Property Name="CONFIG_FIELD2" Type="nvarchar" MaxLength="400" />
+    <Property Name="CONFIG_FIELD3" Type="nvarchar" MaxLength="400" />
+    <Property Name="CONFIG_FIELD4" Type="nvarchar" MaxLength="400" />
+    <Property Name="CONFIG_FIELD5" Type="nvarchar" MaxLength="400" />
+    <Property Name="CONFIG_TITLE_EN" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CONFIG_KEYWORD_EN" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CONFIG_DESCRIPTION_EN" Type="nvarchar" MaxLength="4000" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="CREATE_USER" Type="nvarchar" MaxLength="400" />
+    <Property Name="UPDATE_USER" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="KOK_EMAIL">
+    <Key>
+      <PropertyRef Name="EMAIL_ID" />
+    </Key>
+    <Property Name="EMAIL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EMAIL_STT" Type="int" />
+    <Property Name="EMAIL_DESC" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMAIL_FROM" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMAIL_TO" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMAIL_CC" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMAIL_BCC" Type="nvarchar" MaxLength="255" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="CREATE_USER" Type="nvarchar" MaxLength="400" />
+    <Property Name="UPDATE_USER" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="KOK_GROUP">
+    <Key>
+      <PropertyRef Name="GROUP_ID" />
+    </Key>
+    <Property Name="GROUP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GROUP_CODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="GROUP_NAME" Type="nvarchar" MaxLength="400" />
+    <Property Name="GROUP_TYPE" Type="int" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="CREATE_USER" Type="nvarchar" MaxLength="400" />
+    <Property Name="UPDATE_USER" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="KOK_NEWS">
+    <Key>
+      <PropertyRef Name="NEWS_ID" />
+    </Key>
+    <Property Name="NEWS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_ID" Type="int" />
+    <Property Name="NEWS_CODE" Type="nvarchar" MaxLength="100" />
+    <Property Name="NEWS_TITLE" Type="nvarchar" MaxLength="300" />
+    <Property Name="NEWS_DESC" Type="nvarchar" MaxLength="500" />
+    <Property Name="NEWS_SEO_KEYWORD" Type="nvarchar" MaxLength="700" />
+    <Property Name="NEWS_SEO_DESC" Type="nvarchar" MaxLength="500" />
+    <Property Name="NEWS_SEO_URL" Type="nvarchar" MaxLength="250" />
+    <Property Name="NEWS_SEO_TITLE" Type="nvarchar" MaxLength="500" />
+    <Property Name="NEWS_FILEHTML" Type="nvarchar" MaxLength="200" />
+    <Property Name="NEWS_PUBLISHDATE" Type="datetime" />
+    <Property Name="NEWS_UPDATE" Type="datetime" />
+    <Property Name="NEWS_URL" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_TARGET" Type="nvarchar" MaxLength="50" />
+    <Property Name="NEWS_SHOWTYPE" Type="int" />
+    <Property Name="NEWS_SHOWINDETAIL" Type="int" />
+    <Property Name="NEWS_FEEDBACKTYPE" Type="int" />
+    <Property Name="NEWS_TYPE" Type="int" />
+    <Property Name="NEWS_LANGUAGE" Type="int" />
+    <Property Name="NEWS_PRINTTYPE" Type="int" />
+    <Property Name="NEWS_COUNT" Type="int" />
+    <Property Name="NEWS_PERIOD" Type="int" />
+    <Property Name="NEWS_ORDER_PERIOD" Type="int" />
+    <Property Name="NEWS_ORDER" Type="int" />
+    <Property Name="NEWS_IMAGE1" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_IMAGE2" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_IMAGE3" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_IMAGE4" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_IMAGE5" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_FIELD1" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_FIELD2" Type="nvarchar" MaxLength="4000" />
+    <Property Name="NEWS_FIELD3" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_FIELD4" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_FIELD5" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_SENDEMAIL" Type="int" />
+    <Property Name="NEWS_SENDDATE" Type="datetime" />
+    <Property Name="NEWS_PRICE1" Type="money" />
+    <Property Name="NEWS_PRICE2" Type="money" />
+    <Property Name="NEWS_PRICE3" Type="money" />
+    <Property Name="UNIT_ID1" Type="int" />
+    <Property Name="UNIT_ID2" Type="int" />
+    <Property Name="UNIT_ID3" Type="int" />
+    <Property Name="NEWS_PACKAGE" Type="nvarchar" MaxLength="200" />
+    <Property Name="NEWS_KEYWORD_ASCII" Type="varchar" MaxLength="4000" />
+    <Property Name="NEWS_VIDEO_URL" Type="nvarchar" MaxLength="250" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="CREATE_USER" Type="nvarchar" MaxLength="400" />
+    <Property Name="UPDATE_USER" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="KOK_NEWS_ATT">
+    <Key>
+      <PropertyRef Name="NEWS_ATT_ID" />
+    </Key>
+    <Property Name="NEWS_ATT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NEWS_ATT_NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="NEWS_ATT_FILE" Type="nvarchar" MaxLength="1000" />
+    <Property Name="NEWS_ATT_URL" Type="nvarchar" MaxLength="1000" />
+    <Property Name="NEWS_ATT_ORDER" Type="int" />
+    <Property Name="EXT_ID" Type="int" />
+    <Property Name="NEWS_ID" Type="int" />
+    <Property Name="NEWS_ATT_FIELD1" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_ATT_FIELD2" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_ATT_FIELD3" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_ATT_FIELD4" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_ATT_FIELD5" Type="nvarchar" MaxLength="400" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="CREATE_USER" Type="nvarchar" MaxLength="400" />
+    <Property Name="UPDATE_USER" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="KOK_NEWS_CAT">
+    <Key>
+      <PropertyRef Name="NEWS_CAT_ID" />
+    </Key>
+    <Property Name="NEWS_CAT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NEWS_ID" Type="int" />
+    <Property Name="CAT_ID" Type="int" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="CREATE_USER" Type="nvarchar" MaxLength="400" />
+    <Property Name="UPDATE_USER" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="KOK_NEWS_IMAGE">
+    <Key>
+      <PropertyRef Name="NEWS_IMG_ID" />
+    </Key>
+    <Property Name="NEWS_IMG_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NEWS_IMG_IMAGE1" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_IMG_IMAGE2" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_IMG_IMAGE3" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_IMG_DESC" Type="nvarchar" MaxLength="400" />
+    <Property Name="NEWS_IMG_ORDER" Type="int" />
+    <Property Name="NEWS_IMG_SHOWTYPE" Type="int" />
+    <Property Name="NEWS_ID" Type="int" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="CREATE_USER" Type="nvarchar" MaxLength="400" />
+    <Property Name="UPDATE_USER" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="MENU">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MENU_NAME" Type="nvarchar" MaxLength="250" />
+    <Property Name="MENU_LINK" Type="nvarchar" MaxLength="550" />
+    <Property Name="MENU_RANK" Type="int" />
+    <Property Name="MENU_PARENT_ID" Type="int" />
+    <Property Name="MENU_ORDER" Type="int" />
+    <Property Name="ACTIVE" Type="bit" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="CREATE_USER" Type="nvarchar" MaxLength="400" />
+    <Property Name="UPDATE_USER" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_KOK_NEWS_ATT_KOK_NEWS">
+    <End Role="KOK_NEWS" Type="Self.KOK_NEWS" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="KOK_NEWS_ATT" Type="Self.KOK_NEWS_ATT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KOK_NEWS">
+        <PropertyRef Name="NEWS_ID" />
+      </Principal>
+      <Dependent Role="KOK_NEWS_ATT">
+        <PropertyRef Name="NEWS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KOK_NEWS_CAT_KOK_CATEGORIES">
+    <End Role="KOK_CATEGORIES" Type="Self.KOK_CATEGORIES" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="KOK_NEWS_CAT" Type="Self.KOK_NEWS_CAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KOK_CATEGORIES">
+        <PropertyRef Name="CAT_ID" />
+      </Principal>
+      <Dependent Role="KOK_NEWS_CAT">
+        <PropertyRef Name="CAT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KOK_NEWS_CAT_KOK_NEWS">
+    <End Role="KOK_NEWS" Type="Self.KOK_NEWS" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="KOK_NEWS_CAT" Type="Self.KOK_NEWS_CAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KOK_NEWS">
+        <PropertyRef Name="NEWS_ID" />
+      </Principal>
+      <Dependent Role="KOK_NEWS_CAT">
+        <PropertyRef Name="NEWS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KOK_NEWS_IMAGE_KOK_NEWS">
+    <End Role="KOK_NEWS" Type="Self.KOK_NEWS" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="KOK_NEWS_IMAGE" Type="Self.KOK_NEWS_IMAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KOK_NEWS">
+        <PropertyRef Name="NEWS_ID" />
+      </Principal>
+      <Dependent Role="KOK_NEWS_IMAGE">
+        <PropertyRef Name="NEWS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="KOK_DATAModelStoreContainer">
+    <EntitySet Name="GROUP_MENU" EntityType="Self.GROUP_MENU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KOK_BANNER" EntityType="Self.KOK_BANNER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KOK_CATEGORIES" EntityType="Self.KOK_CATEGORIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KOK_CONFIG" EntityType="Self.KOK_CONFIG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KOK_EMAIL" EntityType="Self.KOK_EMAIL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KOK_GROUP" EntityType="Self.KOK_GROUP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KOK_NEWS" EntityType="Self.KOK_NEWS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KOK_NEWS_ATT" EntityType="Self.KOK_NEWS_ATT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KOK_NEWS_CAT" EntityType="Self.KOK_NEWS_CAT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KOK_NEWS_IMAGE" EntityType="Self.KOK_NEWS_IMAGE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MENU" EntityType="Self.MENU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_KOK_NEWS_ATT_KOK_NEWS" Association="Self.FK_KOK_NEWS_ATT_KOK_NEWS">
+      <End Role="KOK_NEWS" EntitySet="KOK_NEWS" />
+      <End Role="KOK_NEWS_ATT" EntitySet="KOK_NEWS_ATT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KOK_NEWS_CAT_KOK_CATEGORIES" Association="Self.FK_KOK_NEWS_CAT_KOK_CATEGORIES">
+      <End Role="KOK_CATEGORIES" EntitySet="KOK_CATEGORIES" />
+      <End Role="KOK_NEWS_CAT" EntitySet="KOK_NEWS_CAT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KOK_NEWS_CAT_KOK_NEWS" Association="Self.FK_KOK_NEWS_CAT_KOK_NEWS">
+      <End Role="KOK_NEWS" EntitySet="KOK_NEWS" />
+      <End Role="KOK_NEWS_CAT" EntitySet="KOK_NEWS_CAT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KOK_NEWS_IMAGE_KOK_NEWS" Association="Self.FK_KOK_NEWS_IMAGE_KOK_NEWS">
+      <End Role="KOK_NEWS" EntitySet="KOK_NEWS" />
+      <End Role="KOK_NEWS_IMAGE" EntitySet="KOK_NEWS_IMAGE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

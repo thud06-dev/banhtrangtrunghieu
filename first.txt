@@ -1,0 +1,3 @@
+﻿Sử dụng Visual Studio 2015, SQL 2014
+Database là file: KOK_4_8_2016.sql mở script sql lên chạy
+Mở kích hoạt tài khoản sa đặt pass là sa@sa

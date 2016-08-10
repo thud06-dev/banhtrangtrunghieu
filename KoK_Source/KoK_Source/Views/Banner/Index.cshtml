@@ -19,6 +19,10 @@
 
             <!-- div.table-responsive -->
             <!-- div.dataTables_borderWrap -->
+            <div class="btn-group">
+                @Html.ActionLink("THÊM MỚI", "Edit", null, new { @class = "btn violet inverse glyphicon glyphicon-plus", @id = "btnAdd" })
+                @*<button id="btnAdd" hr="@Url.Action("Edit")" class="btn violet inverse glyphicon glyphicon-plus"> THÊM MỚI</button>*@
+            </div>
             <div>
                 <table id="dynamic_table" class="table table-striped table-bordered table-hover">
                     <thead>
@@ -27,21 +31,55 @@
                             <th>@Html.LabelFor(m => m.First().CREATE_USER)</th>
                             <th>@Html.LabelFor(m => m.First().BANNER_DESC)</th>
                             <th>@Html.LabelFor(m => m.First().ACTIVE)</th>
+                            <th width="5%">Del</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                        </tr>
-                        <tr>
-                            <td>Garrett Winters</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>63</td>
-                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="media">
+                                        <figure class="pull-left post__img">
+                                            <a href="@Url.Action("Edit", "Banner", new BannerModel {BANNER_ID = item.BANNER_ID})">
+                                                @if (item.BANNER_FILE != null && item.BANNER_FILE != "")
+                                                {
+                                                    <img class="media-object" style="width: 50px; height: 50px" src="@Url.Content(item.BANNER_FILE)">
+                                                }
+                                                else
+                                                {
+                                                    <img class="media-object" style="width: 50px;height: 50px" src="@item.BANNER_FILE">
+                                                }
+                                            </a>
+                                        </figure>
+                                        <div class="media-body post_desc">
+                                            <h3>@item.BANNER_TYPE</h3>
+                                            <p>@item.BANNER_DESC</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="post__date">@item.CREATE_USER<br>@item.CREATE_USER</p>
+                                </td>
+                                <td>
+                                    <p class="post__info">@item.BANNER_DESC</p>
+                                </td>
+                                <td>
+                                    @if (item.ACTIVE == true)
+                                    {
+                                        <input type="checkbox" id="@item.BANNER_ID" class="sw" onchange="AjaxUpdateActive(this)" checked />
+                                    }
+                                    else
+                                    {
+                                        <input type="checkbox" id="@item.BANNER_ID" class="sw" onchange="AjaxUpdateActive(this)" />
+                                    }
+                                    <label class="switch blue" for="@item.BANNER_ID"></label>
+                                </td>
+                                <td>
+                                    <a href="#" onclick="AjaxRemoveBanner(this,@item.BANNER_ID)" class="post__del"><i class="pe-7f-close"></i>#</a>
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>

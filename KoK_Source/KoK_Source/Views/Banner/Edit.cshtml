@@ -1,51 +1,78 @@
 ﻿@model KoK_Source.Models.Banner.BannerModel
-@using (Html.BeginForm("SaveData", "Banner", FormMethod.Post, new { id = "myFormEdit", enctype = "multipart/form-data" }))
-{
-    <div class="form-group row">
-        @Html.HiddenFor(m => m.BANNER_ID)
-        <div class="col-md-8">
-            <article class="widget widget__form">
-                <header class="widget__header">
-                    <div class="widget__title">
-                        <i class="pe-7s-menu"></i>
-                        <h3>UPLOAD FILE</h3>
-                    </div>
-                    <div class="widget__config">
-                        <a href="#"><i class="pe-7f-refresh"></i></a>
-                        <a href="#"><i class="pe-7s-close"></i></a>
-                    </div>
-                </header>
-                <div class="widget__content">
-                    <label for="input-1" class="stacked-label"><i class="pe-7f-user"></i></label>
-                    @Html.TextBoxFor(m => m.BANNER_NAME, Model.BANNER_NAME, new { @class = "stacked-input", @placeholder = "Name" })
-                    @*<input type="text" class="stacked-input" id="input-1" placeholder="Name" v>*@
-                    <label for="input-2" class="stacked-label"><i class="pe-7f-portfolio"></i></label>
-                    @Html.TextBoxFor(m => m.BANNER_DESC, Model.BANNER_DESC, new { @class = "stacked-input", @placeholder = "Descreption" })
-                    @*<input type="text" class="stacked-input" id="input-2" placeholder="Company">*@
-                    @*<label for="input-3" class="stacked-label"><i class="pe-7f-mail"></i></label>*@
-                    @Html.TextBoxFor(m => m.BANNER_FILE, Model.BANNER_FILE, new { @class = "stacked-input", @placeholder = "URL", @style = "display: none" })
-                    @*<input type="text" class="stacked-input" id="input-3" placeholder="Email">*@
-                    <label class="full-label">
-                        <input type="file" id="file-att" name="file-att" data-request-url="@Url.Action("AjaxUploadImg")">
-                        <i class="pe-7f-paperclip"></i><span class="label">Attachment</span>
-                    </label>
-                    @*@Html.ActionLink("Save", "SaveData", null, new { @class = "btn", @id = "btnAdd",@type="button" })*@
-                    <button id="btnSaveData" data-request-url="@Url.Action("SaveData")">Save</button>
+<div class="row">
+    <div class="col-xs-12">
+        @using (Html.BeginForm("SaveData", "Banner", FormMethod.Post, new { @id = "myFormEdit", @enctype = "multipart/form-data", @class="form-horizontal" }))
+        {
+            <div class="form-group row">
+                @Html.HiddenFor(m => m.BANNER_ID)
+                <div class="col-md-8">
+                    <article class="widget widget__form">
+                        <header class="widget__header">
+                            <div class="widget__title">
+                                <i class="pe-7s-menu"></i>
+                                <h3>UPLOAD FILE</h3>
+                            </div>
+                            <div class="widget__config">
+                                <a href="#"><i class="pe-7f-refresh"></i></a>
+                                <a href="#"><i class="pe-7s-close"></i></a>
+                            </div>
+                        </header>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.BANNER_FILE, Model.BANNER_FILE, new { @class = "stacked-input", @placeholder = "URL", @style = "display: none" })
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">@Html.DisplayNameFor(m=>m.BANNER_NAME) </label>
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(m => m.BANNER_NAME, Model.BANNER_NAME, new { @class = "col-xs-10 col-sm-5", @placeholder = "Name" })
+                            </div>
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">@Html.DisplayNameFor(m => m.BANNER_DESC) </label>
+
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(m => m.BANNER_DESC, Model.BANNER_DESC, new { @class = "col-xs-10 col-sm-5", @placeholder = "Descreption" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">@Html.DisplayNameFor(m => m.BANNER_FILE) </label>
+                            <div class="col-sm-9">
+                                <input type="file" id="file-att" name="file-att" data-request-url="@Url.Action("AjaxUploadImg")">
+                                <i class="pe-7f-paperclip"></i><span class="label">Attachment</span>
+                            </div>
+                                <button id="btnSaveData" data-request-url="@Url.Action("SaveData")">Save</button>
+                            </div>
+                        @*<div class="form-control">
+                            <label for="input-1" class="stacked-label"><i class="pe-7f-user"></i></label>
+                            @Html.TextBoxFor(m => m.BANNER_NAME, Model.BANNER_NAME, new { @class = "stacked-input", @placeholder = "Name" })
+                            <label for="input-2" class="stacked-label"><i class="pe-7f-portfolio"></i></label>
+                            @Html.TextBoxFor(m => m.BANNER_DESC, Model.BANNER_DESC, new { @class = "stacked-input", @placeholder = "Descreption" })
+                            @Html.TextBoxFor(m => m.BANNER_FILE, Model.BANNER_FILE, new { @class = "stacked-input", @placeholder = "URL", @style = "display: none" })
+                            <label class="full-label">
+                                <input type="file" id="file-att" name="file-att" data-request-url="@Url.Action("AjaxUploadImg")">
+                                <i class="pe-7f-paperclip"></i><span class="label">Attachment</span>
+                            </label>
+                            <button id="btnSaveData" data-request-url="@Url.Action("SaveData")">Save</button>
+                        </div>*@
+                    </article>
                 </div>
-            </article>
-        </div>
-        <div class="col-md-4">
-            <div style="padding:25px;display: block;margin-left: auto;margin-right: auto;">
-                @if (Model.BANNER_FILE != null && Model.BANNER_FILE != "")
+                <div class="col-md-4">
+                    <div style="padding:25px;display: block;margin-left: auto;margin-right: auto;">
+                        @if (Model.BANNER_FILE != null && Model.BANNER_FILE != "")
                 {
-                    <img id="display_img" style="max-width: 100%;border-radius: 10px;height:200px; width:200px; display: block;margin-left: auto;margin-right: auto;" src="@Url.Content(Model.BANNER_FILE)" />
-                }
-                else
-                {
-                    <img id="display_img" style="max-width: 100%;border-radius: 10px;height:200px; width:200px; display: block;margin-left: auto;margin-right: auto;" />
-                }
+                            <img id="display_img" style="max-width: 100%;border-radius: 10px;height:200px; width:200px; display: block;margin-left: auto;margin-right: auto;" src="@Url.Content(Model.BANNER_FILE)" />
+                        }
+                        else
+                        {
+                            <img id="display_img" style="max-width: 100%;border-radius: 10px;height:200px; width:200px; display: block;margin-left: auto;margin-right: auto;" />
+                        }
+                    </div>
+                </div>
             </div>
+        }
         </div>
     </div>
-}
-<script type="text/javascript" src="@Url.Content("~/Scripts/kok_source/BannerEdit.js")"></script>
+
+
+
+        <script type="text/javascript" src="@Url.Content("~/Scripts/kok_source/BannerEdit.js")"></script>

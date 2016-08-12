@@ -64,7 +64,24 @@
 
     <!-- ace scripts -->
     <script src="~/assets/js/ace-elements.min.js"></script>
-    <script src="~/assets/js/ace.min.js"></script>`
+    <script src="~/assets/js/ace.min.js"></script>
+    <!--Datatables-->
+    <script type="text/javascript">
+            if ('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+        </script>
+        <script src="~/assets/js/jquery-2.1.4.min.js"></script>
+        <script src="~/assets/js/bootstrap.min.js"></script>
+        <script src="~/assets/js/jquery.dataTables.min.js"></script>
+        <script src="~/assets/js/jquery.dataTables.bootstrap.min.js"></script>
+        <script src="~/assets/js/dataTables.buttons.min.js"></script>
+        <script src="~/assets/js/buttons.flash.min.js"></script>
+        <script src="~/assets/js/buttons.html5.min.js"></script>
+        <script src="~/assets/js/buttons.print.min.js"></script>
+        <script src="~/assets/js/buttons.colVis.min.js"></script>
+        <script src="~/assets/js/dataTables.select.min.js"></script>
+        !-- ace scripts -->
+        <script src="~/assets/js/ace-elements.min.js"></script>
+        <script src="~/assets/js/ace.min.js"></script>
 </head>
 
 <body class="no-skin">
@@ -440,6 +457,14 @@
                     <a href="@Url.Action("Index","Menu")">
                         <i class="menu-icon fa fa-list-alt"></i>
                         <span class="menu-text"> Menu </span>
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+                <li class="">
+                    <a href="@Url.Action("Index","Post")">
+                        <i class="menu-icon fa fa-list-alt"></i>
+                        <span class="menu-text"> BÀI VIẾT </span>
                     </a>
 
                     <b class="arrow"></b>

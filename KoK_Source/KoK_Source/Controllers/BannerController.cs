@@ -15,7 +15,7 @@ namespace KoK_Source.Controllers
 {
     public class BannerController : Controller
     {
-        private KOK_DATAEntities db = new KOK_DATAEntities();
+        //private KOK_DATAEntities db = new KOK_DATAEntities();
         private BannerCom _bannerCom = new BannerCom();
         // GET: Banner
         public ActionResult Index()

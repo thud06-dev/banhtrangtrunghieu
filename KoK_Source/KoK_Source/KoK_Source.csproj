@@ -138,11 +138,13 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\MENUsController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Banner\BannerModel.cs" />
     <Compile Include="Models\Menu\MenuModels.cs" />
+    <Compile Include="Models\Post\PostModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -428,6 +430,7 @@
     <Content Include="Views\MENUs\Edit.cshtml" />
     <Content Include="Views\MENUs\Index.cshtml" />
     <Content Include="Views\Menu\Edit.cshtml" />
+    <Content Include="Views\Post\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

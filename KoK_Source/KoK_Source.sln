@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoK_Source", "KoK_Source\Ko
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KOKService", "KOKService\KOKService.csproj", "{32338435-8CBA-41A3-8B21-4065BD551740}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "banhtrangtrunghieu", "banhtrangtrunghieu\banhtrangtrunghieu.csproj", "{4F1CE44D-1BD8-4173-9332-2E0F8985AA75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "banhtrangtrunghieu", "banhtrangtrunghieu\banhtrangtrunghieu.csproj", "{9831BF7B-B199-492A-A8ED-F4A68F060BAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{32338435-8CBA-41A3-8B21-4065BD551740}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32338435-8CBA-41A3-8B21-4065BD551740}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32338435-8CBA-41A3-8B21-4065BD551740}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4F1CE44D-1BD8-4173-9332-2E0F8985AA75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F1CE44D-1BD8-4173-9332-2E0F8985AA75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F1CE44D-1BD8-4173-9332-2E0F8985AA75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F1CE44D-1BD8-4173-9332-2E0F8985AA75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9831BF7B-B199-492A-A8ED-F4A68F060BAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9831BF7B-B199-492A-A8ED-F4A68F060BAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9831BF7B-B199-492A-A8ED-F4A68F060BAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9831BF7B-B199-492A-A8ED-F4A68F060BAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

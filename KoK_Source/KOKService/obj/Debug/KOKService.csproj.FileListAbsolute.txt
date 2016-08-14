@@ -38,3 +38,12 @@ G:\MyWeb\KoK_Source\KOKService\bin\Debug\EntityFramework.SqlServer.xml
 G:\MyWeb\KoK_Source\KOKService\obj\Debug\KOKService.dll
 G:\MyWeb\KoK_Source\KOKService\obj\Debug\KOKService.pdb
 G:\MyWeb\KoK_Source\KOKService\obj\Debug\KOKService.csprojResolveAssemblyReference.cache
+D:\Freelance\GITHUB\KoK_Source\KOKService\bin\Debug\KOKService.dll.config
+D:\Freelance\GITHUB\KoK_Source\KOKService\bin\Debug\KOKService.dll
+D:\Freelance\GITHUB\KoK_Source\KOKService\bin\Debug\KOKService.pdb
+D:\Freelance\GITHUB\KoK_Source\KOKService\bin\Debug\EntityFramework.dll
+D:\Freelance\GITHUB\KoK_Source\KOKService\bin\Debug\EntityFramework.SqlServer.dll
+D:\Freelance\GITHUB\KoK_Source\KOKService\bin\Debug\EntityFramework.xml
+D:\Freelance\GITHUB\KoK_Source\KOKService\bin\Debug\EntityFramework.SqlServer.xml
+D:\Freelance\GITHUB\KoK_Source\KOKService\obj\Debug\KOKService.dll
+D:\Freelance\GITHUB\KoK_Source\KOKService\obj\Debug\KOKService.pdb

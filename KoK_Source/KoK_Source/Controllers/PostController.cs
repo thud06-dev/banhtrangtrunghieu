@@ -15,11 +15,35 @@ namespace KoK_Source.Controllers
 {
     public class PostController : Controller
     {
+        private PostCom _postCom = new PostCom();
         // GET: Post
         public ActionResult Index()
         {
-            List<PostModel> model = new List<PostModel>();
-            return View(model);
+            try
+            {
+                List<PostModel> model = null;
+                model = _postCom.GetAllPost();
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return new EmptyResult();
+            }
+        }
+        public ActionResult Edit(PostModel model)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(model.NEWS_ID))
+                {
+                    model = _postCom.GetPostByID(int.Parse(model.NEWS_ID));
+                }
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return new EmptyResult();
+            }
         }
     }
 }

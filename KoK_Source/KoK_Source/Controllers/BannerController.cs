@@ -35,13 +35,20 @@ namespace KoK_Source.Controllers
         }
         public ActionResult Edit(BannerModel model)
         {
-            nav_Menu.menu_position = "nav_banner";
-            if (model.BANNER_ID != null)
+            try
             {
-                model = _bannerCom.GetBannerModelByID(int.Parse(model.BANNER_ID));
-            }
+                nav_Menu.menu_position = "nav_banner";
+                if (!string.IsNullOrEmpty(model.BANNER_ID))
+                {
+                    model = _bannerCom.GetBannerModelByID(int.Parse(model.BANNER_ID));
+                }
 
-            return View(model);
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return new EmptyResult();
+            }
         }
         [HttpPost]
         public ActionResult SaveData(FormCollection form)

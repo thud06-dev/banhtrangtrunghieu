@@ -20,19 +20,22 @@ namespace KoK_Source.Com
         {
             List<BannerModel> model = new List<BannerModel>();
             var dt = _kokDataEntities.KOK_BANNER;
-            foreach (var item in dt)
+            if (dt != null)
             {
-                BannerModel mod = new BannerModel();
-                mod.BANNER_ID = item.BANNER_ID.ToString();
-                mod.BANNER_NAME = item.BANNER_NAME == null ? string.Empty : item.BANNER_NAME;
-                mod.BANNER_DESC = item.BANNER_DESC == null ? string.Empty : item.BANNER_DESC;
-                mod.BANNER_FILE = item.BANNER_FILE == null ? string.Empty : item.BANNER_FILE;
-                mod.CREATE_DATE = item.CREATE_DATE == null ? string.Empty : item.CREATE_DATE.ToString();
-                mod.CREATE_USER = item.CREATE_USER == null ? string.Empty : item.CREATE_USER;
-                mod.UPDATE_DATE = item.UPDATE_DATE == null ? string.Empty : item.UPDATE_DATE.ToString();
-                mod.UPDATE_USER = item.UPDATE_USER == null ? string.Empty : item.UPDATE_USER;
-                mod.ACTIVE = _commonCnv.CnvBool(item.ACTIVE);
-                model.Add(mod);
+                foreach (var item in dt)
+                {
+                    BannerModel mod = new BannerModel();
+                    mod.BANNER_ID = item.BANNER_ID.ToString();
+                    mod.BANNER_NAME = item.BANNER_NAME;
+                    mod.BANNER_DESC = item.BANNER_DESC == null ? string.Empty : item.BANNER_DESC;
+                    mod.BANNER_FILE = item.BANNER_FILE == null ? string.Empty : item.BANNER_FILE;
+                    mod.CREATE_DATE = item.CREATE_DATE == null ? string.Empty : item.CREATE_DATE.ToString();
+                    mod.CREATE_USER = item.CREATE_USER == null ? string.Empty : item.CREATE_USER;
+                    mod.UPDATE_DATE = item.UPDATE_DATE == null ? string.Empty : item.UPDATE_DATE.ToString();
+                    mod.UPDATE_USER = item.UPDATE_USER == null ? string.Empty : item.UPDATE_USER;
+                    mod.ACTIVE = _commonCnv.CnvBool(item.ACTIVE);
+                    model.Add(mod);
+                }
             }
             return model;
         }

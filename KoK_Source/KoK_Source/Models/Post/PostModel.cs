@@ -18,17 +18,18 @@ namespace KoK_Source.Models.Post
         public string NEWS_SEO_DESC { get; set; }
         public string NEWS_SEO_URL { get; set; }
         public string NEWS_SEO_TITLE { get; set; }
+        public string NEWS_URL { get; set; }
+        public string NEWS_KEYWORD_ASCII { get; set; }
+        public int? NEWS_ORDER { get; set; }
 
-        public int NEWS_ORDER { get; set; }
-
-        public string CREATE_DATE { get; set; }
+        public DateTime? CREATE_DATE { get; set; }
         [DisplayName("Update Date")]
-        public string UPDATE_DATE { get; set; }
+        public DateTime? UPDATE_DATE { get; set; }
         [DisplayName("Create User")]
         public string CREATE_USER { get; set; }
         [DisplayName("Update User")]
         public string UPDATE_USER { get; set; }
         [DisplayName("State")]
-        public bool ACTIVE { get; set; }
+        public bool? ACTIVE { get; set; }
     }
 }

@@ -12,7 +12,9 @@ namespace KoK_Source.Models.Post
     public class PostModel
     {
         public string NEWS_ID { get; set; }
+        [DisplayName("Tiêu đề bài viết")]
         public string NEWS_TITLE { get; set; }
+        [DisplayName("Mô tả")]
         public string NEWS_DESC { get; set; }
         public string NEWS_SEO_KEYWORD { get; set; }
         public string NEWS_SEO_DESC { get; set; }

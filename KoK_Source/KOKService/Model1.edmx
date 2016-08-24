@@ -36,7 +36,7 @@
           <Property Name="BANNER_FIELD3" Type="nvarchar" MaxLength="400" />
           <Property Name="BANNER_FIELD4" Type="nvarchar" MaxLength="400" />
           <Property Name="BANNER_FIELD5" Type="nvarchar" MaxLength="400" />
-          <Property Name="ACTIVE" Type="bit" />
+          <Property Name="ACTIVE" Type="bit" Nullable="false" />
           <Property Name="CREATE_DATE" Type="datetime" />
           <Property Name="UPDATE_DATE" Type="datetime" />
           <Property Name="CREATE_USER" Type="nvarchar" MaxLength="400" />
@@ -206,6 +206,7 @@
           <Property Name="UPDATE_DATE" Type="datetime" />
           <Property Name="CREATE_USER" Type="nvarchar" MaxLength="400" />
           <Property Name="UPDATE_USER" Type="nvarchar" MaxLength="400" />
+          <Property Name="POST_HTML" Type="text" />
         </EntityType>
         <EntityType Name="KOK_NEWS_ATT">
           <Key>
@@ -438,7 +439,7 @@
           <Property Name="BANNER_FIELD3" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
           <Property Name="BANNER_FIELD4" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
           <Property Name="BANNER_FIELD5" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
-          <Property Name="ACTIVE" Type="Boolean" />
+          <Property Name="ACTIVE" Type="Boolean" Nullable="false" />
           <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
           <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
           <Property Name="CREATE_USER" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
@@ -612,6 +613,7 @@
           <NavigationProperty Name="KOK_NEWS_ATT" Relationship="Self.FK_KOK_NEWS_ATT_KOK_NEWS" FromRole="KOK_NEWS" ToRole="KOK_NEWS_ATT" />
           <NavigationProperty Name="KOK_NEWS_CAT" Relationship="Self.FK_KOK_NEWS_CAT_KOK_NEWS" FromRole="KOK_NEWS" ToRole="KOK_NEWS_CAT" />
           <NavigationProperty Name="KOK_NEWS_IMAGE" Relationship="Self.FK_KOK_NEWS_IMAGE_KOK_NEWS" FromRole="KOK_NEWS" ToRole="KOK_NEWS_IMAGE" />
+          <Property Name="POST_HTML" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="KOK_NEWS_ATT">
           <Key>
@@ -985,6 +987,7 @@
           <EntitySetMapping Name="KOK_NEWS">
             <EntityTypeMapping TypeName="KOK_DATAModel.KOK_NEWS">
               <MappingFragment StoreEntitySet="KOK_NEWS">
+                <ScalarProperty Name="POST_HTML" ColumnName="POST_HTML" />
                 <ScalarProperty Name="NEWS_ID" ColumnName="NEWS_ID" />
                 <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
                 <ScalarProperty Name="NEWS_CODE" ColumnName="NEWS_CODE" />

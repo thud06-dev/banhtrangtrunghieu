@@ -28,7 +28,7 @@ namespace KOKService
         public string BANNER_FIELD3 { get; set; }
         public string BANNER_FIELD4 { get; set; }
         public string BANNER_FIELD5 { get; set; }
-        public Nullable<bool> ACTIVE { get; set; }
+        public bool ACTIVE { get; set; }
         public Nullable<System.DateTime> CREATE_DATE { get; set; }
         public Nullable<System.DateTime> UPDATE_DATE { get; set; }
         public string CREATE_USER { get; set; }

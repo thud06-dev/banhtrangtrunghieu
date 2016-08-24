@@ -23,7 +23,8 @@ namespace KoK_Source.Models.Post
         public string NEWS_URL { get; set; }
         public string NEWS_KEYWORD_ASCII { get; set; }
         public int? NEWS_ORDER { get; set; }
-
+        [AllowHtml]
+        public string POST_HTML { get; set; }
         public DateTime? CREATE_DATE { get; set; }
         [DisplayName("Update Date")]
         public DateTime? UPDATE_DATE { get; set; }
@@ -32,6 +33,6 @@ namespace KoK_Source.Models.Post
         [DisplayName("Update User")]
         public string UPDATE_USER { get; set; }
         [DisplayName("State")]
-        public bool? ACTIVE { get; set; }
+        public bool ACTIVE { get; set; }
     }
 }

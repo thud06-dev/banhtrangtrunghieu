@@ -71,6 +71,7 @@ namespace KOKService
         public Nullable<System.DateTime> UPDATE_DATE { get; set; }
         public string CREATE_USER { get; set; }
         public string UPDATE_USER { get; set; }
+        public string POST_HTML { get; set; }
     
         public virtual ICollection<KOK_NEWS_ATT> KOK_NEWS_ATT { get; set; }
         public virtual ICollection<KOK_NEWS_CAT> KOK_NEWS_CAT { get; set; }

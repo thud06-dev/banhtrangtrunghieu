@@ -45,5 +45,26 @@ namespace KoK_Source.Controllers
                 return new EmptyResult();
             }
         }
+        [HttpPost]
+        public ActionResult SaveData(PostModel model)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(model.NEWS_ID))
+                {
+                    _postCom.UpdatePost(model);
+                }
+                else
+                {
+                    _postCom.CreatePost(model);
+                }
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return Json(new { Msg = "Save fail!" });
+            }
+
+        }
     }
 }

@@ -88,7 +88,7 @@ namespace KoK_Source.Controllers
                     _bannerCom.SaveBanner(model);
                 return RedirectToAction("Index");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return Json(new { Msg = "Save fail!" });
             }

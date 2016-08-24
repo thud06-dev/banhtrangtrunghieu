@@ -29,6 +29,12 @@
                         @Html.TextBoxFor(m => m.NEWS_DESC, Model.NEWS_DESC, new { @class = "col-xs-10 col-sm-5", @placeholder = "Mô tả" })
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1">@Html.DisplayNameFor(m => m.ACTIVE) </label>
+                    <div class="col-sm-10">
+                        @Html.CheckBoxFor(m => m.ACTIVE,Model.ACTIVE)
+                    </div>
+                </div>
                 <div class="row">
                     <label>SEO</label>
                 </div>
@@ -57,7 +63,8 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <textarea name="post_dt" id="post_dt"></textarea>
+                    @*<textarea name="post_dt" id="post_dt">@Model.POST_HTML</textarea>*@
+                    @Html.TextAreaFor(m => m.POST_HTML, Model.POST_HTML)
                 </div>
                 
                 <div class="btn-group pull-right">
@@ -105,7 +112,7 @@
 <script>
 // Replace the <textarea id="editor1"> with a CKEditor
 // instance, using default configuration.
-    CKEDITOR.replace('post_dt', {
+    CKEDITOR.replace('POST_HTML', {
         language: 'vi',
     });
 </script>

@@ -44,15 +44,15 @@ namespace KoK_Source.Com
         public MenuModels GetMenuModelById(int id)
         {
             MenuModels menu = new MenuModels();
-            var dt = _db.MENU.Where(x => x.ID == id);
+            var dt = _db.KOK_CATEGORIES.Where(x => x.CAT_ID == id);
             foreach (var item in dt)
             {
-                menu.Id = item.ID.ToString();
-                menu.MenuName = item.MENU_NAME ?? string.Empty;
-                menu.MenuLink = item.MENU_LINK ?? string.Empty;
-                menu.MenuRank = item.MENU_RANK?.ToString() ?? string.Empty;
-                menu.MenuParentId = item.MENU_PARENT_ID?.ToString() ?? string.Empty;
-                menu.MenuOrder = item.MENU_ORDER?.ToString() ?? string.Empty;
+                menu.Id = item.CAT_ID.ToString();
+                menu.MenuName = item.CAT_NAME ?? string.Empty;
+                menu.MenuLink = item.CAT_URL ?? string.Empty;
+                menu.MenuRank = item.CAT_RANK?.ToString() ?? string.Empty;
+                menu.MenuParentId = item.CAT_PARENT_ID?.ToString() ?? string.Empty;
+                menu.MenuOrder = item.CAT_ORDER?.ToString() ?? string.Empty;
                 menu.CreateDate = item.CREATE_DATE?.ToString() ?? string.Empty;
                 menu.CreateUser = item.CREATE_USER ?? string.Empty;
                 menu.UpdateDate = item.UPDATE_DATE?.ToString() ?? string.Empty;

@@ -142,35 +142,43 @@ namespace KoK_Source.Controllers
             {
                 ModelState.AddModelError("MENU_LINK", "chua nhap MENU_LINK");
             }
-            if (string.IsNullOrEmpty(model.MenuRank))
-            {
-                ModelState.AddModelError("MENU_RANK", "chua nhap MENU_RANK");
-            }
-            if (string.IsNullOrEmpty(model.MenuParentId))
-            {
-                ModelState.AddModelError("MENU_PARENT_ID", "chua nhap MENU_PARENT_ID");
-            }
+            //if (string.IsNullOrEmpty(model.MenuRank))
+            //{
+            //    ModelState.AddModelError("MENU_RANK", "chua nhap MENU_RANK");
+            //}
+            //if (string.IsNullOrEmpty(model.MenuParentId))
+            //{
+            //    ModelState.AddModelError("MENU_PARENT_ID", "chua nhap MENU_PARENT_ID");
+            //}
             if (ModelState.IsValid)
             {
                 model.CreateUser = " ";
                 model.UpdateUser = " ";
-                KOK_CATEGORIES dbCategorys = new KOK_CATEGORIES
-                {
-                    CAT_ID = Int32.Parse(model.Id),
-                    CAT_NAME = model.MenuName,
-                    CAT_URL = model.MenuLink,
-                    CAT_RANK = int.Parse(model.MenuRank),
-                    CAT_PARENT_ID = int.Parse(model.MenuParentId),
-                    CAT_ORDER = model.MenuOrder == null ? 1 : int.Parse(model.MenuOrder),
-                    ACTIVE = model.Active,
-                    CREATE_USER = model.CreateUser,
-                    CREATE_DATE = DateTime.Now,
-                    UPDATE_USER = model.UpdateUser,
-                    UPDATE_DATE = DateTime.Now
-                };
+
+                KOK_CATEGORIES categories = db.KOK_CATEGORIES.Find(Int32.Parse(model.Id));
+                categories.CAT_NAME = model.MenuName;
+                categories.CAT_URL = model.MenuLink;
+                categories.CREATE_USER = model.CreateUser;
+                categories.CREATE_DATE = DateTime.Now;
+                categories.UPDATE_USER = model.UpdateUser;
+                categories.UPDATE_DATE = DateTime.Now;
+                //KOK_CATEGORIES dbCategorys = new KOK_CATEGORIES
+                //{
+                //    CAT_ID = Int32.Parse(model.Id),
+                //    CAT_NAME = model.MenuName,
+                //    CAT_URL = model.MenuLink,
+                //    CAT_RANK = int.Parse(model.MenuRank),
+                //    CAT_PARENT_ID = int.Parse(model.MenuParentId),
+                //    CAT_ORDER = model.MenuOrder == null ? 1 : int.Parse(model.MenuOrder),
+                //    ACTIVE = model.Active,
+                //    CREATE_USER = model.CreateUser,
+                //    CREATE_DATE = DateTime.Now,
+                //    UPDATE_USER = model.UpdateUser,
+                //    UPDATE_DATE = DateTime.Now
+                //};
                 try
                 {
-                    db.Entry(dbCategorys).State = EntityState.Modified;
+                    db.Entry(categories).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }

@@ -21,84 +21,96 @@
 !-- ace scripts -->
 <script src="~/assets/js/ace-elements.min.js"></script>
 <script src="~/assets/js/ace.min.js"></script>
+<script src="~/assets/js/jquery.nestable.min.js"></script>
 
 @using (Html.BeginForm("Index", "Menu", FormMethod.Post, new { id = "myMenu" }))
 {
-    <div class="row">
-        <div class="col-md-12">
-            <h3 class="header smaller lighter blue">jQuery dataTables</h3>
-
-            <div class="clearfix">
-                <div class="pull-right tableTools-container"></div>
-            </div>
-            <div class="table-header">
-                Results for "Latest Registered Domains"
-            </div>
-
-            <div>
-                <table id="dynamic_table" class="table table-striped table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>@Html.LabelFor(m => m.First().Id)</th>
-                            <th>@Html.LabelFor(m => m.First().MenuName)</th>
-                            <th>@Html.LabelFor(m => m.First().MenuLink)</th>
-                            <th>@Html.LabelFor(m => m.First().MenuRank)</th>
-                            <th>@Html.LabelFor(m => m.First().MenuParentId)</th>
-                            <th>@Html.LabelFor(m => m.First().Active)</th>
-                            <th></th>
-                        </tr>
-                        <tr class="re-search">
-                            <td>@Html.LabelFor(m => m.First().Id)</td>
-                            <td>@Html.LabelFor(m => m.First().MenuName)</td>
-                            <td>@Html.LabelFor(m => m.First().MenuLink)</td>
-                            <td>@Html.LabelFor(m => m.First().MenuRank)</td>
-                            <td>@Html.LabelFor(m => m.First().MenuParentId)</td>
-                            <td>@Html.LabelFor(m => m.First().Active)</td>
-                            <td></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    <div class="media">
-                                        @item.Id
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="post__info">@item.MenuName</p>
-                                </td>
-                                <td>
-                                    <p class="post__info">@item.MenuLink</p>
-                                </td>
-                                <td>
-                                    <p class="post__info">@item.MenuRank</p>
-                                </td>
-                                <td>
-                                    <p class="post__info">@item.MenuParentId</p>
-                                </td>
-                                <td>
-                                    @if (item.Active == true)
+    <div class="col-sm-6">
+        <div class="dd" id="nestable">
+            <ol class="dd-list">
+                @foreach (MenuModels t in Model)
+                {
+                    if (t.MenuRank == "1")
+                    {
+                        <li class="dd-item" data-id="@t.Id">
+                            <div class="dd-handle">
+                                <a class="blue" href="@Url.Action("Edit", "Menu", new {id = t.Id})">
+                                    @t.MenuName
+                                </a>
+                            </div>
+                            @if (Model.Count(item => item.MenuParentId == t.Id && item.MenuRank == "2") > 0)
+                            {
+                                <ol class="dd-list">
+                                    @foreach (MenuModels t1 in Model)
                                     {
-                                        <input type="checkbox" class="custom-checkbox" id="cc2" onclick="return false" />
-                                        <label for="cc2"></label>
+                                        if (t1.MenuRank == "2" && t1.MenuParentId == t.Id)
+                                        {
+                                            <li class="dd-item" data-id="@t1.Id">
+                                                <div class="dd-handle">
+                                                    <a class="blue" href="@Url.Action("Edit", "Menu", new {id = t1.Id})">
+                                                        @t1.MenuName
+                                                    </a>
+                                                </div>
+                                                @if (Model.Count(item => item.MenuParentId == t1.Id && item.MenuRank == "3") > 0)
+                                                {
+                                                    <ol class="dd-list">
+                                                        @foreach (MenuModels t2 in Model)
+                                                        {
+                                                            if (t2.MenuRank == "3" && t2.MenuParentId == t1.Id)
+                                                            {
+                                                                <li class="dd-item" data-id="@t2.Id">
+                                                                    <div class="dd-handle">
+                                                                        <a class="blue" href="@Url.Action("Edit", "Menu", new {id = t2.Id})">
+                                                                            @t2.MenuName
+                                                                        </a>
+                                                                    </div>
+                                                                </li>
+                                                            }
+                                                        }
+                                                    </ol>
+                                                }
+                                            </li>
+                                        }
                                     }
-                                    else
-                                    {
-                                        <input type="checkbox" class="custom-checkbox" id="cc0" checked onclick="return false" />
-                                        <label for="cc0"></label>
-                                    }
+                                </ol>
+                            }
+                        </li>
+                    }
+                }
+                @*<li class="dd-item" data-id="1">
+                        <div class="dd-handle">
+                            Item 1
+                            <i class="pull-right bigger-130 ace-icon fa fa-exclamation-triangle orange2"></i>
+                        </div>
+                    </li>
 
-                                </td>
-                                <td>
-                                    <div class="hidden-sm hidden-xs action-buttons">
+                    <li class="dd-item" data-id="2">
+                        <div class="dd-handle">Item 2</div>
+
+                        <ol class="dd-list">
+                            <li class="dd-item" data-id="3">
+                                <div class="dd-handle">
+                                    Item 3
+                                    <a data-rel="tooltip" data-placement="left" title="Change Date" href="#" class="pull-right tooltip-info btn btn-primary btn-mini btn-white btn-bold">
+                                        <i class="bigger-120 ace-icon fa fa-calendar"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="dd-item" data-id="4">
+                                <div class="dd-handle">
+                                    <span class="orange">Item 4</span>
+                                    <span class="lighter grey">
+                                        &nbsp; with some description
+                                    </span>
+                                </div>
+                            </li>
+
+                            <li class="dd-item" data-id="5">
+                                <div class="dd-handle">
+                                    Item 5
+                                    <div class="pull-right action-buttons">
                                         <a class="blue" href="#">
-                                            <i class="ace-icon fa fa-search-plus bigger-130"></i>
-                                        </a>
-
-                                        <a class="green" href="@Url.Action("edit","Menu",new {id=item.Id})">
                                             <i class="ace-icon fa fa-pencil bigger-130"></i>
                                         </a>
 
@@ -106,81 +118,95 @@
                                             <i class="ace-icon fa fa-trash-o bigger-130"></i>
                                         </a>
                                     </div>
+                                </div>
 
-                                    <div class="hidden-md hidden-lg">
-                                        <div class="inline pos-rel">
-                                            <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
-                                                <i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
-                                            </button>
+                                <ol class="dd-list">
+                                    <li class="dd-item item-orange" data-id="6">
+                                        <div class="dd-handle"> Item 6 </div>
+                                    </li>
 
-                                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-                                                <li>
-                                                    <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-                                                        <span class="blue">
-                                                            <i class="ace-icon fa fa-search-plus bigger-120"></i>
-                                                        </span>
-                                                    </a>
-                                                </li>
+                                    <li class="dd-item item-red" data-id="7">
+                                        <div class="dd-handle">Item 7</div>
+                                    </li>
 
-                                                <li>
-                                                    <a href="@Url.Action("edit","Menu",new {id=item.Id})" class="tooltip-success" data-rel="tooltip" title="Edit">
-                                                        <span class="green">
-                                                            <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-                                                        </span>
-                                                    </a>
-                                                </li>
+                                    <li class="dd-item item-blue2" data-id="8">
+                                        <div class="dd-handle">Item 8</div>
+                                    </li>
+                                </ol>
+                            </li>
 
-                                                <li>
-                                                    <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-                                                        <span class="red">
-                                                            <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
+                            <li class="dd-item" data-id="9">
+                                <div class="dd-handle btn-yellow no-hover">Item 9</div>
+                            </li>
 
-                </table>
-            </div>
-            <div class="btn-group">
-                @Html.ActionLink("THÊM MỚI", "Create", null, new { @class = "btn blue inverse glyphicon glyphicon-plus", @id = "btnAdd" })
-            </div>
+                            <li class="dd-item" data-id="10">
+                                <div class="dd-handle">Item 10</div>
+                            </li>
+                        </ol>
+                    </li>
+
+                    <li class="dd-item" data-id="11">
+                        <div class="dd-handle">
+                            Item 11
+                            <span class="sticker">
+                                <span class="label label-success arrowed-in">
+                                    <i class="ace-icon fa fa-check bigger-110"></i>
+                                </span>
+                            </span>
+                        </div>
+                    </li>
+
+                    <li class="dd-item" data-id="12">
+                        <div class="dd-handle">Item 12</div>
+                    </li>*@
+            </ol>
         </div>
     </div>
+
     <!-- /row -->
 }
+<div class="btn-group">
+    <button class="btn blue inverse glyphicon glyphicon-plus" id="btnSave">Save</button>
+    @*@Html.ActionLink("THÊM MỚI", "Create", null, new {@class = "btn blue inverse glyphicon glyphicon-plus", @id = "btnAdd"})*@
+</div>
+
 <script type="text/javascript">
     jQuery(function ($) {
-        //initiate dataTables plugin
-        var table = $('#dynamic_table').DataTable({
-            columnDefs: [
-                { targets: [0, 1, 2, 3, 4, 5, 6], className: "sorting_disabled", bSearchable: true } // thêm class không sort cho column 1 2 3 4 5 6
-            ],
-            "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]], //Page length options
-
+        $('.dd').nestable();
+        $('.dd-handle a').on('mousedown', function (e) {
+            e.stopPropagation();
         });
+        $('[data-rel="tooltip"]').tooltip();
 
-        // Setup - add a text input to each footer cell
-        $('#dynamic_table .re-search td').each(function () {
-            var title = $(this).text();
-            $(this).html('<input type="text" placeholder="Search ' + title + '" />');
-        });
-        // Apply the search
-        table.columns().every(function () {
-            var that = this;
-            $('input', this.header()).on('keyup change', function () {
-                if (that.search() !== this.value) {
-                    that
-                        .search(this.value)
-                        .draw();
+    });
 
-                }
-            });
+    var updateOutput = function (e) {
+        var list = e.length ? e : $(e.target),
+            output = list.data('output');
+        if (window.JSON) {
+            output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+        } else {
+            output.val('JSON browser support required for this demo.');
+        }
+
+    };
+    updateOutput($('#nestable').data('output', $('#nestable-output')));
+    console.log(($('.dd').nestable('serialize')));
+
+    $("#btnSave").click(function () {
+        var data = (JSON.stringify($('.dd').nestable('serialize')));
+        console.log(data);
+        var url = '@Url.Action("Saverank", "Menu")';
+        console.log("asd");
+        $.ajax({
+            url: url,//'/Menu/Saverank',
+            type: "post",
+            data: { 'ar': data },
+            dataType: "application/json",
+            success: function (data) {
+                console.log("update thanh cong");
+            }
         });
-    })
+    });
+
 </script>

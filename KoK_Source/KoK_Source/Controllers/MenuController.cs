@@ -4,12 +4,15 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using KoK_Source.Models.Banner;
 using KOKService;
 using KoK_Source.Com;
 using KoK_Source.Common;
 using KoK_Source.Models.Menu;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace KoK_Source.Controllers
 {
@@ -33,9 +36,9 @@ namespace KoK_Source.Controllers
             try
             {
                 nav_Menu.menu_position = "nav_menu";
-                List<MenuModels> models = new List<MenuModels>();
-                models = _MenuCom.GetAllMenu();
-                return View(models);
+                List<MenuModels> lisMenuModels = new List<MenuModels>();
+                lisMenuModels = _MenuCom.GetAllMenu();
+                return View(lisMenuModels);
             }
             catch (Exception ex)
             {
@@ -107,15 +110,16 @@ namespace KoK_Source.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MENU menu = db.MENU.Find(id);
+            KOK_CATEGORIES categories = db.KOK_CATEGORIES.Find(id);
 
             MenuModels modelMenu = new MenuModels
             {
-                Id = menu.ID.ToString(),
-                MenuName = menu.MENU_NAME,
-                MenuLink = menu.MENU_LINK,
-                MenuRank = menu.MENU_RANK.ToString(),
-                MenuParentId = menu.MENU_PARENT_ID.ToString(),
+                Id = categories.CAT_ID.ToString(),
+                MenuName = categories.CAT_NAME,
+                MenuLink = categories.CAT_URL,
+                //MenuRank = categories.CAT_RANK.ToString(),
+                //MenuParentId = categories.CAT_PARENT_ID.ToString(),
+                //MenuOrder= categories.CAT_ORDER?.ToString()
             };
 
 
@@ -150,14 +154,14 @@ namespace KoK_Source.Controllers
             {
                 model.CreateUser = " ";
                 model.UpdateUser = " ";
-                MENU dbMenu = new MENU
+                KOK_CATEGORIES dbCategorys = new KOK_CATEGORIES
                 {
-                    ID = Int32.Parse(model.Id),
-                    MENU_NAME = model.MenuName,
-                    MENU_LINK = model.MenuLink,
-                    MENU_RANK = int.Parse(model.MenuRank),
-                    MENU_PARENT_ID = int.Parse(model.MenuParentId),
-                    MENU_ORDER = model.MenuOrder == null ? 1 : int.Parse(model.MenuOrder),
+                    CAT_ID = Int32.Parse(model.Id),
+                    CAT_NAME = model.MenuName,
+                    CAT_URL = model.MenuLink,
+                    CAT_RANK = int.Parse(model.MenuRank),
+                    CAT_PARENT_ID = int.Parse(model.MenuParentId),
+                    CAT_ORDER = model.MenuOrder == null ? 1 : int.Parse(model.MenuOrder),
                     ACTIVE = model.Active,
                     CREATE_USER = model.CreateUser,
                     CREATE_DATE = DateTime.Now,
@@ -166,7 +170,7 @@ namespace KoK_Source.Controllers
                 };
                 try
                 {
-                    db.Entry(dbMenu).State = EntityState.Modified;
+                    db.Entry(dbCategorys).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -177,6 +181,108 @@ namespace KoK_Source.Controllers
             }
             return View(model);
 
+        }
+
+        [HttpPost]
+        public void Saverank(string ar)
+        {
+
+            var array = JArray.Parse(ar);//JObject.Parse(ar);
+            List<MenuModels> listmenu = new List<MenuModels>();
+            listmenu = _MenuCom.GetAllMenu();
+            var pos = 0;
+            foreach (var item in array)
+            {
+                var obj = listmenu.Where(t => t.Id == item["id"].ToString()).ToList();
+                obj[0].MenuRank = "1";
+                obj[0].MenuOrder = pos.ToString();
+                KOK_CATEGORIES dbCategorys = new KOK_CATEGORIES
+                {
+                    CAT_ID = Int32.Parse(obj[0].Id),
+                    CAT_NAME = obj[0].MenuName,
+                    CAT_URL = obj[0].MenuLink,
+                    CAT_RANK = int.Parse(obj[0].MenuRank),
+                    CAT_PARENT_ID = int.Parse(obj[0].MenuParentId),
+                    CAT_ORDER = obj[0].MenuOrder == null ? 1 : int.Parse(obj[0].MenuOrder),
+                    ACTIVE = obj[0].Active,
+                    CREATE_USER = obj[0].CreateUser,
+                    CREATE_DATE = DateTime.Now,
+                    UPDATE_USER = obj[0].UpdateUser,
+                    UPDATE_DATE = DateTime.Now
+                };
+                try
+                {
+                    db.Entry(dbCategorys).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                catch (Exception ec)
+                {
+                    Console.WriteLine(ec.Message);
+                }
+                pos++;
+                if (item["children"] != null)
+                {
+                    obj = listmenu.Where(t => t.Id == item["children"].First["id"].ToString()).ToList();
+                    obj[0].MenuRank = "2";
+                    obj[0].MenuOrder = pos.ToString();
+                    obj[0].MenuParentId = pos.ToString();
+                    dbCategorys = new KOK_CATEGORIES
+                    {
+                        CAT_ID = Int32.Parse(obj[0].Id),
+                        CAT_NAME = obj[0].MenuName,
+                        CAT_URL = obj[0].MenuLink,
+                        CAT_RANK = int.Parse(obj[0].MenuRank),
+                        CAT_PARENT_ID = int.Parse(obj[0].MenuParentId),
+                        CAT_ORDER = obj[0].MenuOrder == null ? 1 : int.Parse(obj[0].MenuOrder),
+                        ACTIVE = obj[0].Active,
+                        CREATE_USER = obj[0].CreateUser,
+                        CREATE_DATE = DateTime.Now,
+                        UPDATE_USER = obj[0].UpdateUser,
+                        UPDATE_DATE = DateTime.Now
+                    };
+                    try
+                    {
+                        db.Entry(dbCategorys).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                    catch (Exception ec)
+                    {
+                        Console.WriteLine(ec.Message);
+                    }
+                    pos++;
+                    if (item["children"].First["children"] != null)
+                    {
+                        obj = listmenu.Where(t => t.Id == item["children"].First["children"].First["id"].ToString()).ToList();
+                        obj[0].MenuRank = "3";
+                        obj[0].MenuOrder = pos.ToString();
+                        obj[0].MenuParentId = item["children"].First["id"].ToString();
+                        dbCategorys = new KOK_CATEGORIES
+                        {
+                            CAT_ID = Int32.Parse(obj[0].Id),
+                            CAT_NAME = obj[0].MenuName,
+                            CAT_URL = obj[0].MenuLink,
+                            CAT_RANK = int.Parse(obj[0].MenuRank),
+                            CAT_PARENT_ID = int.Parse(obj[0].MenuParentId),
+                            CAT_ORDER = obj[0].MenuOrder == null ? 1 : int.Parse(obj[0].MenuOrder),
+                            ACTIVE = obj[0].Active,
+                            CREATE_USER = obj[0].CreateUser,
+                            CREATE_DATE = DateTime.Now,
+                            UPDATE_USER = obj[0].UpdateUser,
+                            UPDATE_DATE = DateTime.Now
+                        };
+                        try
+                        {
+                            db.Entry(dbCategorys).State = EntityState.Modified;
+                            db.SaveChanges();
+                        }
+                        catch (Exception ec)
+                        {
+                            Console.WriteLine(ec.Message);
+                        }
+                        pos++;
+                    }
+                }
+            }
         }
     }
 }

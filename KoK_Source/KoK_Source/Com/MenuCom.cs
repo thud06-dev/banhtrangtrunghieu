@@ -16,21 +16,29 @@ namespace KoK_Source.Com
 
         public List<MenuModels> GetAllMenu()
         {
-            var data = _db.MENU.ToList();
-            return data.Select(item => new MenuModels
+            var data = _db.KOK_CATEGORIES.ToList();
+            List<MenuModels> menu = new List<MenuModels>();
+            foreach (var item in data)
             {
-                Id = item.ID.ToString(),
-                MenuName = item.MENU_NAME ?? string.Empty,
-                MenuLink = item.MENU_LINK ?? string.Empty,
-                MenuRank = item.MENU_RANK?.ToString() ?? string.Empty,
-                MenuParentId = item.MENU_PARENT_ID?.ToString() ?? string.Empty,
-                MenuOrder = item.MENU_ORDER?.ToString() ?? string.Empty,
-                CreateDate = item.CREATE_DATE?.ToString() ?? string.Empty,
-                CreateUser = item.CREATE_USER ?? string.Empty,
-                UpdateDate = item.UPDATE_DATE?.ToString() ?? string.Empty,
-                UpdateUser = item.UPDATE_USER ?? string.Empty,
-                Active = _commonCnv.CnvBool(item.ACTIVE)
-            }).ToList();
+                menu.Add(new MenuModels
+                {
+                    Id = item.CAT_ID.ToString(),
+                    MenuName = item.CAT_NAME ?? string.Empty,
+                    MenuLink = item.CAT_URL ?? string.Empty,
+                    MenuRank = item.CAT_RANK?.ToString() ?? string.Empty,
+                    MenuParentId = item.CAT_PARENT_ID?.ToString() ?? string.Empty,
+                    MenuOrder = item.CAT_ORDER?.ToString() ?? string.Empty,
+                    CreateDate = item.CREATE_DATE?.ToString() ?? string.Empty,
+                    CreateUser = item.CREATE_USER ?? string.Empty,
+                    UpdateDate = item.UPDATE_DATE?.ToString() ?? string.Empty,
+                    UpdateUser = item.UPDATE_USER ?? string.Empty,
+                    Active = _commonCnv.CnvBool(item.ACTIVE)
+                });
+            }
+            Console.WriteLine(menu);
+
+
+            return menu;
         }
 
         public MenuModels GetMenuModelById(int id)
@@ -75,11 +83,6 @@ namespace KoK_Source.Com
             _db.MENU.Add(dbMenu);
             _db.SaveChanges();
 
-        }
-
-        public List<MenuModels> GetMenuModelByID(int parse)
-        {
-            throw new NotImplementedException();
         }
     }
 }

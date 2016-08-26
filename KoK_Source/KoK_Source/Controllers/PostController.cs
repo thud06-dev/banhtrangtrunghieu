@@ -66,5 +66,46 @@ namespace KoK_Source.Controllers
             }
 
         }
+        [HttpPost]
+        public ActionResult AjaxUpdateActive(string id, string active)
+        {
+            try
+            {
+                PostModel model = new PostModel();
+                model.NEWS_ID = id;
+                model.ACTIVE = active != "0" ? true : false;
+                _postCom.UpdateActive(model);
+                return Json(new
+                {
+                    returnCode = 1
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    returnCode = 0
+                });
+            }
+        }
+        [HttpPost]
+        public ActionResult AjaxDelete(string id)
+        {
+            try
+            {
+                _postCom.DeleteByID(id);
+                return Json(new
+                {
+                    returnCode = 1
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    returnCode = 0
+                });
+            }
+        }
     }
 }

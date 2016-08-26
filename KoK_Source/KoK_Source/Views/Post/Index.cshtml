@@ -64,7 +64,7 @@
                                     <label class="switch blue" for="@item.NEWS_ID"></label>
                                 </td>
                                 <td>
-                                    <a href="#" onclick="AjaxRemoveBanner(this,@item.NEWS_ID)" class="post__del"><i class="pe-7f-close"></i>#</a>
+                                    <a href="#" onclick="AjaxRemove(this,@item.NEWS_ID)" class="post__del"><i class="pe-7f-close"></i>#</a>
                                 </td>
                             </tr>
                             }
@@ -75,6 +75,9 @@
         </div>
     </div>
 }
+<input id="UrlAjaxUpdateActive" type="hidden" data-request-url="@Url.Action("AjaxUpdateActive","Post")">
+<input id="UrlAjaxDelete" type="hidden" data-request-url="@Url.Action("AjaxDelete","Post")" />
+<script type="text/javascript" src=@Url.Content("~/Scripts/kok_source/kok.js")></script>
 <script type="text/javascript">
     jQuery(function ($) {
         //initiate dataTables plugin

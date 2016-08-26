@@ -104,5 +104,20 @@ namespace KoK_Source.Com
             item.ACTIVE = model.ACTIVE;
             _kokDataEntities.SaveChanges();
         }
+        public void DeleteByID(string id)
+        {
+            int p_id = int.Parse(id);
+            var item = _kokDataEntities.KOK_NEWS.SingleOrDefault(m => m.NEWS_ID == p_id);
+            _kokDataEntities.KOK_NEWS.Remove(item);
+            _kokDataEntities.SaveChanges();
+        }
+        public void UpdateActive(PostModel model)
+        {
+            int id = int.Parse(model.NEWS_ID);
+            var list = _kokDataEntities.KOK_NEWS.Where(m => m.NEWS_ID == id).FirstOrDefault();
+            list.ACTIVE = model.ACTIVE;
+            list.UPDATE_DATE = DateTime.Now;
+            _kokDataEntities.SaveChanges();
+        }
     }
 }

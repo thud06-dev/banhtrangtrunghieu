@@ -162,13 +162,16 @@
             </ol>
         </div>
     </div>
-
+    <div class="btn-group">
+        @Html.ActionLink("THÊM MỚI", "Create", null, new { @class = "btn blue inverse glyphicon glyphicon-plus", @id = "btnAdd" })
+    </div>
     <!-- /row -->
 }
 <div class="btn-group">
     <button class="btn blue inverse glyphicon glyphicon-plus" id="btnSave">Save</button>
     @*@Html.ActionLink("THÊM MỚI", "Create", null, new {@class = "btn blue inverse glyphicon glyphicon-plus", @id = "btnAdd"})*@
 </div>
+
 
 <script type="text/javascript">
     jQuery(function ($) {

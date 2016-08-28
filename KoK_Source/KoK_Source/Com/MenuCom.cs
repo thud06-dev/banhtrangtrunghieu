@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using KOKService;
 using KoK_Source.Common;
 using KoK_Source.Models.Menu;
@@ -16,7 +17,7 @@ namespace KoK_Source.Com
 
         public List<MenuModels> GetAllMenu()
         {
-            var data = _db.KOK_CATEGORIES.ToList();
+            var data = _db.KOK_CATEGORIES.Where(x => x.ACTIVE == true).OrderBy(x => x.CAT_ORDER).ToList();
             List<MenuModels> menu = new List<MenuModels>();
             foreach (var item in data)
             {

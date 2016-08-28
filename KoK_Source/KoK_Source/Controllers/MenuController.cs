@@ -55,6 +55,8 @@ namespace KoK_Source.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(MenuModels model)
         {
+            var a = model;
+
             if (string.IsNullOrEmpty(model.MenuName))
             {
                 ModelState.AddModelError("MENU_NAME", "chua nhap menu name");
@@ -63,27 +65,20 @@ namespace KoK_Source.Controllers
             {
                 ModelState.AddModelError("MENU_LINK", "chua nhap MENU_LINK");
             }
-            if (string.IsNullOrEmpty(model.MenuRank))
-            {
-                ModelState.AddModelError("MENU_RANK", "chua nhap MENU_RANK");
-            }
-            if (string.IsNullOrEmpty(model.MenuParentId))
-            {
-                ModelState.AddModelError("MENU_PARENT_ID", "chua nhap MENU_PARENT_ID");
-            }
+         
+
             if (ModelState.IsValid)
             {
                 model.CreateUser = " ";
                 model.UpdateUser = " ";
 
-
-                MENU dbMenu = new MENU
+                KOK_CATEGORIES cat = new KOK_CATEGORIES
                 {
-                    MENU_NAME = model.MenuName,
-                    MENU_LINK = model.MenuLink,
-                    MENU_RANK = int.Parse(model.MenuRank),
-                    MENU_PARENT_ID = int.Parse(model.MenuParentId),
-                    MENU_ORDER = model.MenuOrder == null ? 1 : int.Parse(model.MenuOrder),
+                    CAT_NAME = model.MenuName,
+                    CAT_URL =  model.MenuLink,
+                    CAT_RANK = 1,
+                    CAT_PARENT_ID = 0,
+                    CAT_ORDER = 0,
                     ACTIVE = model.Active,
                     CREATE_USER = model.CreateUser,
                     CREATE_DATE = DateTime.Now,
@@ -92,7 +87,7 @@ namespace KoK_Source.Controllers
                 };
                 try
                 {
-                    db.MENU.Add(dbMenu);
+                    db.KOK_CATEGORIES.Add(cat);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -158,24 +153,14 @@ namespace KoK_Source.Controllers
                 KOK_CATEGORIES categories = db.KOK_CATEGORIES.Find(Int32.Parse(model.Id));
                 categories.CAT_NAME = model.MenuName;
                 categories.CAT_URL = model.MenuLink;
+                categories.CAT_ORDER = Int32.Parse(model.MenuOrder);
+                categories.CAT_RANK = Int32.Parse(model.MenuRank);
+                categories.CAT_PARENT_ID = Int32.Parse(model.MenuParentId);
                 categories.CREATE_USER = model.CreateUser;
                 categories.CREATE_DATE = DateTime.Now;
                 categories.UPDATE_USER = model.UpdateUser;
                 categories.UPDATE_DATE = DateTime.Now;
-                //KOK_CATEGORIES dbCategorys = new KOK_CATEGORIES
-                //{
-                //    CAT_ID = Int32.Parse(model.Id),
-                //    CAT_NAME = model.MenuName,
-                //    CAT_URL = model.MenuLink,
-                //    CAT_RANK = int.Parse(model.MenuRank),
-                //    CAT_PARENT_ID = int.Parse(model.MenuParentId),
-                //    CAT_ORDER = model.MenuOrder == null ? 1 : int.Parse(model.MenuOrder),
-                //    ACTIVE = model.Active,
-                //    CREATE_USER = model.CreateUser,
-                //    CREATE_DATE = DateTime.Now,
-                //    UPDATE_USER = model.UpdateUser,
-                //    UPDATE_DATE = DateTime.Now
-                //};
+
                 try
                 {
                     db.Entry(categories).State = EntityState.Modified;
@@ -203,6 +188,7 @@ namespace KoK_Source.Controllers
             {
                 var obj = listmenu.Where(t => t.Id == item["id"].ToString()).ToList();
                 obj[0].MenuRank = "1";
+                obj[0].MenuParentId = "0";
                 obj[0].MenuOrder = pos.ToString();
                 KOK_CATEGORIES dbCategorys = new KOK_CATEGORIES
                 {
@@ -233,7 +219,7 @@ namespace KoK_Source.Controllers
                     obj = listmenu.Where(t => t.Id == item["children"].First["id"].ToString()).ToList();
                     obj[0].MenuRank = "2";
                     obj[0].MenuOrder = pos.ToString();
-                    obj[0].MenuParentId = pos.ToString();
+                    obj[0].MenuParentId = (item["id"].ToString());
                     dbCategorys = new KOK_CATEGORIES
                     {
                         CAT_ID = Int32.Parse(obj[0].Id),

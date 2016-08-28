@@ -1,0 +1,19 @@
+﻿@model List<banhtrangtrunghieu.Models.NewsModel>
+<div class="title-news">
+    <h3><a href="">TIN TỨC</a></h3>
+    <span><a href="">Xem thêm</a></span>
+</div>
+<ul>
+    @if (Model.Count != 0)
+    {
+        foreach (var item in Model)
+        {
+            <li>
+                <a href="">
+                    <div class="tit-news">@item.NEWS_TITLE</div>
+                    <div class="img-news"><img class="hvr-grow" src="Content/_Template/img/img.jpg" alt="" /></div>
+                </a>
+            </li>
+        }
+    }
+</ul>

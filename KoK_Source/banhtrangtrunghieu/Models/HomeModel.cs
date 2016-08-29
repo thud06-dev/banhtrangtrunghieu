@@ -9,7 +9,6 @@ namespace banhtrangtrunghieu.Models
     public class HomeModel
     {
         public List<NewsModel> ListNews;
-        public NewsModel News;
-        public string a { get; set; }
+        public List<ProductsModel> ListProducts;
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using KoK_Source.Models;
-using KoK_Source.Models.Post;
+using KoK_Source.Models.Products;
 using System.Data;
 using System.IO;
 using KoK_Source.Com;
@@ -12,16 +12,16 @@ using KoK_Source.Common;
 
 namespace KoK_Source.Controllers
 {
-    public class PostController : Controller
+    public class ProductsController : Controller
     {
-        private PostCom _postCom = new PostCom();
-        // GET: Post
+        private ProductsCom _productsCom = new ProductsCom();
+        // GET: Products
         public ActionResult Index()
         {
             try
             {
-                List<PostModel> model = null;
-                model = _postCom.GetAllPost();
+                List<ProductsModel> model = null;
+                model = _productsCom.GetAllProducts();
                 return View(model);
             }
             catch (Exception ex)
@@ -29,13 +29,13 @@ namespace KoK_Source.Controllers
                 return new EmptyResult();
             }
         }
-        public ActionResult Edit(PostModel model)
+        public ActionResult Edit(ProductsModel model)
         {
             try
             {
                 if (!string.IsNullOrEmpty(model.NEWS_ID))
                 {
-                    model = _postCom.GetPostByID(int.Parse(model.NEWS_ID));
+                    model = _productsCom.GetProductsByID(int.Parse(model.NEWS_ID));
                 }
                 return View(model);
             }
@@ -45,17 +45,17 @@ namespace KoK_Source.Controllers
             }
         }
         [HttpPost]
-        public ActionResult SaveData(PostModel model)
+        public ActionResult SaveData(ProductsModel model)
         {
             try
             {
                 if (!string.IsNullOrEmpty(model.NEWS_ID))
                 {
-                    _postCom.UpdatePost(model);
+                    _productsCom.UpdateProducts(model);
                 }
                 else
                 {
-                    _postCom.CreatePost(model);
+                    _productsCom.CreateProducts(model);
                 }
                 return RedirectToAction("Index");
             }
@@ -70,10 +70,10 @@ namespace KoK_Source.Controllers
         {
             try
             {
-                PostModel model = new PostModel();
+                ProductsModel model = new ProductsModel();
                 model.NEWS_ID = id;
                 model.ACTIVE = active != "0" ? true : false;
-                _postCom.UpdateActive(model);
+                _productsCom.UpdateActive(model);
                 return Json(new
                 {
                     returnCode = 1
@@ -92,7 +92,7 @@ namespace KoK_Source.Controllers
         {
             try
             {
-                _postCom.DeleteByID(id);
+                _productsCom.DeleteByID(id);
                 return Json(new
                 {
                     returnCode = 1

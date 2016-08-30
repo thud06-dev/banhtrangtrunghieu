@@ -1,6 +1,6 @@
-﻿@model KoK_Source.Models.Post.PostModel
+﻿@model KoK_Source.Models.Products.ProductsModel
 
-@using (Html.BeginForm("SaveData", "Post", FormMethod.Post, new { @id = "myFormEdit", @enctype = "multipart/form-data", @class = "form-horizontal" }))
+@using (Html.BeginForm("SaveData", "Products", FormMethod.Post, new { @id = "myFormEdit", @enctype = "multipart/form-data", @class = "form-horizontal" }))
 {
     <div class="form-group row">
         @Html.HiddenFor(m => m.NEWS_ID)
@@ -38,7 +38,7 @@
                         <h3>PARAMETER SEO</h3>
                     </div>
                 </header>
-                
+
                 <div class="form-group">
                     <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(m => m.NEWS_SEO_URL) </label>
                     <div class="col-sm-10">
@@ -67,7 +67,7 @@
                     @*<textarea name="post_dt" id="post_dt">@Model.POST_HTML</textarea>*@
                     @Html.TextAreaFor(m => m.POST_HTML, Model.POST_HTML)
                 </div>
-                
+
                 <div class="btn-group pull-right">
                     <button class="btn btn-sm btn-purple">
                         <i class="ace-icon fa fa-floppy-o bigger-125"></i>

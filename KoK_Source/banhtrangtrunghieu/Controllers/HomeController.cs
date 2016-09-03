@@ -14,11 +14,18 @@ namespace banhtrangtrunghieu.Controllers
         private HomeCom _homeCom = new HomeCom();
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
-            HomeModel model= new HomeModel();
-            model.ListNews = _homeCom.getListPost();
-            model.ListProducts = _homeCom.getListProducts();
-            return View(model);
+            try
+            {
+                ViewBag.Title = "Home Page";
+                HomeModel model = new HomeModel();
+                model.ListNews = _homeCom.getListPost();
+                model.ListProducts = _homeCom.getListProducts();
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                return new EmptyResult();
+            }
         }
     }
 }

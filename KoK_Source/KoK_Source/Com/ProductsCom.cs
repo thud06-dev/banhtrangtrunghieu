@@ -34,6 +34,8 @@ namespace KoK_Source.Com
                     md.NEWS_SEO_KEYWORD = item.NEWS_SEO_KEYWORD;
                     md.NEWS_ORDER = item.NEWS_ORDER;
                     md.NEWS_KEYWORD_ASCII = item.NEWS_KEYWORD_ASCII;
+                    md.ANH = item.ANH;
+                    md.LIST_ANH = item.LIST_ANH;
                     md.CREATE_DATE = item.CREATE_DATE;
                     md.UPDATE_DATE = item.UPDATE_DATE;
                     md.CREATE_USER = item.CREATE_USER;
@@ -59,6 +61,8 @@ namespace KoK_Source.Com
             md.NEWS_ORDER = dt.NEWS_ORDER;
             md.NEWS_KEYWORD_ASCII = dt.NEWS_KEYWORD_ASCII;
             md.POST_HTML = dt.POST_HTML;
+            md.ANH = dt.ANH;
+            md.LIST_ANH = dt.LIST_ANH;
             md.CREATE_DATE = dt.CREATE_DATE;
             md.UPDATE_DATE = dt.UPDATE_DATE;
             md.CREATE_USER = dt.CREATE_USER;
@@ -66,7 +70,7 @@ namespace KoK_Source.Com
             md.ACTIVE = dt.ACTIVE.GetValueOrDefault();
             return md;
         }
-        public void CreateProducts(ProductsModel model)
+        public string CreateProducts(ProductsModel model)
         {
             KOK_PRODUCTS item = new KOK_PRODUCTS();
             item.NEWS_TITLE = model.NEWS_TITLE;
@@ -79,11 +83,14 @@ namespace KoK_Source.Com
             item.NEWS_ORDER = model.NEWS_ORDER;
             item.NEWS_KEYWORD_ASCII = model.NEWS_KEYWORD_ASCII;
             item.POST_HTML = model.POST_HTML;
+            item.ANH = model.ANH;
+            item.LIST_ANH = model.LIST_ANH;
             item.CREATE_DATE = model.CREATE_DATE;
             item.CREATE_USER = model.CREATE_USER;
             item.ACTIVE = model.ACTIVE;
             _kokDataEntities.KOK_PRODUCTS.Add(item);
             _kokDataEntities.SaveChanges();
+            return _kokDataEntities.KOK_PRODUCTS.Find(item).NEWS_ID.ToString();
         }
         public void UpdateProducts(ProductsModel model)
         {
@@ -99,6 +106,8 @@ namespace KoK_Source.Com
             item.NEWS_ORDER = model.NEWS_ORDER;
             item.NEWS_KEYWORD_ASCII = model.NEWS_KEYWORD_ASCII;
             item.POST_HTML = model.POST_HTML;
+            item.ANH = model.ANH;
+            item.LIST_ANH = model.LIST_ANH;
             item.UPDATE_DATE = model.UPDATE_DATE;
             item.UPDATE_USER = model.UPDATE_USER;
             item.ACTIVE = model.ACTIVE;

@@ -1,5 +1,18 @@
 ﻿@model KoK_Source.Models.Products.ProductsModel
-
+@using KoK_Source.Models.File;
+@{ 
+    ViewBag.Title = "Chi tiết sản phẩm";
+    List<FileModel> fileNameList;
+    if (!String.IsNullOrEmpty(Model.LIST_ANH))
+    {
+        /*convert FILI_LINK là json thành list file name*/
+        fileNameList = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<List<FileModel>>(Model.LIST_ANH);
+    }
+    else
+    {
+        fileNameList = null;
+    }
+}
 @using (Html.BeginForm("SaveData", "Products", FormMethod.Post, new { @id = "myFormEdit", @enctype = "multipart/form-data", @class = "form-horizontal" }))
 {
     <div class="form-group row">
@@ -8,7 +21,7 @@
             <header class="widget__header">
                 <div class="widget__title">
                     <i class="pe-7s-menu"></i>
-                    <h3>BÀI VIẾT</h3>
+                    <h3>@ViewBag.Title</h3>
                 </div>
             </header>
             <article class="widget widget__form">
@@ -26,6 +39,39 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(m => m.ANH) </label>
+                    @Html.HiddenFor(m=>m.ANH)
+                    <div class="col-sm-10">
+                        <input type="file" id="file-att" name="file-att" onchange="readURL(this);">
+                        @if (!string.IsNullOrEmpty(Model.ANH))
+                        {
+                            <img id="img-rev" width="100" height="100" src="@Url.Content(Model.ANH)" alt="your image" />
+                        }
+                        else
+                        {
+                            <img id="img-rev" width="100" height="100" src="#" style="display:none" alt="your image" />
+                        }
+
+                        @*@Html.TextBoxFor(m => m.ANH, Model.ANH, new { @class = "col-xs-12 col-sm-12", @placeholder = "Mô tả" })*@
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(m => m.LIST_ANH) </label>
+                    @Html.HiddenFor(m => m.LIST_ANH)
+                    <div class="col-sm-10">
+                        <input type="file" id="file-att-list" name="file-att-list" multiple >
+                        @if (fileNameList != null)
+                        {
+                            foreach (var item in fileNameList)
+                            {
+                                <img id="img-rev-list" width="100" height="100" src="@Url.Content(item.url)" alt="@item.name" />
+                            }
+                        }
+
+                        @*@Html.TextBoxFor(m => m.ANH, Model.ANH, new { @class = "col-xs-12 col-sm-12", @placeholder = "Mô tả" })*@
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(m => m.ACTIVE) </label>
                     <div class="col-sm-10">
                         @Html.CheckBoxFor(m => m.ACTIVE, new { @class = "checkbox-inline" })
@@ -35,7 +81,7 @@
                 <header class="widget__header">
                     <div class="widget__title">
                         <i class="pe-7s-menu"></i>
-                        <h3>PARAMETER SEO</h3>
+                        <h3>Từ khóa SEO</h3>
                     </div>
                 </header>
 
@@ -120,4 +166,16 @@
 
         };
     });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#img-rev')
+                  .attr('src', e.target.result)
+                  .width(100)
+                  .height(100).show();
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 </script>

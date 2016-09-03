@@ -42,7 +42,7 @@
                                     <div class="media">
                                         <figure class="pull-left post__img">
                                             <a href="@Url.Action("Edit", "Banner", new BannerModel {BANNER_ID = item.BANNER_ID})">
-                                                @if (item.BANNER_FILE != null && item.BANNER_FILE != "")
+                                                @if (!string.IsNullOrEmpty(item.BANNER_FILE))
                                                 {
                                                     <img class="media-object" style="width: 50px; height: 50px" src="@Url.Content(item.BANNER_FILE)">
                                                 }

@@ -90,7 +90,8 @@ namespace KoK_Source.Com
             item.ACTIVE = model.ACTIVE;
             _kokDataEntities.KOK_PRODUCTS.Add(item);
             _kokDataEntities.SaveChanges();
-            return _kokDataEntities.KOK_PRODUCTS.Find(item).NEWS_ID.ToString();
+            string id = item.NEWS_ID.ToString();
+            return id;
         }
         public void UpdateProducts(ProductsModel model)
         {

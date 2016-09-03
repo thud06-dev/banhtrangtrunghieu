@@ -1,8 +1,9 @@
 ﻿@model KoK_Source.Models.Products.ProductsModel
 @using KoK_Source.Models.File;
-@{ 
+@{
     ViewBag.Title = "Chi tiết sản phẩm";
     List<FileModel> fileNameList;
+
     if (!String.IsNullOrEmpty(Model.LIST_ANH))
     {
         /*convert FILI_LINK là json thành list file name*/
@@ -11,6 +12,16 @@
     else
     {
         fileNameList = null;
+    }
+    List<FileModel> fileAvatar;
+    if (!String.IsNullOrEmpty(Model.ANH))
+    {
+        /*convert FILI_LINK là json thành list file name*/
+        fileAvatar = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<List<FileModel>>(Model.ANH);
+    }
+    else
+    {
+        fileAvatar = null;
     }
 }
 @using (Html.BeginForm("SaveData", "Products", FormMethod.Post, new { @id = "myFormEdit", @enctype = "multipart/form-data", @class = "form-horizontal" }))
@@ -40,16 +51,49 @@
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(m => m.ANH) </label>
-                    @Html.HiddenFor(m=>m.ANH)
+                    @Html.HiddenFor(m => m.ANH)
                     <div class="col-sm-10">
                         <input type="file" id="file-att" name="file-att" onchange="readURL(this);">
-                        @if (!string.IsNullOrEmpty(Model.ANH))
+                        @if (fileAvatar!=null)
                         {
-                            <img id="img-rev" width="100" height="100" src="@Url.Content(Model.ANH)" alt="your image" />
+                            foreach (var item in fileAvatar)
+                            {
+                            <div class="col-sm-3 picture_item">
+                                <span class="profile-picture">
+                                    <div class="editable-input editable-image">
+                                        <span>
+                                            <label class="ace-file-input ace-file-multiple" style="width: 150px;">
+                                                <span class="ace-file-container hide-placeholder selected">
+                                                    <span class="ace-file-name large" data-title="@item.name">
+                                                        <img id="img-rev" width="100" height="100" src="@Url.Content(item.url)" alt="@item.name" />
+                                                        <i class="ace-icon fa fa-picture-o file-image"></i>
+                                                    </span>
+                                                </span>
+                                            </label>
+                                        </span>
+                                    </div>
+                                </span>
+                            </div>
+                            }
                         }
                         else
                         {
-                            <img id="img-rev" width="100" height="100" src="#" style="display:none" alt="your image" />
+                            <div class="col-sm-3 picture_item">
+                                <span class="profile-picture">
+                                    <div class="editable-input editable-image">
+                                        <span>
+                                            <label class="ace-file-input ace-file-multiple" style="width: 150px;">
+                                                <span class="ace-file-container hide-placeholder selected">
+                                                    <span class="ace-file-name large" data-title="avata">
+                                                        <img id="img-rev" width="100" height="100" src="#" alt="" />
+                                                        <i class="ace-icon fa fa-picture-o file-image"></i>
+                                                    </span>
+                                                </span>
+                                            </label>
+                                        </span>
+                                    </div>
+                                </span>
+                            </div>
                         }
 
                         @*@Html.TextBoxFor(m => m.ANH, Model.ANH, new { @class = "col-xs-12 col-sm-12", @placeholder = "Mô tả" })*@
@@ -59,16 +103,34 @@
                     <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(m => m.LIST_ANH) </label>
                     @Html.HiddenFor(m => m.LIST_ANH)
                     <div class="col-sm-10">
-                        <input type="file" id="file-att-list" name="file-att-list" multiple >
-                        @if (fileNameList != null)
-                        {
-                            foreach (var item in fileNameList)
+                        <input type="file" id="file-att-list" name="file-att-list" multiple>
+                        <div class="form-group">
+                            @if (fileNameList != null)
                             {
-                                <img id="img-rev-list" width="100" height="100" src="@Url.Content(item.url)" alt="@item.name" />
+                                foreach (var item in fileNameList)
+                                {
+                                    <div class="col-sm-3 picture_item">
+                                        <span class="profile-picture">
+                                            <div class="editable-input editable-image">
+                                                <span>
+                                                    <label class="ace-file-input ace-file-multiple" style="width: 150px;">
+                                                        <span class="ace-file-container hide-placeholder selected">
+                                                            <span class="ace-file-name large" data-title="@item.name">
+                                                                <img width="100" height="100" src="@Url.Content(item.url)" alt="@item.name" />
+                                                                <i class="ace-icon fa fa-picture-o file-image"></i>
+                                                            </span>
+                                                        </span>
+                                                        <a class="remove"  onclick="deleteFile(this,'@item.name','@Model.NEWS_ID')">
+                                                            <i class="ace-icon fa fa-times"></i>
+                                                        </a>
+                                                    </label>
+                                                </span>
+                                            </div>
+                                        </span>
+                                    </div>
+                                }
                             }
-                        }
-
-                        @*@Html.TextBoxFor(m => m.ANH, Model.ANH, new { @class = "col-xs-12 col-sm-12", @placeholder = "Mô tả" })*@
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -125,9 +187,10 @@
         </div>
     </div>
 }
+<input id="UrlAjaxDeleteFile" type="hidden" data-request-url="@Url.Action("DeleteFile","Products")" />
 <script>
-// Replace the <textarea id="editor1"> with a CKEditor
-// instance, using default configuration.
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
     CKEDITOR.replace('POST_HTML', {
         language: 'vi',
         height: 500,
@@ -177,5 +240,18 @@
             };
             reader.readAsDataURL(input.files[0]);
         }
+    }
+    function deleteFile(thisme, fileName, id) {
+        $.ajax({
+            url: $('#UrlAjaxDeleteFile').data('request-url'),
+            type: 'POST',
+            dataType: 'json',
+            data: { fileName: fileName, id: id },
+            success: function (data){ 
+                //alert('1');
+                console.log($(thisme).closest('.picture_item'));
+                $(thisme).closest('.picture_item').remove();
+            },
+        });
     }
 </script>

@@ -45,20 +45,39 @@ namespace KoK_Source.Controllers
                 return new EmptyResult();
             }
         }
+        /// <summary>
+        /// Save database from view Edit Product
+        /// </summary>
+        /// <param name="model"></param>
+        /// author ="Lâm"
+        /// <returns></returns>
         [HttpPost]
         public ActionResult SaveData(ProductsModel model)
         {
             try
             {
+                //get file danh sách ảnh
 
+                List<FileModel> lsFile = new List<FileModel>();
+                List<FileModel> lsFileAvata = new List<FileModel>();
                 if (!string.IsNullOrEmpty(model.NEWS_ID))
                 {
                     _productsCom.UpdateProducts(model);
+                    //get old list anh
+                    if (!String.IsNullOrEmpty(model.LIST_ANH))
+                    {
+                        var lsFileName = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<List<FileModel>>(model.LIST_ANH);
+                        foreach (var item in lsFileName)
+                        {
+                            lsFile.Add(new FileModel { name = item.name, url = item.url });
+                        }
+                    }
                 }
                 else
                 {
                     model.NEWS_ID = _productsCom.CreateProducts(model);
                 }
+                
                 if (Request.Files.Count > 0)
                 {
                     //Save list image to database and folder data
@@ -72,11 +91,15 @@ namespace KoK_Source.Controllers
                     //get file ảnh đại diện
                     if (Request.Files["file-att"].ContentLength > 0)
                     {
-                        model.ANH = "~/data/img/products/" + model.NEWS_ID + "/" + Request.Files["file-att"].FileName;
+                        string urlAvatar = "~/data/img/products/" + model.NEWS_ID + "/" + Request.Files["file-att"].FileName;
+                        if (System.IO.File.Exists(urlAvatar))
+                        {
+                            System.IO.File.Delete(urlAvatar);
+                        }
+                        lsFileAvata.Add(new FileModel { name = Request.Files["file-att"].FileName, url = urlAvatar });
+                        model.ANH = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(lsFileAvata); ;
                     }
-                    //get file danh sách ảnh
-
-                    List<FileModel> lsFile = new List<FileModel>();
+                    
                     //save list file
                     for (int i = 0; i < Request.Files.Count; i++)
                     {
@@ -151,6 +174,42 @@ namespace KoK_Source.Controllers
                 });
             }
             catch (Exception ex)
+            {
+                return Json(new
+                {
+                    returnCode = 0
+                });
+            }
+        }
+        public ActionResult DeleteFile(string fileName,string id)
+        {
+            try {
+                string fullPath = Server.MapPath("~/data/img/products/" + id + "/" + fileName);
+                if (System.IO.File.Exists(fullPath))
+                {
+                    System.IO.File.Delete(fullPath);
+
+                }
+                ProductsModel model = _productsCom.GetProductsByID(int.Parse(id));
+                var lsFileName = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<List<FileModel>>(model.LIST_ANH);
+                List<FileModel> lsName = new List<FileModel>();
+                foreach (var item in lsFileName)
+                {
+                    if (item.name.Trim() != fileName.Trim())
+                    {
+                        lsName.Add(new FileModel { name = item.name, url = item.url });
+                    }
+                }
+
+                string jsonString = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(lsName);
+                model.LIST_ANH = jsonString;
+                _productsCom.UpdateProducts(model);
+                return Json(new
+                {
+                    returnCode = 1
+                });
+            }
+            catch(Exception ex)
             {
                 return Json(new
                 {

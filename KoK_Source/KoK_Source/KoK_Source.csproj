@@ -136,18 +136,22 @@
     <Compile Include="Com\Default.cs" />
     <Compile Include="Com\MenuCom.cs" />
     <Compile Include="Com\PostCom.cs" />
+    <Compile Include="Com\ProductsCom.cs" />
     <Compile Include="Controllers\BannerController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\MENUsController.cs" />
     <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Banner\BannerModel.cs" />
+    <Compile Include="Models\File\FileModel.cs" />
     <Compile Include="Models\Menu\MenuModels.cs" />
     <Compile Include="Models\Post\PostModel.cs" />
+    <Compile Include="Models\Products\ProductsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -399,6 +403,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\kok_source\BannerEdit.js" />
     <Content Include="Scripts\kok_source\BannerInfo.js" />
+    <Content Include="Scripts\kok_source\kok.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -436,6 +441,8 @@
     <Content Include="Views\Post\Index.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\Post\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

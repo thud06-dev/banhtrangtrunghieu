@@ -78,6 +78,9 @@
     <Compile Include="KOK_NEWS_IMAGE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="KOK_PRODUCTS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="MENU.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

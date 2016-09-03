@@ -157,6 +157,7 @@
     <EntitySetMapping Name="KOK_NEWS">
       <EntityTypeMapping TypeName="KOK_DATAModel.KOK_NEWS">
         <MappingFragment StoreEntitySet="KOK_NEWS">
+          <ScalarProperty Name="POST_HTML" ColumnName="POST_HTML" />
           <ScalarProperty Name="NEWS_ID" ColumnName="NEWS_ID" />
           <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
           <ScalarProperty Name="NEWS_CODE" ColumnName="NEWS_CODE" />
@@ -318,5 +319,67 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="KOK_DATAModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="KOK_DATAModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="KOK_PRODUCTS">
+      <EntityTypeMapping TypeName="KOK_DATAModel.KOK_PRODUCTS">
+        <MappingFragment StoreEntitySet="KOK_PRODUCTS">
+          <ScalarProperty Name="LIST_ANH" ColumnName="LIST_ANH" />
+          <ScalarProperty Name="ANH" ColumnName="ANH" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="BAO_QUAN" ColumnName="BAO_QUAN" />
+          <ScalarProperty Name="THANH_PHAN" ColumnName="THANH_PHAN" />
+          <ScalarProperty Name="GIA" ColumnName="GIA" />
+          <ScalarProperty Name="POST_HTML" ColumnName="POST_HTML" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+          <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+          <ScalarProperty Name="NEWS_VIDEO_URL" ColumnName="NEWS_VIDEO_URL" />
+          <ScalarProperty Name="NEWS_KEYWORD_ASCII" ColumnName="NEWS_KEYWORD_ASCII" />
+          <ScalarProperty Name="NEWS_PACKAGE" ColumnName="NEWS_PACKAGE" />
+          <ScalarProperty Name="UNIT_ID3" ColumnName="UNIT_ID3" />
+          <ScalarProperty Name="UNIT_ID2" ColumnName="UNIT_ID2" />
+          <ScalarProperty Name="UNIT_ID1" ColumnName="UNIT_ID1" />
+          <ScalarProperty Name="NEWS_PRICE3" ColumnName="NEWS_PRICE3" />
+          <ScalarProperty Name="NEWS_PRICE2" ColumnName="NEWS_PRICE2" />
+          <ScalarProperty Name="NEWS_PRICE1" ColumnName="NEWS_PRICE1" />
+          <ScalarProperty Name="NEWS_SENDDATE" ColumnName="NEWS_SENDDATE" />
+          <ScalarProperty Name="NEWS_SENDEMAIL" ColumnName="NEWS_SENDEMAIL" />
+          <ScalarProperty Name="NEWS_FIELD5" ColumnName="NEWS_FIELD5" />
+          <ScalarProperty Name="NEWS_FIELD4" ColumnName="NEWS_FIELD4" />
+          <ScalarProperty Name="NEWS_FIELD3" ColumnName="NEWS_FIELD3" />
+          <ScalarProperty Name="NEWS_FIELD2" ColumnName="NEWS_FIELD2" />
+          <ScalarProperty Name="NEWS_FIELD1" ColumnName="NEWS_FIELD1" />
+          <ScalarProperty Name="NEWS_IMAGE5" ColumnName="NEWS_IMAGE5" />
+          <ScalarProperty Name="NEWS_IMAGE4" ColumnName="NEWS_IMAGE4" />
+          <ScalarProperty Name="NEWS_IMAGE3" ColumnName="NEWS_IMAGE3" />
+          <ScalarProperty Name="NEWS_IMAGE2" ColumnName="NEWS_IMAGE2" />
+          <ScalarProperty Name="NEWS_IMAGE1" ColumnName="NEWS_IMAGE1" />
+          <ScalarProperty Name="NEWS_ORDER" ColumnName="NEWS_ORDER" />
+          <ScalarProperty Name="NEWS_ORDER_PERIOD" ColumnName="NEWS_ORDER_PERIOD" />
+          <ScalarProperty Name="NEWS_PERIOD" ColumnName="NEWS_PERIOD" />
+          <ScalarProperty Name="NEWS_COUNT" ColumnName="NEWS_COUNT" />
+          <ScalarProperty Name="NEWS_PRINTTYPE" ColumnName="NEWS_PRINTTYPE" />
+          <ScalarProperty Name="NEWS_LANGUAGE" ColumnName="NEWS_LANGUAGE" />
+          <ScalarProperty Name="NEWS_TYPE" ColumnName="NEWS_TYPE" />
+          <ScalarProperty Name="NEWS_FEEDBACKTYPE" ColumnName="NEWS_FEEDBACKTYPE" />
+          <ScalarProperty Name="NEWS_SHOWINDETAIL" ColumnName="NEWS_SHOWINDETAIL" />
+          <ScalarProperty Name="NEWS_SHOWTYPE" ColumnName="NEWS_SHOWTYPE" />
+          <ScalarProperty Name="NEWS_TARGET" ColumnName="NEWS_TARGET" />
+          <ScalarProperty Name="NEWS_URL" ColumnName="NEWS_URL" />
+          <ScalarProperty Name="NEWS_PUBLISHDATE" ColumnName="NEWS_PUBLISHDATE" />
+          <ScalarProperty Name="NEWS_FILEHTML" ColumnName="NEWS_FILEHTML" />
+          <ScalarProperty Name="NEWS_SEO_TITLE" ColumnName="NEWS_SEO_TITLE" />
+          <ScalarProperty Name="NEWS_SEO_URL" ColumnName="NEWS_SEO_URL" />
+          <ScalarProperty Name="NEWS_SEO_DESC" ColumnName="NEWS_SEO_DESC" />
+          <ScalarProperty Name="NEWS_SEO_KEYWORD" ColumnName="NEWS_SEO_KEYWORD" />
+          <ScalarProperty Name="NEWS_DESC" ColumnName="NEWS_DESC" />
+          <ScalarProperty Name="NEWS_TITLE" ColumnName="NEWS_TITLE" />
+          <ScalarProperty Name="NEWS_CODE" ColumnName="NEWS_CODE" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="NEWS_ID" ColumnName="NEWS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -39,6 +39,7 @@ namespace KOKService
         public virtual DbSet<KOK_NEWS_IMAGE> KOK_NEWS_IMAGE { get; set; }
         public virtual DbSet<MENU> MENU { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<KOK_PRODUCTS> KOK_PRODUCTS { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

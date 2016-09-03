@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4f61d78d043d4d21b9774034d98487f6" Name="Diagram1" ZoomLevel="35">
+      <Diagram DiagramId="4f61d78d043d4d21b9774034d98487f6" Name="Diagram1" ZoomLevel="39">
         <EntityTypeShape EntityType="KOK_DATAModel.GROUP_MENU" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KOK_DATAModel.KOK_BANNER" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KOK_DATAModel.KOK_CATEGORIES" Width="1.5" PointX="3.75" PointY="17.625" IsExpanded="true" />
@@ -21,6 +21,8 @@
         <AssociationConnector Association="KOK_DATAModel.FK_KOK_NEWS_ATT_KOK_NEWS" ManuallyRouted="false" />
         <AssociationConnector Association="KOK_DATAModel.FK_KOK_NEWS_CAT_KOK_NEWS" ManuallyRouted="false" />
         <AssociationConnector Association="KOK_DATAModel.FK_KOK_NEWS_IMAGE_KOK_NEWS" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="KOK_DATAModel.KOK_PRODUCTS" Width="1.5" PointX="11.375" PointY="10.375" />
+        <AssociationConnector Association="KOK_DATAModel.FK_KOK_NEWS_CAT_KOK_PRODUCTS" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

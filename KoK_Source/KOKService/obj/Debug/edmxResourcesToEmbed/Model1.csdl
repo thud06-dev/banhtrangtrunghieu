@@ -31,7 +31,7 @@
     <Property Name="BANNER_FIELD3" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
     <Property Name="BANNER_FIELD4" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
     <Property Name="BANNER_FIELD5" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
-    <Property Name="ACTIVE" Type="Boolean" />
+    <Property Name="ACTIVE" Type="Boolean" Nullable="false" />
     <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
     <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
     <Property Name="CREATE_USER" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
@@ -205,6 +205,7 @@
     <NavigationProperty Name="KOK_NEWS_ATT" Relationship="Self.FK_KOK_NEWS_ATT_KOK_NEWS" FromRole="KOK_NEWS" ToRole="KOK_NEWS_ATT" />
     <NavigationProperty Name="KOK_NEWS_CAT" Relationship="Self.FK_KOK_NEWS_CAT_KOK_NEWS" FromRole="KOK_NEWS" ToRole="KOK_NEWS_CAT" />
     <NavigationProperty Name="KOK_NEWS_IMAGE" Relationship="Self.FK_KOK_NEWS_IMAGE_KOK_NEWS" FromRole="KOK_NEWS" ToRole="KOK_NEWS_IMAGE" />
+    <Property Name="POST_HTML" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="KOK_NEWS_ATT">
     <Key>
@@ -243,6 +244,7 @@
     <Property Name="UPDATE_USER" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="KOK_CATEGORIES" Relationship="Self.FK_KOK_NEWS_CAT_KOK_CATEGORIES" FromRole="KOK_NEWS_CAT" ToRole="KOK_CATEGORIES" />
     <NavigationProperty Name="KOK_NEWS" Relationship="Self.FK_KOK_NEWS_CAT_KOK_NEWS" FromRole="KOK_NEWS_CAT" ToRole="KOK_NEWS" />
+    <NavigationProperty Name="KOK_PRODUCTS" Relationship="KOK_DATAModel.FK_KOK_NEWS_CAT_KOK_PRODUCTS" FromRole="KOK_NEWS_CAT" ToRole="KOK_PRODUCTS" />
   </EntityType>
   <EntityType Name="KOK_NEWS_IMAGE">
     <Key>
@@ -404,6 +406,11 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="KOK_PRODUCTS" EntityType="KOK_DATAModel.KOK_PRODUCTS" />
+    <AssociationSet Name="FK_KOK_NEWS_CAT_KOK_PRODUCTS" Association="KOK_DATAModel.FK_KOK_NEWS_CAT_KOK_PRODUCTS">
+      <End Role="KOK_PRODUCTS" EntitySet="KOK_PRODUCTS" />
+      <End Role="KOK_NEWS_CAT" EntitySet="KOK_NEWS_CAT" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -416,4 +423,78 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="KOK_PRODUCTS">
+    <Key>
+      <PropertyRef Name="NEWS_ID" />
+    </Key>
+    <Property Name="NEWS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USER_ID" Type="Int32" />
+    <Property Name="NEWS_CODE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_TITLE" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_DESC" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_SEO_KEYWORD" Type="String" MaxLength="700" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_SEO_DESC" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_SEO_URL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_SEO_TITLE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_FILEHTML" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_PUBLISHDATE" Type="DateTime" Precision="3" />
+    <Property Name="NEWS_URL" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_TARGET" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_SHOWTYPE" Type="Int32" />
+    <Property Name="NEWS_SHOWINDETAIL" Type="Int32" />
+    <Property Name="NEWS_FEEDBACKTYPE" Type="Int32" />
+    <Property Name="NEWS_TYPE" Type="Int32" />
+    <Property Name="NEWS_LANGUAGE" Type="Int32" />
+    <Property Name="NEWS_PRINTTYPE" Type="Int32" />
+    <Property Name="NEWS_COUNT" Type="Int32" />
+    <Property Name="NEWS_PERIOD" Type="Int32" />
+    <Property Name="NEWS_ORDER_PERIOD" Type="Int32" />
+    <Property Name="NEWS_ORDER" Type="Int32" />
+    <Property Name="NEWS_IMAGE1" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_IMAGE2" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_IMAGE3" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_IMAGE4" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_IMAGE5" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_FIELD1" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_FIELD2" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_FIELD3" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_FIELD4" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_FIELD5" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_SENDEMAIL" Type="Int32" />
+    <Property Name="NEWS_SENDDATE" Type="DateTime" Precision="3" />
+    <Property Name="NEWS_PRICE1" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="NEWS_PRICE2" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="NEWS_PRICE3" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="UNIT_ID1" Type="Int32" />
+    <Property Name="UNIT_ID2" Type="Int32" />
+    <Property Name="UNIT_ID3" Type="Int32" />
+    <Property Name="NEWS_PACKAGE" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NEWS_KEYWORD_ASCII" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="NEWS_VIDEO_URL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ACTIVE" Type="Boolean" />
+    <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="CREATE_USER" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="UPDATE_USER" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="POST_HTML" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KOK_NEWS_CAT" Relationship="KOK_DATAModel.FK_KOK_NEWS_CAT_KOK_PRODUCTS" FromRole="KOK_PRODUCTS" ToRole="KOK_NEWS_CAT" />
+    <Property Name="GIA" Type="Double" />
+    <Property Name="THANH_PHAN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="BAO_QUAN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NOTE" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LIST_ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_KOK_NEWS_CAT_KOK_PRODUCTS">
+    <End Type="KOK_DATAModel.KOK_PRODUCTS" Role="KOK_PRODUCTS" Multiplicity="0..1" />
+    <End Type="KOK_DATAModel.KOK_NEWS_CAT" Role="KOK_NEWS_CAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KOK_PRODUCTS">
+        <PropertyRef Name="NEWS_ID" />
+      </Principal>
+      <Dependent Role="KOK_NEWS_CAT">
+        <PropertyRef Name="NEWS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

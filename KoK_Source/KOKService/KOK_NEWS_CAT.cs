@@ -25,5 +25,6 @@ namespace KOKService
     
         public virtual KOK_CATEGORIES KOK_CATEGORIES { get; set; }
         public virtual KOK_NEWS KOK_NEWS { get; set; }
+        public virtual KOK_PRODUCTS KOK_PRODUCTS { get; set; }
     }
 }

@@ -69,6 +69,12 @@ namespace KOKService
         public string CREATE_USER { get; set; }
         public string UPDATE_USER { get; set; }
         public string POST_HTML { get; set; }
+        public Nullable<double> GIA { get; set; }
+        public string THANH_PHAN { get; set; }
+        public string BAO_QUAN { get; set; }
+        public string NOTE { get; set; }
+        public string ANH { get; set; }
+        public string LIST_ANH { get; set; }
     
         public virtual ICollection<KOK_NEWS_CAT> KOK_NEWS_CAT { get; set; }
     }

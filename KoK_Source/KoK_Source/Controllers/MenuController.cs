@@ -216,40 +216,12 @@ namespace KoK_Source.Controllers
                 pos++;
                 if (item["children"] != null)
                 {
-                    obj = listmenu.Where(t => t.Id == item["children"].First["id"].ToString()).ToList();
-                    obj[0].MenuRank = "2";
-                    obj[0].MenuOrder = pos.ToString();
-                    obj[0].MenuParentId = (item["id"].ToString());
-                    dbCategorys = new KOK_CATEGORIES
+                    foreach (var childItem1 in item["children"])
                     {
-                        CAT_ID = Int32.Parse(obj[0].Id),
-                        CAT_NAME = obj[0].MenuName,
-                        CAT_URL = obj[0].MenuLink,
-                        CAT_RANK = int.Parse(obj[0].MenuRank),
-                        CAT_PARENT_ID = int.Parse(obj[0].MenuParentId),
-                        CAT_ORDER = obj[0].MenuOrder == null ? 1 : int.Parse(obj[0].MenuOrder),
-                        ACTIVE = obj[0].Active,
-                        CREATE_USER = obj[0].CreateUser,
-                        CREATE_DATE = DateTime.Now,
-                        UPDATE_USER = obj[0].UpdateUser,
-                        UPDATE_DATE = DateTime.Now
-                    };
-                    try
-                    {
-                        db.Entry(dbCategorys).State = EntityState.Modified;
-                        db.SaveChanges();
-                    }
-                    catch (Exception ec)
-                    {
-                        Console.WriteLine(ec.Message);
-                    }
-                    pos++;
-                    if (item["children"].First["children"] != null)
-                    {
-                        obj = listmenu.Where(t => t.Id == item["children"].First["children"].First["id"].ToString()).ToList();
-                        obj[0].MenuRank = "3";
+                        obj = listmenu.Where(t => t.Id == childItem1["id"].ToString()).ToList();
+                        obj[0].MenuRank = "2";
                         obj[0].MenuOrder = pos.ToString();
-                        obj[0].MenuParentId = item["children"].First["id"].ToString();
+                        obj[0].MenuParentId = (item["id"].ToString());
                         dbCategorys = new KOK_CATEGORIES
                         {
                             CAT_ID = Int32.Parse(obj[0].Id),
@@ -274,7 +246,43 @@ namespace KoK_Source.Controllers
                             Console.WriteLine(ec.Message);
                         }
                         pos++;
+                        if (childItem1["children"] != null)
+                        {
+                            foreach (var childitem2 in childItem1["children"])
+                            {
+                                obj = listmenu.Where(t => t.Id == childitem2["id"].ToString()).ToList();
+                                obj[0].MenuRank = "3";
+                                obj[0].MenuOrder = pos.ToString();
+                                obj[0].MenuParentId = childItem1["id"].ToString();
+                                dbCategorys = new KOK_CATEGORIES
+                                {
+                                    CAT_ID = Int32.Parse(obj[0].Id),
+                                    CAT_NAME = obj[0].MenuName,
+                                    CAT_URL = obj[0].MenuLink,
+                                    CAT_RANK = int.Parse(obj[0].MenuRank),
+                                    CAT_PARENT_ID = int.Parse(obj[0].MenuParentId),
+                                    CAT_ORDER = obj[0].MenuOrder == null ? 1 : int.Parse(obj[0].MenuOrder),
+                                    ACTIVE = obj[0].Active,
+                                    CREATE_USER = obj[0].CreateUser,
+                                    CREATE_DATE = DateTime.Now,
+                                    UPDATE_USER = obj[0].UpdateUser,
+                                    UPDATE_DATE = DateTime.Now
+                                };
+                                try
+                                {
+                                    db.Entry(dbCategorys).State = EntityState.Modified;
+                                    db.SaveChanges();
+                                }
+                                catch (Exception ec)
+                                {
+                                    Console.WriteLine(ec.Message);
+                                }
+                                pos++;
+                            }
+                        }
                     }
+                        
+                    
                 }
             }
         }

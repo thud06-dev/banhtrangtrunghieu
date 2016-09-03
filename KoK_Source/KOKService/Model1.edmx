@@ -207,6 +207,7 @@
           <Property Name="CREATE_USER" Type="nvarchar" MaxLength="400" />
           <Property Name="UPDATE_USER" Type="nvarchar" MaxLength="400" />
           <Property Name="POST_HTML" Type="nvarchar(max)" />
+          <Property Name="ANH" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="KOK_NEWS_ATT">
           <Key>
@@ -376,20 +377,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_KOK_NEWS_CAT_KOK_NEWS">
-          <End Role="KOK_NEWS" Type="Self.KOK_NEWS" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="KOK_NEWS_CAT" Type="Self.KOK_NEWS_CAT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="KOK_NEWS">
-              <PropertyRef Name="NEWS_ID" />
-            </Principal>
-            <Dependent Role="KOK_NEWS_CAT">
-              <PropertyRef Name="NEWS_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_KOK_NEWS_CAT_KOK_PRODUCTS">
           <End Role="KOK_PRODUCTS" Type="Self.KOK_PRODUCTS" Multiplicity="0..1" />
           <End Role="KOK_NEWS_CAT" Type="Self.KOK_NEWS_CAT" Multiplicity="*" />
@@ -467,10 +454,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_KOK_NEWS_CAT_KOK_CATEGORIES" Association="Self.FK_KOK_NEWS_CAT_KOK_CATEGORIES">
             <End Role="KOK_CATEGORIES" EntitySet="KOK_CATEGORIES" />
-            <End Role="KOK_NEWS_CAT" EntitySet="KOK_NEWS_CAT" />
-          </AssociationSet>
-          <AssociationSet Name="FK_KOK_NEWS_CAT_KOK_NEWS" Association="Self.FK_KOK_NEWS_CAT_KOK_NEWS">
-            <End Role="KOK_NEWS" EntitySet="KOK_NEWS" />
             <End Role="KOK_NEWS_CAT" EntitySet="KOK_NEWS_CAT" />
           </AssociationSet>
           <AssociationSet Name="FK_KOK_NEWS_CAT_KOK_PRODUCTS" Association="Self.FK_KOK_NEWS_CAT_KOK_PRODUCTS">
@@ -692,6 +675,7 @@
           <NavigationProperty Name="KOK_NEWS_CAT" Relationship="Self.FK_KOK_NEWS_CAT_KOK_NEWS" FromRole="KOK_NEWS" ToRole="KOK_NEWS_CAT" />
           <NavigationProperty Name="KOK_NEWS_IMAGE" Relationship="Self.FK_KOK_NEWS_IMAGE_KOK_NEWS" FromRole="KOK_NEWS" ToRole="KOK_NEWS_IMAGE" />
           <Property Name="POST_HTML" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ANH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="KOK_NEWS_ATT">
           <Key>
@@ -1145,6 +1129,7 @@
           <EntitySetMapping Name="KOK_NEWS">
             <EntityTypeMapping TypeName="KOK_DATAModel.KOK_NEWS">
               <MappingFragment StoreEntitySet="KOK_NEWS">
+                <ScalarProperty Name="ANH" ColumnName="ANH" />
                 <ScalarProperty Name="POST_HTML" ColumnName="POST_HTML" />
                 <ScalarProperty Name="NEWS_ID" ColumnName="NEWS_ID" />
                 <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />

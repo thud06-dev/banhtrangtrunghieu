@@ -72,6 +72,7 @@ namespace KOKService
         public string CREATE_USER { get; set; }
         public string UPDATE_USER { get; set; }
         public string POST_HTML { get; set; }
+        public string ANH { get; set; }
     
         public virtual ICollection<KOK_NEWS_ATT> KOK_NEWS_ATT { get; set; }
         public virtual ICollection<KOK_NEWS_CAT> KOK_NEWS_CAT { get; set; }

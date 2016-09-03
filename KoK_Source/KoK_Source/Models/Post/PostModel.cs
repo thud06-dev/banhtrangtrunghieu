@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using KoK_Source.Models.Menu;
+using KoK_Source.Models.File;
 
 namespace KoK_Source.Models.Post
 {
@@ -24,7 +26,7 @@ namespace KoK_Source.Models.Post
         public int? NEWS_ORDER { get; set; }
         [AllowHtml]
         public string POST_HTML { get; set; }
-       
+        public string ANH { get; set;}
 
         public DateTime? CREATE_DATE { get; set; }
         [DisplayName("Update Date")]
@@ -33,7 +35,10 @@ namespace KoK_Source.Models.Post
         public string CREATE_USER { get; set; }
         [DisplayName("Update User")]
         public string UPDATE_USER { get; set; }
-        [DisplayName("State")]
+        [DisplayName("Ẩn")]
         public bool ACTIVE { get; set; }
+
+        public List<MenuModels> listMenu;
+        public List<FileModel> arrMenu;
     }
 }

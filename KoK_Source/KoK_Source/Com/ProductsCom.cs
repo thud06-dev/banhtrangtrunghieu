@@ -8,6 +8,7 @@ using KOKService;
 using System.Data;
 using System.Linq;
 using KoK_Source.Common;
+using KoK_Source.Models.File;
 
 namespace KoK_Source.Com
 {
@@ -18,7 +19,7 @@ namespace KoK_Source.Com
         public List<ProductsModel> GetAllProducts()
         {
             List<ProductsModel> model = new List<ProductsModel>();
-            var dt = _kokDataEntities.KOK_PRODUCTS;
+            var dt = _kokDataEntities.KOK_PRODUCTS.Where(m=>m.NEWS_TYPE == 1);
             if (dt != null)
             {
                 foreach (var item in dt)
@@ -34,6 +35,10 @@ namespace KoK_Source.Com
                     md.NEWS_SEO_KEYWORD = item.NEWS_SEO_KEYWORD;
                     md.NEWS_ORDER = item.NEWS_ORDER;
                     md.NEWS_KEYWORD_ASCII = item.NEWS_KEYWORD_ASCII;
+                    md.THANH_PHAN = item.THANH_PHAN;
+                    md.GIA = item.GIA.GetValueOrDefault();
+                    md.NOTE = item.NOTE;
+                    md.BAO_QUAN = item.BAO_QUAN;
                     md.ANH = item.ANH;
                     md.LIST_ANH = item.LIST_ANH;
                     md.CREATE_DATE = item.CREATE_DATE;
@@ -61,6 +66,10 @@ namespace KoK_Source.Com
             md.NEWS_ORDER = dt.NEWS_ORDER;
             md.NEWS_KEYWORD_ASCII = dt.NEWS_KEYWORD_ASCII;
             md.POST_HTML = dt.POST_HTML;
+            md.THANH_PHAN = dt.THANH_PHAN;
+            md.GIA = dt.GIA.GetValueOrDefault();
+            md.NOTE = dt.NOTE;
+            md.BAO_QUAN = dt.BAO_QUAN;
             md.ANH = dt.ANH;
             md.LIST_ANH = dt.LIST_ANH;
             md.CREATE_DATE = dt.CREATE_DATE;
@@ -73,6 +82,7 @@ namespace KoK_Source.Com
         public string CreateProducts(ProductsModel model)
         {
             KOK_PRODUCTS item = new KOK_PRODUCTS();
+            item.NEWS_TYPE = 1;//Sản phẩm
             item.NEWS_TITLE = model.NEWS_TITLE;
             item.NEWS_SEO_TITLE = model.NEWS_SEO_TITLE;
             item.NEWS_DESC = model.NEWS_DESC;
@@ -83,6 +93,10 @@ namespace KoK_Source.Com
             item.NEWS_ORDER = model.NEWS_ORDER;
             item.NEWS_KEYWORD_ASCII = model.NEWS_KEYWORD_ASCII;
             item.POST_HTML = model.POST_HTML;
+            item.THANH_PHAN = model.THANH_PHAN;
+            item.GIA = model.GIA;
+            item.NOTE = model.NOTE;
+            item.BAO_QUAN = model.BAO_QUAN;
             item.ANH = model.ANH;
             item.LIST_ANH = model.LIST_ANH;
             item.CREATE_DATE = model.CREATE_DATE;
@@ -107,6 +121,10 @@ namespace KoK_Source.Com
             item.NEWS_ORDER = model.NEWS_ORDER;
             item.NEWS_KEYWORD_ASCII = model.NEWS_KEYWORD_ASCII;
             item.POST_HTML = model.POST_HTML;
+            item.THANH_PHAN = model.THANH_PHAN;
+            item.GIA = model.GIA;
+            item.NOTE = model.NOTE;
+            item.BAO_QUAN = model.BAO_QUAN;
             item.ANH = model.ANH;
             item.LIST_ANH = model.LIST_ANH;
             item.UPDATE_DATE = model.UPDATE_DATE;
@@ -128,6 +146,38 @@ namespace KoK_Source.Com
             list.ACTIVE = model.ACTIVE;
             list.UPDATE_DATE = DateTime.Now;
             _kokDataEntities.SaveChanges();
+        }
+        public void CreateCatItem(string id_post, string id_menu)
+        {
+            KOK_NEWS_CAT cat = new KOK_NEWS_CAT();
+            cat.NEWS_ID = int.Parse(id_post);
+            cat.CAT_ID = int.Parse(id_menu);
+            _kokDataEntities.KOK_NEWS_CAT.Add(cat);
+            _kokDataEntities.SaveChanges();
+        }
+        public void DeleteCatItem(string id_post)
+        {
+            int p_id = int.Parse(id_post);
+            //var item = _kokDataEntities.KOK_PRODUCTS_CAT.Where(m => m.NEWS_ID == p_id);
+            _kokDataEntities.KOK_NEWS_CAT.RemoveRange(_kokDataEntities.KOK_NEWS_CAT.Where(m => m.NEWS_ID == p_id));
+            _kokDataEntities.SaveChanges();
+        }
+        public List<FileModel> getMenuOfPost(string id)
+        {
+            int p_id = int.Parse(id);
+            var data = _kokDataEntities.KOK_NEWS_CAT.Where(m => m.NEWS_ID == p_id).ToList();
+            List<FileModel> list = new List<FileModel>();
+            if (data != null)
+            {
+                foreach (var item in data)
+                {
+                    FileModel md = new FileModel();
+                    md.name = item.NEWS_ID.ToString();
+                    md.url = item.CAT_ID.ToString();
+                    list.Add(md);
+                }
+            }
+            return list;
         }
     }
 }

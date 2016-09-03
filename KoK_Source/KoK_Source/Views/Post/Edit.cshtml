@@ -1,5 +1,20 @@
-﻿@model KoK_Source.Models.Post.PostModel
+﻿@model KoK_Source.Models.Products.ProductsModel
+@using KoK_Source.Models.Products
+@using KoK_Source.Models.File
+@{
+    ViewBag.Title = "Chi tiết bài viết";
+    List<FileModel> fileAvatar;
+    if (!String.IsNullOrEmpty(Model.ANH))
+    {
+        /*convert FILI_LINK là json thành list file name*/
+        fileAvatar = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<List<FileModel>>(Model.ANH);
+    }
+    else
+    {
+        fileAvatar = null;
+    }
 
+}
 @using (Html.BeginForm("SaveData", "Post", FormMethod.Post, new { @id = "myFormEdit", @enctype = "multipart/form-data", @class = "form-horizontal" }))
 {
     <div class="form-group row">
@@ -8,7 +23,7 @@
             <header class="widget__header">
                 <div class="widget__title">
                     <i class="pe-7s-menu"></i>
-                    <h3>BÀI VIẾT</h3>
+                    <h3>@ViewBag.Title</h3>
                 </div>
             </header>
             <article class="widget widget__form">
@@ -26,6 +41,161 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(m => m.ANH) </label>
+                    @Html.HiddenFor(m => m.ANH)
+                    <div class="col-sm-10">
+                        <label class="ace-file-input">
+                            <input type="file" id="file-att" name="file-att" onchange="readURL(this);" accept='image/*'>
+                            <span class="ace-file-container" data-title="Choose">
+                                <span class="ace-file-name" data-title="No File ..."><i class="ace-icon fa fa-upload"></i></span>
+                            </span>
+                            <a class="remove" href="#"><i class="ace-icon fa fa-times"></i></a>
+                        </label>
+
+                        @if (fileAvatar != null)
+                        {
+                            foreach (var item in fileAvatar)
+                            {
+                                <div class="col-sm-3 picture_item">
+                                    <span class="profile-picture">
+                                        <div class="editable-input editable-image">
+                                            <span>
+                                                <label class="ace-file-input ace-file-multiple" style="width: 150px;">
+                                                    <span class="ace-file-container hide-placeholder selected">
+                                                        <span class="ace-file-name large" data-title="@item.name">
+                                                            <img id="img-rev" width="100" height="100" src="@Url.Content(item.url)" alt="@item.name" />
+                                                            <i class="ace-icon fa fa-picture-o file-image"></i>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                            </span>
+                                        </div>
+                                    </span>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="col-sm-3 picture_item">
+                                <span class="profile-picture">
+                                    <div class="editable-input editable-image">
+                                        <span>
+                                            <label class="ace-file-input ace-file-multiple" style="width: 150px;">
+                                                <span class="ace-file-container hide-placeholder selected">
+                                                    <span class="ace-file-name large" data-title="avata">
+                                                        <img id="img-rev" width="100" height="100" src="#" alt="" />
+                                                        <i class="ace-icon fa fa-picture-o file-image"></i>
+                                                    </span>
+                                                </span>
+                                            </label>
+                                        </span>
+                                    </div>
+                                </span>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+                <!-- start Menu list-->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right"></label>
+                    <div class="widget-box col-md-10">
+                        <div class="widget-header">
+                            <h4 class="widget-title">Menu</h4>
+
+                            <div class="widget-toolbar">
+                                <a href="#" data-action="collapse">
+                                    <i class="ace-icon fa fa-chevron-up"></i>
+                                </a>
+
+                                <a href="#" data-action="close">
+                                    <i class="ace-icon fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <div class="dd" id="nestable">
+                                            <ol class="dd-list">
+                                                @if (Model.listMenu.Count > 0)
+                                                {
+                                                foreach (var t in Model.listMenu)
+                                                {
+                                                    if (t.MenuRank == "1")
+                                                    {
+                                                        <li class="dd-item" data-id="@t.Id">
+                                                            <div class="dd-handle">
+                                                                <label>
+                                                                    <input name="form-field-checkbox" type="checkbox" @if (Model.arrMenu != null) { if (Model.arrMenu.Any(m => m.url == t.Id))
+                                                                        { @Html.Raw("checked")} } value="@t.Id" class="ace">
+                                                                    <span class="lbl">
+                                                                        @t.MenuName
+                                                                    </span>
+                                                                </label>
+                                                            </div>
+                                                            @if (Model.listMenu.Count(item => item.MenuParentId == t.Id && item.MenuRank == "2") > 0)
+                                                            {
+                                                                <ol class="dd-list">
+                                                                    @foreach (var t1 in Model.listMenu)
+                                                                    {
+                                                                        if (t1.MenuRank == "2" && t1.MenuParentId == t.Id)
+                                                                        {
+                                                                            <li class="dd-item" data-id="@t1.Id">
+                                                                                <div class="dd-handle">
+                                                                                    <label>
+                                                                                        <input name="form-field-checkbox" type="checkbox" @if (Model.arrMenu != null) { if (Model.arrMenu.Any(m => m.url == t1.Id))
+                                                                        { @Html.Raw("checked")} } value="@t1.Id" class="ace">
+                                                                                        <span class="lbl">
+                                                                                            @t1.MenuName
+                                                                                        </span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                @if (Model.listMenu.Count(item => item.MenuParentId == t1.Id && item.MenuRank == "3") > 0)
+                                                                                {
+                                                                                    <ol class="dd-list">
+                                                                                        @foreach (var t2 in Model.listMenu)
+                                                                                        {
+                                                                                            if (t2.MenuRank == "3" && t2.MenuParentId == t1.Id)
+                                                                                            {
+                                                                                                <li class="dd-item" data-id="@t2.Id">
+                                                                                                    <div class="dd-handle">
+                                                                                                        <label>
+                                                                                                            <input name="form-field-checkbox" type="checkbox" @if (Model.arrMenu != null) { if (Model.arrMenu.Any(m => m.url == t2.Id))
+                                                                        { @Html.Raw("checked")} } value="@t2.Id" class="ace">
+                                                                                                            <span class="lbl">
+                                                                                                                @t2.MenuName
+                                                                                                            </span>
+                                                                                                        </label>
+                                                                                                    </div>
+                                                                                                </li>
+                                                                                            }
+                                                                                        }
+                                                                                    </ol>
+                                                                                }
+                                                                            </li>
+                                                                        }
+                                                                    }
+                                                                </ol>
+                                                            }
+                                                        </li>
+                                                    }
+                                                }
+                                                }
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /section:plugins/input.autosize -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End menu list-->
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(m => m.ACTIVE) </label>
                     <div class="col-sm-10">
                         @Html.CheckBoxFor(m => m.ACTIVE, new { @class = "checkbox-inline" })
@@ -38,7 +208,7 @@
                         <h3>PARAMETER SEO</h3>
                     </div>
                 </header>
-                
+
                 <div class="form-group">
                     <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(m => m.NEWS_SEO_URL) </label>
                     <div class="col-sm-10">
@@ -67,7 +237,7 @@
                     @*<textarea name="post_dt" id="post_dt">@Model.POST_HTML</textarea>*@
                     @Html.TextAreaFor(m => m.POST_HTML, Model.POST_HTML)
                 </div>
-                
+
                 <div class="btn-group pull-right">
                     <button class="btn btn-sm btn-purple">
                         <i class="ace-icon fa fa-floppy-o bigger-125"></i>
@@ -79,9 +249,10 @@
         </div>
     </div>
 }
+<input id="UrlAjaxDeleteFile" type="hidden" data-request-url="@Url.Action("DeleteFile","Post")" />
 <script>
-// Replace the <textarea id="editor1"> with a CKEditor
-// instance, using default configuration.
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
     CKEDITOR.replace('POST_HTML', {
         language: 'vi',
         height: 500,
@@ -120,4 +291,29 @@
 
         };
     });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#img-rev')
+                  .attr('src', e.target.result)
+                  .width(100)
+                  .height(100).show();
+            };
+            $('.ace-file-name').attr('data-title', input.files[0].name);
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function deleteFile(thisme, fileName, id) {
+        $.ajax({
+            url: $('#UrlAjaxDeleteFile').data('request-url'),
+            type: 'POST',
+            dataType: 'json',
+            data: { fileName: fileName, id: id },
+            success: function (data) {
+                $(thisme).closest('.picture_item').remove();
+            },
+        });
+    }
+
 </script>

@@ -13,7 +13,7 @@ namespace banhtrangtrunghieu.Com
         public List<NewsModel> getListPost()
         {
             List<NewsModel> model = new List<NewsModel>();
-            var dt = _kokDataEntities.KOK_NEWS.Take(5).OrderBy(m=>m.UPDATE_DATE);
+            var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 0).Take(5).OrderBy(m=>m.UPDATE_DATE);
             if(dt != null)
             {
                 foreach(var item in dt)
@@ -29,6 +29,13 @@ namespace banhtrangtrunghieu.Com
                     md.NEWS_SEO_KEYWORD = item.NEWS_SEO_KEYWORD;
                     md.NEWS_ORDER = item.NEWS_ORDER;
                     md.NEWS_KEYWORD_ASCII = item.NEWS_KEYWORD_ASCII;
+                    md.POST_HTML = item.POST_HTML;
+                    md.THANH_PHAN = item.THANH_PHAN;
+                    md.GIA = item.GIA.GetValueOrDefault();
+                    md.NOTE = item.NOTE;
+                    md.LIST_ANH = item.LIST_ANH;
+                    md.ANH = item.ANH;
+                    md.BAO_QUAN = item.BAO_QUAN;
                     md.CREATE_DATE = item.CREATE_DATE;
                     md.UPDATE_DATE = item.UPDATE_DATE;
                     md.CREATE_USER = item.CREATE_USER;
@@ -43,7 +50,7 @@ namespace banhtrangtrunghieu.Com
         public List<ProductsModel> getListProducts()
         {
             List<ProductsModel> model = new List<ProductsModel>();
-            var dt = _kokDataEntities.KOK_NEWS.Take(9).OrderBy(m => m.UPDATE_DATE);
+            var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 1).Take(9).OrderBy(m => m.UPDATE_DATE);
             if (dt != null)
             {
                 foreach (var item in dt)
@@ -59,6 +66,13 @@ namespace banhtrangtrunghieu.Com
                     md.NEWS_SEO_KEYWORD = item.NEWS_SEO_KEYWORD;
                     md.NEWS_ORDER = item.NEWS_ORDER;
                     md.NEWS_KEYWORD_ASCII = item.NEWS_KEYWORD_ASCII;
+                    md.POST_HTML = item.POST_HTML;
+                    md.THANH_PHAN = item.THANH_PHAN;
+                    md.GIA = item.GIA.GetValueOrDefault();
+                    md.NOTE = item.NOTE;
+                    md.LIST_ANH = item.LIST_ANH;
+                    md.ANH = item.ANH;
+                    md.BAO_QUAN = item.BAO_QUAN;
                     md.CREATE_DATE = item.CREATE_DATE;
                     md.UPDATE_DATE = item.UPDATE_DATE;
                     md.CREATE_USER = item.CREATE_USER;

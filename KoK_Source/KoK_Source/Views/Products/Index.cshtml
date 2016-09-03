@@ -33,8 +33,9 @@
                         <tr>
                             <th>@Html.LabelFor(m => m.First().NEWS_TITLE)</th>
                             <th>@Html.LabelFor(m => m.First().NEWS_DESC)</th>
-                            <th>@Html.LabelFor(m => m.First().ANH)</th>
-                            <th>@Html.LabelFor(m => m.First().ACTIVE)</th>
+                            <th width="150px">@Html.LabelFor(m => m.First().ANH)</th>
+                            <th width="150px">@Html.LabelFor(m => m.First().UPDATE_DATE)</th>
+                            <th width="5%">@Html.LabelFor(m => m.First().ACTIVE)</th>
                             <th width="5%">Del</th>
                         </tr>
                     </thead>
@@ -67,6 +68,9 @@
                                             }
                                             <img width="50" height="50" src="@Url.Content(fileAvatar.FirstOrDefault().url)" />
                                         }
+                                    </td>
+                                    <td>
+                                        <p>@item.UPDATE_DATE.Value.ToShortDateString()</p>
                                     </td>
                                     <td>
                                         @if (item.ACTIVE == true)

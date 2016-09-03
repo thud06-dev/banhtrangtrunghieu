@@ -16,6 +16,7 @@ namespace KoK_Source.Controllers
     public class ProductsController : Controller
     {
         private ProductsCom _productsCom = new ProductsCom();
+        private MenuCom _menuCom = new MenuCom();
         // GET: Products
         public ActionResult Index()
         {
@@ -37,7 +38,9 @@ namespace KoK_Source.Controllers
                 if (!string.IsNullOrEmpty(model.NEWS_ID))
                 {
                     model = _productsCom.GetProductsByID(int.Parse(model.NEWS_ID));
+                    model.arrMenu = _productsCom.getMenuOfPost(model.NEWS_ID);
                 }
+                model.listMenu = _menuCom.GetAllMenu();
                 return View(model);
             }
             catch (Exception ex)
@@ -56,12 +59,14 @@ namespace KoK_Source.Controllers
         {
             try
             {
+                var test = Request.Form.GetValues("form-field-checkbox");
                 //get file danh sách ảnh
 
                 List<FileModel> lsFile = new List<FileModel>();
                 List<FileModel> lsFileAvata = new List<FileModel>();
                 if (!string.IsNullOrEmpty(model.NEWS_ID))
                 {
+                    model.UPDATE_DATE = DateTime.Now;
                     _productsCom.UpdateProducts(model);
                     //get old list anh
                     if (!String.IsNullOrEmpty(model.LIST_ANH))
@@ -75,9 +80,19 @@ namespace KoK_Source.Controllers
                 }
                 else
                 {
+                    model.CREATE_DATE = DateTime.Now;
                     model.NEWS_ID = _productsCom.CreateProducts(model);
                 }
-                
+                //delete CAT old
+                _productsCom.DeleteCatItem(model.NEWS_ID);
+                if (test != null)
+                {
+                    //Insert CAT new
+                    foreach (var p in test)
+                    {
+                        _productsCom.CreateCatItem(model.NEWS_ID, p);
+                    }
+                }
                 if (Request.Files.Count > 0)
                 {
                     //Save list image to database and folder data

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoK_Source", "KoK_Source\KoK_Source.csproj", "{679B418C-0BCD-448C-B6FF-1AA58EC5649D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KOKService", "KOKService\KOKService.csproj", "{32338435-8CBA-41A3-8B21-4065BD551740}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "banhtrangtrunghieu", "banhtrangtrunghieu\banhtrangtrunghieu.csproj", "{9831BF7B-B199-492A-A8ED-F4A68F060BAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{679B418C-0BCD-448C-B6FF-1AA58EC5649D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{679B418C-0BCD-448C-B6FF-1AA58EC5649D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{679B418C-0BCD-448C-B6FF-1AA58EC5649D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{679B418C-0BCD-448C-B6FF-1AA58EC5649D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32338435-8CBA-41A3-8B21-4065BD551740}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32338435-8CBA-41A3-8B21-4065BD551740}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32338435-8CBA-41A3-8B21-4065BD551740}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32338435-8CBA-41A3-8B21-4065BD551740}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9831BF7B-B199-492A-A8ED-F4A68F060BAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9831BF7B-B199-492A-A8ED-F4A68F060BAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9831BF7B-B199-492A-A8ED-F4A68F060BAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9831BF7B-B199-492A-A8ED-F4A68F060BAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

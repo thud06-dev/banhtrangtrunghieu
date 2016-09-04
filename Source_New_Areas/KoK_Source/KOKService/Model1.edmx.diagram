@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4f61d78d043d4d21b9774034d98487f6" Name="Diagram1" ZoomLevel="36">
+        <EntityTypeShape EntityType="KOK_DATAModel.GROUP_MENU" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KOK_DATAModel.KOK_ACCOUNT" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="KOK_DATAModel.KOK_BANNER" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KOK_DATAModel.KOK_CATEGORIES" Width="1.5" PointX="0.75" PointY="14.25" />
+        <EntityTypeShape EntityType="KOK_DATAModel.KOK_CONFIG" Width="1.5" PointX="10.75" PointY="6.75" />
+        <EntityTypeShape EntityType="KOK_DATAModel.KOK_EMAIL" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KOK_DATAModel.KOK_GROUP" Width="1.5" PointX="12.75" PointY="5.75" />
+        <EntityTypeShape EntityType="KOK_DATAModel.KOK_NEWS" Width="1.5" PointX="5.75" PointY="1.375" />
+        <EntityTypeShape EntityType="KOK_DATAModel.KOK_NEWS_ATT" Width="1.5" PointX="8" PointY="7.125" />
+        <EntityTypeShape EntityType="KOK_DATAModel.KOK_NEWS_CAT" Width="1.5" PointX="3" PointY="6" />
+        <EntityTypeShape EntityType="KOK_DATAModel.KOK_NEWS_IMAGE" Width="1.5" PointX="8" PointY="2.625" />
+        <EntityTypeShape EntityType="KOK_DATAModel.KOK_PRODUCTS" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="KOK_DATAModel.MENU" Width="1.5" PointX="7.75" PointY="12.75" />
+        <AssociationConnector Association="KOK_DATAModel.FK_KOK_NEWS_CAT_KOK_CATEGORIES" />
+        <AssociationConnector Association="KOK_DATAModel.FK_KOK_NEWS_ATT_KOK_NEWS" />
+        <AssociationConnector Association="KOK_DATAModel.FK_KOK_NEWS_IMAGE_KOK_NEWS" />
+        <AssociationConnector Association="KOK_DATAModel.FK_KOK_NEWS_CAT_KOK_PRODUCTS" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

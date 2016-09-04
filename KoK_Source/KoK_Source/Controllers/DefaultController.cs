@@ -13,7 +13,7 @@ using KoK_Source.Common;
 
 namespace KoK_Source.Controllers
 {
-    public class DefaultController : Controller
+    public class DefaultController : BaseController
     {
         // GET: Default
         public ActionResult Index()

@@ -13,7 +13,7 @@ using KoK_Source.Common;
 
 namespace KoK_Source.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductsController : BaseController
     {
         private ProductsCom _productsCom = new ProductsCom();
         private MenuCom _menuCom = new MenuCom();

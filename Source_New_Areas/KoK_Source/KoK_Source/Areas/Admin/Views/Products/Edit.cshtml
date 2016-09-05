@@ -2,6 +2,7 @@
 @using KoK_Source.Areas.Admin.Models.File;
 @{
     ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     List<FileModel> fileNameList;
 
     if (!String.IsNullOrEmpty(Model.LIST_ANH))

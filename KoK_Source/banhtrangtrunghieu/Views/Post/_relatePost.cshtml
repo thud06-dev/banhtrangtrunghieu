@@ -1,0 +1,43 @@
+﻿@model List<banhtrangtrunghieu.Models.NewsModel>
+@using banhtrangtrunghieu.Models
+
+<div class="title-news">
+    <h3><a href="">Tin Liên Quan</a></h3>
+    <!--                    <span><a href="">Xem thêm</a></span>-->
+</div>
+<br>
+<ul>
+    @if (Model.Count != 0)
+    {
+        foreach (var item in Model)
+        {
+            <li>
+                <div class="sp-img">
+                    <a href="@Url.Action("DetailPost","Post", new { id_menu = string.Empty, id_post = item.NEWS_ID})">
+                        @{
+                            List<FileModel> fileAvatar;
+                            if (!String.IsNullOrEmpty(item.ANH))
+                            {
+                                /*convert FILI_LINK là json thành list file name*/
+                                fileAvatar = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<List<FileModel>>(item.ANH);
+                                if (fileAvatar != null)
+                                {
+                                    <img class="hvr-grow" src="@Url.Content(fileAvatar.First().url)" alt="" />
+                                }
+                            }
+                            else
+                            {
+                                fileAvatar = null;
+                                <img class="hvr-grow" src="Content/_Template/img/img.jpg" alt="" />
+                            }
+                        }
+                    </a>
+                </div>
+                <h5 class="sp-name"><a href="@Url.Action("DetailPost","Post", new { id_menu = string.Empty, id_post = item.NEWS_ID})">Tin tức A</a></h5>
+                <div class="sp-price"><small><i>@item.UPDATE_DATE</i></small></div>
+                <div class="sp-detail">@item.NEWS_DESC</div>
+                <button class="sp-viewmore hvr-float-shadow">Xem thêm</button>
+            </li>
+        }
+    }
+</ul>

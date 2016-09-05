@@ -18,6 +18,7 @@ namespace banhtrangtrunghieu.Controllers
             {
                 ViewBag.Title = "Home Page";
                 HomeModel model = new HomeModel();
+
                 model.ListNews = _homeCom.getListPost();
                 model.ListProducts = _homeCom.getListProducts();
                 return View(model);

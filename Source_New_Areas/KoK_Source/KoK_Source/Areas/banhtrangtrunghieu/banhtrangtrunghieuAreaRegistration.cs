@@ -2,23 +2,28 @@
 
 namespace KoK_Source.Areas.banhtrangtrunghieu
 {
-    public class banhtrangtrunghieuAreaRegistration : AreaRegistration 
+    public class banhtrangtrunghieuAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "banhtrangtrunghieu";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "banhtrangtrunghieu_default",
                 "banhtrangtrunghieu/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            //context.MapRoute(
+            //    "banhtrangtrunghieu_default",
+            //    "{controller}/{action}/{id}", //******
+            //    new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            //);
         }
     }
 }

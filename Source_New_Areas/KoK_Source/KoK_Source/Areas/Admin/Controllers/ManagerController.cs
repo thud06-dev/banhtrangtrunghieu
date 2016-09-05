@@ -9,7 +9,7 @@ using KoK_Source.Common;
 
 namespace KoK_Source.Areas.Admin.Controllers
 {
-    public class HomeController : BaseController
+    public class ManagerController : BaseController
     {
         public ActionResult Index()
         {

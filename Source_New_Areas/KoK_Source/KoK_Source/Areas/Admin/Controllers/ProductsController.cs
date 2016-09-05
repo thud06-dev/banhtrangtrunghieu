@@ -81,6 +81,7 @@ namespace KoK_Source.Areas.Admin.Controllers
                 else
                 {
                     model.CREATE_DATE = DateTime.Now;
+                    model.UPDATE_DATE = DateTime.Now;
                     model.NEWS_ID = _productsCom.CreateProducts(model);
                 }
                 //delete CAT old

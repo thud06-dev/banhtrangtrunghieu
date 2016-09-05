@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="author" content="Thái Bá Phát">
+<meta name="description" content="Thái Bá Phát, HTML,CSS,XML,JavaScript,tbphat06.it@gmail.com">
+<meta name="keywords" content="Thái Bá Phát, HTML,CSS,XML,JavaScript">
+
+
+	<title>BÁNH TRÁNG</title>
+	<!-------jquery------->
+	<script src="js/jquery-1.11.3.min.js"></script>
+                        <script>
+                            $(function(){
+                            $(".dropdown").hover(            
+                                    function() {
+                                        $('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
+                                        $(this).toggleClass('open');
+                                        $('b', this).toggleClass("caret caret-up");                
+                                    },
+                                    function() {
+                                        $('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
+                                        $(this).toggleClass('open');
+                                        $('b', this).toggleClass("caret caret-up");                
+                                    });
+                            });
+
+                        </script>
+	<!-----scroll-mouse--->
+	<script src="js/scroll-m.js"></script>
+	<!-- RESPONSIVE MENU -->
+	<link type="text/css" rel="stylesheet" href="js/menu-responsive/jquery.mmenu.all.css" />
+    <script type="text/javascript" src="js/menu-responsive/jquery.mmenu.min.all.js"></script>
+    <script type="text/javascript" src="js/menu-responsive/index-menu-rp.js"></script>
+	<!----bootstrap------>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all"/>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="fonts/roboto-light.css" rel="stylesheet" type="text/css">
+    <!---- animate ----->
+	<link rel="stylesheet" href="css/animate.css" type="text/css" media="all"/>
+	<script src="js/wow.min.js"></script>
+	<script>
+	 new WOW().init();
+	</script>
+	<!-- FONT AWESOME -->
+	<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	<!-- HOVER -->
+	<link href="css/demo-page.css" rel="stylesheet" media="all">
+	<link href="css/hover.css" rel="stylesheet" media="all">
+	<!-- style -->
+	<link rel="stylesheet" href="style.css" type="text/css" media="all"/>
+	<link rel="stylesheet" href="responsive.css" type="text/css"/>	
+</head>
+<!---------/head--------------->
+<body class="">
+    
+<!---------header--------------->
+		<header class="header">
+            <div class="header_top container">
+                <div class="header_top-logo"><a href=""><img src="img/logo.png" alt="BÁNH TRÁNG" width="100%" /></a></div>
+                <div class="header_top-banner"><a href=""><img src="img/banner.png" alt="BANNER BÁNH TRÁNG" /></a></div>
+            </div>
+                <nav class="navbar navbar-inverse nav-mgb-0 tr_pc">
+                      <div class="container">
+                        <div class="collapse navbar-collapse nav-rela" id="navbar-collapse-3">
+                          <ul class="nav navbar-nav navbar-left">
+                            <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                            <li><a href="#">TRANG CHỦ</a></li>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">BÁNH TRÁNG XUẤT KHẨU <b class="caret"></b></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                              </ul>
+                            </li>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bánh Tráng Nội Địa<b class="caret"></b></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                              </ul>
+                            </li> 
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Đặc sản Củ Chi<b class="caret"></b></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                              </ul>
+                            </li>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Du lịch Củ Chi<b class="caret"></b></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                              </ul>
+                            </li>
+                            <li><a href="#">Liên Hệ</a></li>
+                            <li><a href="#">Giới Thiệu</a></li>
+                          </ul>
+                            <form action="" class="search-form">
+							<div class="form-group has-feedback btn-search-abs{">
+								<label for="search" class="sr-only">Tìm kiếm</label>
+								<input type="text" class="form-control" name="search" id="search" placeholder="Tìm kiếm . . .">
+								<span class="glyphicon glyphicon-search form-control-feedback"></span>
+							</div>
+						</form>
+                        </div>
+						
+                      </div>
+						
+                    </nav>
+            
+
+		</header>
+    
+						<!---------menu responsive--------------->
+					<div id="page" class="tr_mobile d_mneu_mobile">
+						<div class="header1">
+							<a href="#menu"></a>
+						</div>
+						<nav id="menu">
+							<ul>
+								<li><a href="">Trang chủ</a></li>
+								<li><a href="">Bánh Tráng Xuất Khẩu</a>
+									<ul>
+										<li><a href="">Bánh 1</a></li>
+										<li><a href="">Bánh 2</a></li>
+									</ul>
+								</li>
+								<li><a href="">Bánh Tráng Nội Địa</a>
+									<ul>
+										<li><a href="">Bánh 1</a></li>
+										<li><a href="">Bánh 2</a></li>
+									</ul>
+								</li>
+								<li><a href="">Đặc sản Củ Chi</a>
+									<ul>
+										<li><a href="">Bánh 1</a></li>
+										<li><a href="">Bánh 2</a></li>
+									</ul>
+								</li>
+								<li><a href="">Du lịch Củ Chi</a>
+									<ul>
+										<li><a href="">Bánh 1</a></li>
+										<li><a href="">Bánh 2</a></li>
+									</ul>
+								</li>
+								<li><a href="">Liên hệ</a></li>
+								<li><a href="">Giới thiệu</a></li>
+							</ul>
+							<div class="collapse nav navbar-nav nav-collapse slide-down slide-down-11" id="nav-collapse3">
+                            <form class="navbar-form navbar-right" role="search">
+                              <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Bánh tráng trộn, . . ." />
+                              </div>
+                              <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                            </form>
+                          </div>
+						</nav>
+					</div>
+        <!---------brc--------------->
+    <div class="container">
+		<div class="brc">
+			<ul class="breadcrumb">
+			  <li><a href="#">Trang Chủ</a> <span class="divider"></span></li>
+			  <li><a href="#">Sản phẩm</a> <span class="divider"></span></li>
+			  <li class="active">Bánh 1</li>
+			</ul>
+		</div>
+        <section class="contents">
+            <div class="contents_left">
+				<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+				<script type="text/JavaScript" src="http://www.professorcloud.com/js/cloud-zoom.1.0.2.js"></script>
+				<div class="test-wrapper col-md-6">
+				  <div class="main-pick">
+                        <a href='img/banner1.jpg' class = 'cloud-zoom' id='zoom1'>
+                                <img width="320" src="img/banner1.jpg" alt=''  />
+						</a>
+				  </div>
+				  <div class="block-img">
+					<a href='img/banner1.jpg' class='cloud-zoom-gallery' title='Thumbnail 1' rel="useZoom: 'zoom1', smallImage: 'img/banner1.jpg' ">
+					  <img src="img/banner1.jpg" width="80" height="80" alt="Thumbnail 123123" />
+					</a>
+					<a href='img/banner2.jpg' class='cloud-zoom-gallery' title='Thumbnail 3' rel="useZoom: 'zoom1', smallImage: 'img/banner2.jpg' ">
+					  <img src="img/banner2.jpg" width="80" height="80" alt="Thumbnail 2" />
+					</a>
+					<a href='img/slide.jpg' class='cloud-zoom-gallery' title='Thumbnail 3' rel="useZoom: 'zoom1', smallImage: 'img/slide.jpg' ">
+					  <img src="img/slide.jpg" width="80" height="80" alt="Thumbnail 3" />
+					</a>
+				  </div>
+				</div>
+				<div class="col-md-6">
+					<div class="product-title">Bánh Tráng Trung Hiếu s600-a111</div>
+					<div class="product-desc">Beatus sibi videtur esse moriens. Paupertas si malum est, mendicus beatus esse nemo potest, quamvis sit sapiens. In quibus doctissimi illi veteres inesse quiddam caeleste et divinum putaverunt.</div>
+					<div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
+					<hr>
+					<div class="product-price">$Giá: 100.000 vnđ</div>
+<!--					<div class="product-stock">In Stock</div>-->
+					<hr>
+					<div class="btn-group cart">
+						<button type="button" class="btn btn-success">
+							Đặt mua ngay 
+						</button>
+					</div>
+<!--
+					<div class="btn-group wishlist">
+						<button type="button" class="btn btn-danger">
+							Add to wishlist 
+						</button>
+					</div>
+-->
+				</div>
+                <div class="product-details-1">
+                    <ul class="nav nav-tabs">
+                      <li class="active"><a data-toggle="tab" href="#home">Chi tiết sản phẩm</a></li>
+                      <li><a data-toggle="tab" href="#menu1">Giới thiệu</a></li>
+                      <li><a data-toggle="tab" href="#menu2">Hình ảnh</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                      <div id="home" class="tab-pane fade in active">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quare obscurentur etiam haec, quae secundum naturam esse dicimus, in vita beata; At, illa, ut vobis placet, partem quandam tuetur, reliquam deserit. Cupit enim dícere nihil posse ad beatam vitam deesse sapienti. Cur igitur, inquam, res tam dissimiles eodem nomine appellas? Quae ista amicitia est? Et harum quidem rerum facilis est et expedita distinctio. Duo Reges: constructio interrete. Ita ne hoc quidem modo paria peccata sunt.</p>
+                      </div>
+                      <div id="menu1" class="tab-pane fade">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quare obscurentur etiam haec, quae secundum naturam esse dicimus, in vita beata;<br> At, illa, ut vobis placet, partem quandam tuetur, reliquam deserit. Cupit enim dícere nihil posse ad beatam vitam deesse sapienti.<br> Cur igitur, inquam, res tam dissimiles eodem nomine appellas? Quae ista amicitia est? Et harum quidem rerum facilis est et expedita distinctio.<br> Duo Reges: constructio interrete. Ita ne hoc quidem modo paria peccata sunt.</p>
+                      </div>
+                      <div id="menu2" class="tab-pane fade">
+                        <h3>Menu 2</h3>
+                        <p>Some content in menu 2.</p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contents_right">
+                <div class="title-news">
+                    <h3><a href="">Sản Phẩm HOT</a></h3>
+                    <span><a href="">Xem thêm</a></span>
+                </div>
+                <ul>
+                    <li><a href="">
+                        <div class="tit-news">Bánh Tráng loại 1.</div>    
+                        <div class="img-news"><img class="hvr-grow" src="img/img.jpg" alt="" /></div>    
+                    </a></li>
+                    <li><a href="">
+                        <div class="tit-news">Bánh Tráng loại 1</div>    
+                        <div class="img-news"><img class="hvr-grow" src="img/img.jpg" alt="" /></div>    
+                    </a></li>
+                    <li><a href="">
+                        <div class="tit-news">Bánh Tráng loại 1</div>    
+                        <div class="img-news"><img class="hvr-grow" src="img/img.jpg" alt="" /></div>    
+                    </a></li>
+                    <li><a href="">
+                        <div class="tit-news">Bánh Tráng loại 1</div>    
+                        <div class="img-news"><img class="hvr-grow" src="img/img.jpg" alt="" /></div>    
+                    </a></li>
+                    <li><a href="">
+                        <div class="tit-news">Bánh Tráng loại 1</div>    
+                        <div class="img-news"><img class="hvr-grow" src="img/img.jpg" alt="" /></div>    
+                    </a></li>
+                    <li><a href="">
+                        <div class="tit-news">Bánh Tráng loại 1</div>    
+                        <div class="img-news"><img class="hvr-grow" src="img/img.jpg" alt="" /></div>    
+                    </a></li>
+                    <li><a href="">
+                        <div class="tit-news">Bánh Tráng loại 1</div>    
+                        <div class="img-news"><img src="img/img.jpg" alt="" /></div>    
+                    </a></li>
+                </ul>
+            </div>
+            <div class="contents_lefts contents_lefts-splq">
+                <div class="title-news">
+                    <h3><a href="">Bình luận</a></h3>
+<!--                    <span><a href="">Xem thêm</a></span>-->
+                </div>
+                <br>
+            </div>    
+            <div class="contents_lefts contents_lefts-splq">
+                <div class="title-news">
+                    <h3><a href="">Sản Phẩm Liên Quan</a></h3>
+<!--                    <span><a href="">Xem thêm</a></span>-->
+                </div>
+                <br>
+                <ul>
+                    <li>
+                        <div class="sp-img"><a href=""><img class="hvr-grow" src="img/img.jpg" alt=""></a></div>
+                        <h5 class="sp-name"><a href="">Bánh tráng Trung Hiếu</a></h5>
+                        <div class="sp-price">Giá: <span>100.000 đ</span></div>
+                        <div class="sp-detail">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+                        <button class="sp-viewmore hvr-float-shadow">Mua ngay</button>
+                    </li>
+                    <li>
+                        <div class="sp-img"><a href=""><img class="hvr-grow" src="img/img.jpg" alt=""></a></div>
+                        <h5 class="sp-name"><a href="">Bánh tráng Trung Hiếu</a></h5>
+                        <div class="sp-price">Giá: <span>100.000 đ</span></div>
+                        <div class="sp-detail">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+                        <button class="sp-viewmore hvr-float-shadow">Mua ngay</button>
+                    </li>
+                    <li>
+                        <div class="sp-img"><a href=""><img class="hvr-grow" src="img/img.jpg" alt=""></a></div>
+                        <h5 class="sp-name"><a href="">Bánh tráng Trung Hiếu</a></h5>
+                        <div class="sp-price">Giá: <span>100.000 đ</span></div>
+                        <div class="sp-detail">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+                        <button class="sp-viewmore hvr-float-shadow">Mua ngay</button>
+                    </li>
+                    <li>
+                        <div class="sp-img"><a href=""><img class="hvr-grow" src="img/img.jpg" alt=""></a></div>
+                        <h5 class="sp-name"><a href="">Bánh tráng Trung Hiếu</a></h5>
+                        <div class="sp-price">Giá: <span>100.000 đ</span></div>
+                        <div class="sp-detail">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+                        <button class="sp-viewmore hvr-float-shadow">Mua ngay</button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+	</div>	
+		<!---------footer--------------->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12 footerleft ">
+        <div class="logofooter"> BÁNH TRÁNG TRUNG HIẾU</div>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
+        <p><i class="fa fa-map-pin"></i> 210, Aggarwal Tower, Rohini sec 9, New Delhi -        110085, INDIA</p>
+        <p><i class="fa fa-phone"></i> Phone (India) : +91 9999 878 398</p>
+        <p><i class="fa fa-envelope"></i> E-mail : info@webenlance.com</p>
+        
+      </div>
+      <div class="col-md-3 col-sm-6 paddingtop-bottom ft-left-tr-mb">
+        <h6 class="heading7">LIÊN KẾT</h6>
+        <ul class="footer-ul">
+          <li><a href="#"> Career</a></li>
+          <li><a href="#"> Privacy Policy</a></li>
+          <li><a href="#"> Terms & Conditions</a></li>
+          <li><a href="#"> Client Gateway</a></li>
+          <li><a href="#"> Ranking</a></li>
+          <li><a href="#"> Case Studies</a></li>
+          <li><a href="#"> Frequently Ask Questions</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-6 paddingtop-bottom ft-left-tr-mb">
+        <div class="fb-page" data-href="https://www.facebook.com/shopcongnghetienich/?fref=ts" data-tabs="timeline" data-height="300" data-small-header="false" style="margin-bottom:15px;" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+          <div class="fb-xfbml-parse-ignore">
+            <blockquote cite="https://www.facebook.com/shopcongnghetienich/?fref=ts"><a href="https://www.facebook.com/shopcongnghetienich/?fref=ts">Facebook</a></blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    		<!---------footer--------------->
+    <div class="copyright">
+  <div class="container">
+    <div class="col-md-12">
+      <p>© 2016 - All Rights ...</p>
+    </div>
+  </div>
+</div>
+</footer>
+</body>
+</html>

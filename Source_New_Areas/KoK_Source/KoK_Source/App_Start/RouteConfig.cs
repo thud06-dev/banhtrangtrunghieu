@@ -20,8 +20,7 @@ namespace KoK_Source
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "KoK_Source.Areas.banhtrangtrunghieu.Controllers" }
+                defaults: new { controller = "DefaultPage", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

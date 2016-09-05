@@ -20,10 +20,13 @@ namespace KoK_Source.Areas.banhtrangtrunghieu.Controllers
         {
             try
             {
-                NewsModel model = _postCom.detailNews(id_menu, id_post);
+                NewsModel model = new NewsModel();
+                model = _postCom.detailNews(id_menu, id_post);
+                model.ListPostsSidebar = _postCom.getListProducts(7);
+                model.ListPostsRelate = _postCom.getListProducts(4);
                 return View(model);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return new EmptyResult();
             }

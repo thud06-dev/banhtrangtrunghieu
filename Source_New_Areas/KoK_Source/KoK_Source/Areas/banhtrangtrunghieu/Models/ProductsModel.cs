@@ -9,6 +9,8 @@ namespace KoK_Source.Areas.banhtrangtrunghieu.Models
 {
     public class ProductsModel
     {
+        public List<ProductsModel> ListProductsSidebar;
+        public List<ProductsModel> ListProductsRelate;
         public string NEWS_ID { get; set; }
         [DisplayName("Tiêu đề bài viết")]
         public string NEWS_TITLE { get; set; }

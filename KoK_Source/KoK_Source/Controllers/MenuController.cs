@@ -16,7 +16,7 @@ using Newtonsoft.Json.Linq;
 
 namespace KoK_Source.Controllers
 {
-    public class MenuController : Controller
+    public class MenuController : BaseController
     {
         private KOK_DATAEntities db = new KOK_DATAEntities();
         private MenuCom _MenuCom = new MenuCom();

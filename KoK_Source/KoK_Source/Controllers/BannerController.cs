@@ -13,7 +13,7 @@ using KoK_Source.Common;
 
 namespace KoK_Source.Controllers
 {
-    public class BannerController : Controller
+    public class BannerController : BaseController
     {
         //private KOK_DATAEntities db = new KOK_DATAEntities();
         private BannerCom _bannerCom = new BannerCom();

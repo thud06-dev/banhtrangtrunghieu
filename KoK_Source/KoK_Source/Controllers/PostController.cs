@@ -13,7 +13,7 @@ using KoK_Source.Models.File;
 
 namespace KoK_Source.Controllers
 {
-    public class PostController : Controller
+    public class PostController : BaseController
     {
         private PostCom _postCom = new PostCom();
         private MenuCom _menuCom = new MenuCom();

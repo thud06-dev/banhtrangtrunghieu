@@ -1,0 +1,140 @@
+@media screen and (max-width: 1024px) {
+ .tr_mobile
+ {
+   display:block!important;
+ }
+ .tr_pc
+ {
+   display:none!important;
+ }
+.header_bot-left {
+    width: 100%;
+    float: left;
+}
+.header_bot-right {
+    width: 100%;
+    float: right;
+	margin-top:10px;
+}
+.header_bot-right img {
+    width: 50%;
+    border: 1px solid #ccc;
+    float: left;
+}
+.contents_left {
+    width: 100%;
+    float: left;
+    overflow: hidden;
+}
+.contents_left ul li {
+    float: none;
+    width: 50%;
+    margin-right: 5px;
+    height: 375px;
+    position: relative;
+    margin: 0 auto !important;
+    margin-bottom: 15px !important;
+}
+.contents_right {
+    width: 100%;
+    float: right;
+}
+.tit-news {
+    width: 70%;
+    float: right;
+}
+.img-news {
+    width: 25%;
+    float: left;
+}
+.copyright p {
+    text-align: left;
+    color: #FFF;
+    padding: 10px 15px;
+    margin-bottom: 0px;
+}
+.contents_left ul li .sp-img img {
+    width: 100%;
+    height: auto;
+}
+.contents_left ul li {
+    float: none;
+    width: 50%;
+    margin-right: 5px;
+    height: auto;
+    position: relative;
+    padding-bottom: 40px;
+    margin: 0 auto !important;
+    margin-bottom: 30px !important;
+}
+.paddingtop-bottom{
+	    padding-left: 30px;
+}
+}
+@media screen and (min-device-width: 481px) and (max-device-width: 767px) { 
+}
+
+@media only screen and (max-width: 480px){
+.header_bot-right img {
+    width: 100%;
+    border: 1px solid #ccc;
+    float: left;
+}  
+.ads_1-left,.ads_1-right {
+    width: 100%;
+    float: left;
+    padding-left: 0px;
+    margin-bottom: 10px;
+}
+.contents_left ul li {
+    float: none;
+    width: 100%;
+    margin-right: 5px;
+    height: auto;
+    position: relative;
+    margin: 0 auto !important;
+    padding-bottom: 40px;
+    margin-bottom: 15px !important;
+}
+.contents_left ul li .sp-img img {
+    width: 100%;
+    height: auto;
+}
+.contents_left ul li .sp-viewmore {
+    width: 100%;
+}	
+.ft-left-tr-mb{
+	margin-top: 50px;
+    padding: 0 36px;
+}
+.header_top-logo {
+    width: 20%;
+    float: none;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.header_top-banner {
+    width: 100%;
+    float: left;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

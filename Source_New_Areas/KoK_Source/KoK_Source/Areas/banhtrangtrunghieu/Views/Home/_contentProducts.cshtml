@@ -1,0 +1,17 @@
+﻿@model List<KoK_Source.Areas.banhtrangtrunghieu.Models.ProductsModel>
+
+<ul>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <li>
+                <div class="sp-img"><a href=""><img class="hvr-grow" src="Content/_Template/img/img.jpg" alt=""></a></div>
+                <h5 class="sp-name"><a href="">@item.NEWS_TITLE</a></h5>
+                <div class="sp-price">Giá: <span>100.000 đ</span></div>
+                <div class="sp-detail">@item.NEWS_DESC</div>
+                <button class="sp-viewmore hvr-float-shadow">Mua ngay</button>
+            </li>
+        }
+    }
+</ul>

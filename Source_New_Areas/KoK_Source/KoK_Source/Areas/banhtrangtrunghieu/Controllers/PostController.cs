@@ -12,9 +12,19 @@ namespace KoK_Source.Areas.banhtrangtrunghieu.Controllers
     {
         PostCom _postCom = new PostCom();
         // GET: Post
-        public ActionResult Index()
+        public ActionResult Index(int? id, int? pageIndex)
         {
-            return View();
+            try
+            {
+                
+                List<NewsModel> model = _postCom.getPostOfCat(id);
+                int postNumber = model.Count;
+                return View(model);
+            }
+            catch(Exception ex)
+            {
+                return Json(new { Msg = ex.Message });
+            }
         }
         public ActionResult DetailPost(string id_menu, string id_post)
         {
@@ -28,7 +38,7 @@ namespace KoK_Source.Areas.banhtrangtrunghieu.Controllers
             }
             catch (Exception ex)
             {
-                return new EmptyResult();
+                return Json(new { Msg = ex.Message });
             }
         }
     }

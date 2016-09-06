@@ -1,0 +1,139 @@
+﻿@model List<KoK_Source.Areas.Admin.Models.Banner.BannerModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="page-header">
+    <h1>
+        Gallery
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Danh sách hình ảnh
+        </small>
+    </h1>
+</div><!-- /.page-header -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="btn-group">
+            @Html.ActionLink("UPLOAD", "Edit", null, new { @class = "btn violet inverse glyphicon glyphicon-plus", @id = "btnAdd" })
+        </div>
+        <!-- PAGE CONTENT BEGINS -->
+        <div>
+            <ul class="ace-thumbnails clearfix">
+                @foreach (var item in Model)
+                {
+                    <!-- #section:pages/gallery.caption -->
+                    <li>
+                        <a href="@Url.Content(item.BANNER_FILE)" data-rel="colorbox">
+                            <img width="150" height="150" alt="150x150" src="@Url.Content(item.BANNER_FILE)" />
+                            <div class="text">
+                                <div class="inner">@item.BANNER_NAME</div>
+                            </div>
+                        </a>
+
+                        <div class="tools tools-bottom">
+                            <a href="#" onclick="readLink('@Url.Content(item.BANNER_FILE)')" data-toggle="modal" data-target="#myModal">
+                                <i class="ace-icon fa fa-link"></i>
+                            </a>
+
+                            <a href="#">
+                                <i class="ace-icon fa fa-paperclip"></i>
+                            </a>
+
+                            <a href="#">
+                                <i class="ace-icon fa fa-pencil"></i>
+                            </a>
+
+                            <a href="#" onclick="AjaxRemove(this,@item.BANNER_ID)">
+                                <i class="ace-icon fa fa-times red"></i>
+                            </a>
+                        </div>
+                    </li>
+                }
+
+            </ul>
+        </div><!-- PAGE CONTENT ENDS -->
+    </div><!-- /.col -->
+</div><!-- /.row -->
+<!-- /.page-content -->
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Đường dẫn</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <input class="col-md-12 input-sm" id="ip_link"/>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<input id="UrlAjaxDelete" type="hidden" data-request-url="@Url.Action("AjaxDelete","Gallery")"/>
+<script type="text/javascript">
+    jQuery(function ($) {
+        var $overflow = '';
+        var colorbox_params = {
+            rel: 'colorbox',
+            reposition: true,
+            scalePhotos: true,
+            scrolling: false,
+            previous: '<i class="ace-icon fa fa-arrow-left"></i>',
+            next: '<i class="ace-icon fa fa-arrow-right"></i>',
+            close: '&times;',
+            current: '{current} of {total}',
+            maxWidth: '100%',
+            maxHeight: '100%',
+            onOpen: function () {
+                $overflow = document.body.style.overflow;
+                document.body.style.overflow = 'hidden';
+            },
+            onClosed: function () {
+                document.body.style.overflow = $overflow;
+            },
+            onComplete: function () {
+                $.colorbox.resize();
+            }
+        };
+
+        $('.ace-thumbnails [data-rel="colorbox"]').colorbox(colorbox_params);
+        $("#cboxLoadingGraphic").html("<i class='ace-icon fa fa-spinner orange fa-spin'></i>");//let's add a custom loading icon
+
+
+        $(document).one('ajaxloadstart.page', function (e) {
+            $('#colorbox, #cboxOverlay').remove();
+        });
+    })
+    function readLink(input) {
+        $('#ip_link').val(input);
+    }
+    function AjaxRemove(thisme, id) {
+        var postData = {
+            id: id
+        };
+        var requestUrl = $('#UrlAjaxDelete').data('request-url');
+        $.ajax({
+            url: requestUrl,
+            type: "POST",
+            data: JSON.stringify(postData),
+            contentType: 'application/json; charset=utf-8',
+            success: function (response) {
+                if (response.returnCode != 0) {
+                    $(thisme).closest('li').remove();
+                }
+            },
+            error: function (er) {
+                return;
+            }
+        });
+    }
+</script>

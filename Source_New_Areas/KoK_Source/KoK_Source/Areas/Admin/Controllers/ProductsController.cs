@@ -28,7 +28,7 @@ namespace KoK_Source.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                return new EmptyResult();
+                return Json(new { Msg = ex.Message });
             }
         }
         public ActionResult Edit(ProductsModel model)
@@ -45,7 +45,7 @@ namespace KoK_Source.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                return new EmptyResult();
+                return Json(new { Msg = ex.Message });
             }
         }
         /// <summary>
@@ -150,9 +150,9 @@ namespace KoK_Source.Areas.Admin.Controllers
                 }
                 return RedirectToAction("Index");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Json(new { Msg = "Save fail!" });
+                return Json(new { Msg = ex.Message });
             }
 
         }

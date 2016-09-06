@@ -11,15 +11,14 @@ using KoK_Source.Common;
 
 namespace KoK_Source.Areas.Admin.Com
 {
-    public class BannerCom
+    public class GalleryCom
     {
         private KOK_DATAEntities _kokDataEntities = new KOK_DATAEntities();
         private CommonCnv _commonCnv = new CommonCnv();
-
-        public List<BannerModel> GetKokBanners()
+        public List<BannerModel> getAll()
         {
             List<BannerModel> model = new List<BannerModel>();
-            var dt = _kokDataEntities.KOK_BANNER.Where(m=>m.BANNER_TYPE == 1);//1 là SLIDER
+            var dt = _kokDataEntities.KOK_BANNER;
             if (dt != null)
             {
                 foreach (var item in dt)
@@ -39,11 +38,10 @@ namespace KoK_Source.Areas.Admin.Com
             }
             return model;
         }
-
-        public BannerModel GetBannerModelByID(int id)
+        public BannerModel GetModelByID(int id)
         {
             BannerModel model = new BannerModel();
-            var dt = _kokDataEntities.KOK_BANNER.Where(m=>m.BANNER_ID == id);
+            var dt = _kokDataEntities.KOK_BANNER.Where(m => m.BANNER_ID == id);
             foreach (var item in dt)
             {
                 model.BANNER_ID = item.BANNER_ID.ToString();
@@ -58,46 +56,27 @@ namespace KoK_Source.Areas.Admin.Com
             }
             return model;
         }
-
-        public void SaveBanner(BannerModel model)
+        public void Save(BannerModel model)
         {
             KOK_BANNER banner = new KOK_BANNER();
-            banner.BANNER_NAME = model.BANNER_NAME;
-            banner.BANNER_DESC = model.BANNER_DESC;
-            banner.BANNER_FILE = model.BANNER_FILE;
-            banner.BANNER_TYPE = 1;
-            banner.ACTIVE = true;
-            banner.CREATE_DATE = DateTime.Now;
-            banner.UPDATE_DATE = DateTime.Now;
-            _kokDataEntities.KOK_BANNER.Add(banner);
-            _kokDataEntities.SaveChanges();
+            var dt_old = _kokDataEntities.KOK_BANNER.Where(m => m.BANNER_FILE.Contains(model.BANNER_FILE)).ToList();
+            if (dt_old.Count == 0)
+            {
+                banner.BANNER_NAME = model.BANNER_NAME;
+                banner.BANNER_DESC = model.BANNER_DESC;
+                banner.BANNER_FILE = model.BANNER_FILE;
+                banner.BANNER_TYPE = 0;//Gallery
+                banner.ACTIVE = true;
+                banner.CREATE_DATE = DateTime.Now;
+                banner.UPDATE_DATE = DateTime.Now;
+                _kokDataEntities.KOK_BANNER.Add(banner);
+                _kokDataEntities.SaveChanges();
+            }
         }
-
-        public void UpdateBanner(BannerModel model)
+        public void DeleteByID(string id)
         {
-            int id = int.Parse(model.BANNER_ID);
-            var list = _kokDataEntities.KOK_BANNER.Where(m => m.BANNER_ID == id).FirstOrDefault();
-            list.ACTIVE = model.ACTIVE;
-            list.BANNER_DESC = model.BANNER_DESC;
-            list.BANNER_NAME = model.BANNER_NAME;
-            list.BANNER_FILE = model.BANNER_FILE;
-            list.BANNER_TYPE = 1;
-            list.UPDATE_DATE = DateTime.Now;
-            _kokDataEntities.SaveChanges();
-        }
-
-        public void UpdateActive(BannerModel model)
-        {
-            int id = int.Parse(model.BANNER_ID);
-            var list = _kokDataEntities.KOK_BANNER.Where(m => m.BANNER_ID == id);
-            list.First().ACTIVE = model.ACTIVE;
-            list.First().UPDATE_DATE = DateTime.Now;
-            _kokDataEntities.SaveChanges();
-        }
-        public void DeleteBannerByID(BannerModel model)
-        {
-            int id = int.Parse(model.BANNER_ID);
-            var item = _kokDataEntities.KOK_BANNER.SingleOrDefault(m => m.BANNER_ID == id);
+            int pid = int.Parse(id);
+            var item = _kokDataEntities.KOK_BANNER.SingleOrDefault(m => m.BANNER_ID == pid);
             _kokDataEntities.KOK_BANNER.Remove(item);
             _kokDataEntities.SaveChanges();
         }

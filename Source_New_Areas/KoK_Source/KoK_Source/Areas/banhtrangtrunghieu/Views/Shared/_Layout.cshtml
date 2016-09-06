@@ -36,7 +36,7 @@
     <!-- style -->
     <link href="@Url.Content("~/Content/_Template/style.css")" rel="stylesheet" />
     <link rel="stylesheet" href="@Url.Content("~/Content/_Template/responsive.css")" type="text/css" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="@Url.Content("~/Content/Plugin/Jquery/jquery-2.2.2.min.js")"></script>
 </head>
 <!---------/head--------------->
 <body class="">
@@ -48,76 +48,9 @@
             <div class="header_top-logo"><a href=""><img src="@Url.Content("~/Content/_Template/img/logo.png")" alt="BÁNH TRÁNG" width="100%" /></a></div>
             <div class="header_top-banner"><a href=""><img src="@Url.Content("~/Content/_Template/img/banner.png")" alt="BANNER BÁNH TRÁNG" /></a></div>
         </div>
-        <nav class="navbar navbar-inverse nav-mgb-0 tr_pc">
-            <div class="container">
-                <div class="collapse navbar-collapse nav-rela" id="navbar-collapse-3">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-                        <li><a href="#">TRANG CHỦ</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">BÁNH TRÁNG XUẤT KHẨU <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bánh Tráng Nội Địa<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Đặc sản Củ Chi<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Du lịch Củ Chi<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Liên Hệ</a></li>
-                        <li><a href="#">Giới Thiệu</a></li>
-                    </ul>
-                    <form action="" class="search-form">
-                        <div class="form-group has-feedback btn-search-abs{">
-                            <label for="search" class="sr-only">Tìm kiếm</label>
-                            <input type="text" class="form-control" name="search" id="search" placeholder="Tìm kiếm . . .">
-                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-
-        </nav>
-
+        <!--Menu-->
+        @Html.Partial("~/Areas/banhtrangtrunghieu/Views/Shared/_menuPageTop.cshtml")
+        
         <!---------menu responsive--------------->
         <div id="page" class="tr_mobile d_mneu_mobile">
             <div class="header1">

@@ -54,6 +54,47 @@ namespace KoK_Source.Areas.banhtrangtrunghieu.Com
             }
             return md;
         }
+        public List<NewsModel> getPostOfCat(int? id)
+        {
+            List<NewsModel> model = new List<NewsModel>();
+            var cat = _kokDataEntities.KOK_NEWS_CAT.Where(a => a.CAT_ID == id).ToList();
+            if (cat != null)
+            {
+                foreach(var item in cat)
+                {
+                    var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_ID == item.NEWS_ID).FirstOrDefault();
+                    if (dt != null)
+                    {
+                        NewsModel md = new NewsModel();
+                        md.NEWS_ID = dt.NEWS_ID.ToString();
+                        md.NEWS_TITLE = dt.NEWS_TITLE;
+                        md.NEWS_SEO_TITLE = dt.NEWS_SEO_TITLE;
+                        md.NEWS_DESC = dt.NEWS_DESC;
+                        md.NEWS_SEO_DESC = dt.NEWS_SEO_DESC;
+                        md.NEWS_URL = dt.NEWS_URL;
+                        md.NEWS_SEO_URL = dt.NEWS_SEO_URL;
+                        md.NEWS_SEO_KEYWORD = dt.NEWS_SEO_KEYWORD;
+                        md.NEWS_ORDER = dt.NEWS_ORDER;
+                        md.NEWS_KEYWORD_ASCII = dt.NEWS_KEYWORD_ASCII;
+                        md.POST_HTML = dt.POST_HTML;
+                        md.THANH_PHAN = dt.THANH_PHAN;
+                        md.GIA = dt.GIA.GetValueOrDefault();
+                        md.NOTE = dt.NOTE;
+                        md.LIST_ANH = dt.LIST_ANH;
+                        md.ANH = dt.ANH;
+                        md.BAO_QUAN = dt.BAO_QUAN;
+                        md.CREATE_DATE = dt.CREATE_DATE;
+                        md.UPDATE_DATE = dt.UPDATE_DATE;
+                        md.CREATE_USER = dt.CREATE_USER;
+                        md.UPDATE_USER = dt.UPDATE_USER;
+                        md.ACTIVE = item.ACTIVE.GetValueOrDefault();
+                        model.Add(md);
+                    }
+                }
+            }
+            model = model.OrderBy(o => o.UPDATE_DATE).ToList();
+            return model;
+        }
 
         public List<NewsModel> getListProducts(int take)
         {

@@ -31,7 +31,7 @@ namespace KoK_Source.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                return new EmptyResult();
+                return Json(new { Msg = ex.Message });
             }
 
         }
@@ -49,7 +49,7 @@ namespace KoK_Source.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                return new EmptyResult();
+                return Json(new { Msg = ex.Message });
             }
         }
         [HttpPost]
@@ -92,7 +92,7 @@ namespace KoK_Source.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                return Json(new { Msg = "Save fail!" });
+                return Json(new { Msg = ex.Message });
             }
 
         }

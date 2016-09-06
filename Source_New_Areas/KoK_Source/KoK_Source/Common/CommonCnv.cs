@@ -83,5 +83,20 @@ namespace KoK_Source.Common
             }
         }
         #endregion
+        public string getMota(string str,int maxlenght)
+        {
+            if (string.IsNullOrEmpty(str))
+            {
+                str = string.Empty;
+            }
+            if (maxlenght >= str.Length)
+            {
+                return str;
+            }
+            else
+            {
+                return str.Substring(str.Length - maxlenght);
+            }
+        }
     }
 }

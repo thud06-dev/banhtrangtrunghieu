@@ -153,9 +153,9 @@ namespace KoK_Source.Areas.Admin.Controllers
                 KOK_CATEGORIES categories = db.KOK_CATEGORIES.Find(Int32.Parse(model.Id));
                 categories.CAT_NAME = model.MenuName;
                 categories.CAT_URL = model.MenuLink;
-                categories.CAT_ORDER = Int32.Parse(model.MenuOrder);
-                categories.CAT_RANK = Int32.Parse(model.MenuRank);
-                categories.CAT_PARENT_ID = Int32.Parse(model.MenuParentId);
+                //categories.CAT_ORDER = 0;
+                //categories.CAT_RANK = 1;
+                //categories.CAT_PARENT_ID = 0;
                 categories.CREATE_USER = model.CreateUser;
                 categories.CREATE_DATE = DateTime.Now;
                 categories.UPDATE_USER = model.UpdateUser;

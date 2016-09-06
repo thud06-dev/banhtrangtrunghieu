@@ -26,7 +26,6 @@ function AjaxRemove(thisme, id) {
         id: id
     }
     var requestUrl = $('#UrlAjaxDelete').data('request-url');
-
     $.ajax({
         url: requestUrl,
         type: "POST",

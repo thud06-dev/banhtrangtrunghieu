@@ -136,6 +136,14 @@ namespace KoK_Source.Areas.Admin.Com
         {
             int p_id = int.Parse(id);
             var item = _kokDataEntities.KOK_PRODUCTS.SingleOrDefault(m => m.NEWS_ID == p_id);
+            var cat = _kokDataEntities.KOK_NEWS_CAT.Where(m => m.NEWS_ID == p_id);
+            if (cat != null)
+            {
+                foreach (var i in cat)
+                {
+                    _kokDataEntities.KOK_NEWS_CAT.Remove(i);
+                }
+            }
             _kokDataEntities.KOK_PRODUCTS.Remove(item);
             _kokDataEntities.SaveChanges();
         }

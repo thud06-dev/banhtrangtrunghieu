@@ -36,6 +36,7 @@
     <link href="@Url.Content("~/assets/css/ace-rtl.css")" rel="stylesheet" />
     <link href="@Url.Content("~/assets/css/ace-skins.css")" rel="stylesheet" />
     <link href="@Url.Content("~/assets/css/ace.css")" rel="stylesheet" />
+    <link href="@Url.Action("~/assets/css/font-awesome.min.css")" rel="stylesheet" />
     <!--[if lte IE 9]>
       <link rel="stylesheet" href="~/assets/css/ace-ie.min.css" />
     <![endif]-->
@@ -77,6 +78,7 @@
     <script src="@Url.Content("~/assets/js/ace-elements.min.js")"></script>
     <script src="@Url.Content("~/assets/js/ace.min.js")"></script>
     <script src="@Url.Content("~/assets/js/jquery.colorbox.min.js")"></script>
+    
     <!--Datatables-->
     @*<script type="text/javascript">
             if ('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
@@ -116,7 +118,7 @@
             </button>
 
             <div class="navbar-header pull-left">
-                <a href="index.html" class="navbar-brand">
+                <a href="@Request.Url.GetLeftPart(UriPartial.Authority)" class="navbar-brand">
                     <small>
                         <i class="fa fa-leaf"></i>
                         Ace Admin
@@ -464,7 +466,7 @@
 
             <ul class="nav nav-list">
                 <li class="active">
-                    <a href="index.html">
+                    <a href="@Url.Action("Index","Account")">
                         <i class="menu-icon fa fa-tachometer"></i>
                         <span class="menu-text"> Dashboard </span>
                     </a>
@@ -481,7 +483,7 @@
                 </li>
                 <li class="">
                     <a href="@Url.Action("Index","Gallery")">
-                        <i class="menu-icon fa fa-list-alt"></i>
+                        <i class="menu-icon fa fa-picture-o"></i>
                         <span class="menu-text"> Gallery </span>
                     </a>
 
@@ -489,7 +491,7 @@
                 </li>
                 <li class="">
                     <a href="@Url.Action("Index","PostAdmin")">
-                        <i class="menu-icon fa fa-list-alt"></i>
+                        <i class="menu-icon fa fa-pencil-square-o"></i>
                         <span class="menu-text"> BÀI VIẾT </span>
                     </a>
 
@@ -497,7 +499,7 @@
                 </li>
                 <li class="">
                     <a href="@Url.Action("Index","ProductsAdmin")">
-                        <i class="menu-icon fa fa-list-alt"></i>
+                        <i class="menu-icon fa fa-tag"></i>
                         <span class="menu-text"> SẢN PHẨM </span>
                     </a>
 
@@ -513,7 +515,7 @@
                 </li>
                 <li class="">
                     <a href="@Url.Action("Index","Account")">
-                        <i class="menu-icon fa fa-list-alt"></i>
+                        <i class="menu-icon fa fa-users"></i>
                         <span class="menu-text"> Account </span>
                     </a>
 

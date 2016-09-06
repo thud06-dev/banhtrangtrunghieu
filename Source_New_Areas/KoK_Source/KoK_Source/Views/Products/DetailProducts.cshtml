@@ -69,7 +69,7 @@
                 <div class="product-desc">@Model.NEWS_DESC</div>
                 <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
                 <hr>
-                <div class="product-price">$Giá: @Model.GIA vnđ</div>
+                <div class="product-price">$Giá: @Model.GIA VNĐ</div>
                 <!--					<div class="product-stock">In Stock</div>-->
                 <hr>
                 <div class="btn-group cart">
@@ -77,14 +77,14 @@
                         Đặt mua ngay
                     </button>
                 </div>
-                <!--
-                                    <div class="btn-group wishlist">
-                                        <button type="button" class="btn btn-danger">
-                                            Add to wishlist
-                                        </button>
-                                    </div>
-                -->
+
+                
+                <div class="btn-group wishlist">
+                    <div class="fb-like" data-href="https://www.facebook.com/raiinfodotcom" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                </div>
+                
             </div>
+            
             <div class="product-details-1">
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#home">Chi tiết sản phẩm</a></li>
@@ -94,13 +94,16 @@
 
                 <div class="tab-content">
                     <div id="home" class="tab-pane fade in active">
+                        <p><b>$Giá:</b> @Model.GIA VNĐ</p>
+                        <p><b>Thành phần:</b> @Model.THANH_PHAN</p>
+                        <p><b>Bảo quản:</b> @Model.BAO_QUAN</p>
                         @Html.Raw(Model.POST_HTML)
                     </div>
                     <div id="menu1" class="tab-pane fade">
                         @Html.Raw(Model.POST_HTML)
                     </div>
                     <div id="menu2" class="tab-pane fade">
-                        ???
+                        Đang cập nhật
                     </div>
                 </div>
             </div>
@@ -114,6 +117,7 @@
                 <!--                    <span><a href="">Xem thêm</a></span>-->
             </div>
             <br>
+            <div class="fb-comments" data-href="https://www.facebook.com/hohuynhlam" data-numposts="5"></div>
         </div>
         <div class="contents_lefts contents_lefts-splq">
             @Html.Partial("_relateProducts", Model.ListProductsRelate)   

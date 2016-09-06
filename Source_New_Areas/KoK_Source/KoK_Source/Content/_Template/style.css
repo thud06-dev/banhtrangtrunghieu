@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /*
 Theme Name: ***** Default Theme
 Theme URI: 
@@ -271,7 +271,9 @@ width: 95%;
     margin-bottom: 15px;
 	overflow:hidden;
     position: relative;
+    border-radius:3px;
 }
+
 .contents_lefts ul li:nth-child(3n){
     margin-right: 0px;
 }

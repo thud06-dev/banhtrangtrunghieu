@@ -1,0 +1,302 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .column_container .rbText i {
+    width: 20px;
+    margin-top: 2px;
+}
+    #contact-form-121 {
+    padding: 10px;
+    width: 100%;
+}
+#contact-form-121 form div label {
+    width: 100%;
+}
+#contact-form-121 form div input {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: 100%;
+}
+#contact-form-121 form div {
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+#contact-form-121 form div:nth-child(4) label {
+    float: left;
+}
+#contact-form-121 form div:nth-child(4) textarea {
+    float: left;
+    border-radius: 5px;
+    height: 100px;
+    padding: 5px;
+    border-color: rgb(204, 204, 204);
+    margin: 0px;
+    width: 100%;
+}
+#contact-form-121 form p.contact-submit {
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+#contact-form-121 form p.contact-submit input {
+    width: 100px;
+    padding: 10px;
+    font-family: sans-serif;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid #FFFFFF;
+    background: #5C9FB8;
+    transition: all .2s ease-out;
+}
+.map iframe {
+    width: 100% !important;
+}
+</style>
+<div class="tr_content">
+    <article class="clearfix content-contact">
+        <div class="row-fluid">
+            <div class="map maps">
+                <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.957158457666!2d106.63009281421488!3d10.814590561446709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175295e2a5e6491%3A0xd1c34f607dd67582!2zODMxIFRyxrDhu51uZyBDaGluaCwgVMOieSBUaOG6oW5oLCBUw6JuIFBow7osIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1465885213262" width="600" height="450" frameborder="0" style="border:0" allowfullscreen=""></iframe></p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="row-fluid">
+            <div class="column_container">
+                <header class="sectionTitle clearfix">
+                    <h3><strong>Liên Hệ</strong></h3>
+                </header>
+                <section class="rbText clearfix autop" style="line-height:20px">
+                    <h4>   </h4>
+                    <b><i class="fa fa-map-marker" aria-hidden="true"></i> Địa chỉ :</b><i> 831 Trường Chinh, P.Tây Thạnh, Tân Phú, TP HCM </i><br>
+                    <b><i class="fa fa-phone" aria-hidden="true"></i> Điện thoại: </b> <i> 0934 057 095 - 0937 165 589 </i><br>
+                    <b><i class="fa fa-envelope-o" aria-hidden="true"></i> Email:</b> <i> dpntrang@benthanhford.com.vn </i><br>
+
+                </section>
+            </div>
+            <div class="column_container form">
+                <section class="rbForm full autop">
+                    <div id="contact-form-121">
+                        <form action="#" method="post" class="contact-form commentsblock">
+
+                            <div>
+                                <label for="g121-name" class="grunion-field-label name">Name<span>(yêu cầu)</span></label>
+                                <input type="text" name="g121-name" id="g121-name" value="" class="name" required="" aria-required="true">
+                            </div>
+
+                            <div>
+                                <label for="g121-email" class="grunion-field-label email">Email<span>(yêu cầu)</span></label>
+                                <input type="email" name="g121-email" id="g121-email" value="" class="email" required="" aria-required="true">
+                            </div>
+
+                            <div>
+                                <label for="g121-website" class="grunion-field-label url">Website</label>
+                                <input type="text" name="g121-website" id="g121-website" value="" class="url">
+                            </div>
+
+                            <div>
+                                <label for="contact-form-comment-g121-phnhi" class="grunion-field-label textarea">Phản hồi<span>(yêu cầu)</span></label>
+                                <textarea name="g121-phnhi" id="contact-form-comment-g121-phnhi" rows="20" class="textarea" required="" aria-required="true"></textarea>
+                            </div>
+                            <p class="contact-submit">
+                                <input type="submit" value="Gửi »" class="pushbutton-wide">
+                                <input type="hidden" name="contact-form-id" value="121">
+                                <input type="hidden" name="action" value="grunion-contact-form">
+                            </p>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <!--<div class="column_container form">
+
+                <section class="rbForm full autop">
+
+                    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+
+                        <fieldset>
+
+                        <legend>Gửi Thông Tin Liên Hệ</legend>
+
+
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Tên</label>
+                          <div class="col-md-4 inputGroupContainer">
+                          <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input id="txt-name" name="txt-name" placeholder="Họ và tên bạn" class="form-control"  type="text">
+                            </div>
+                          </div>
+                        </div>
+                               <div class="form-group">
+                          <label class="col-md-4 control-label">E-Mail</label>
+                            <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                          <input id="txt-email" name="txt-email" placeholder="Địa chỉ E-Mail" class="form-control"  type="text">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Điện Thoại #</label>
+                            <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                          <input id="txt-tel" name="txt-tel" placeholder="(08)38-1111-1212" class="form-control" type="text">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Nội dung </label>
+                            <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                                    <textarea class="form-control" name="bt_gui" placeholder="Nội dung liên hệ"></textarea>
+                          </div>
+                          </div>
+                        </div>
+                        <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div>
+                        <div class="form-group">
+                          <label class="col-md-4 control-label"></label>
+                          <div class="col-md-4">
+                            <button type="submit" class="btn btn-warning" >Gửi <span class="glyphicon glyphicon-send"></span></button>
+                          </div>
+                        </div>
+
+                        </fieldset>
+                        </form>
+                        </div>
+                        <script>
+                          $(document).ready(function() {
+                            $('#contact_form').bootstrapValidator({
+                                // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+                                feedbackIcons: {
+                                    valid: 'glyphicon glyphicon-ok',
+                                    invalid: 'glyphicon glyphicon-remove',
+                                    validating: 'glyphicon glyphicon-refresh'
+                                },
+                                fields: {
+                                    first_name: {
+                                        validators: {
+                                                stringLength: {
+                                                min: 2,
+                                            },
+                                                notEmpty: {
+                                                message: 'Please supply your first name'
+                                            }
+                                        }
+                                    },
+                                     last_name: {
+                                        validators: {
+                                             stringLength: {
+                                                min: 2,
+                                            },
+                                            notEmpty: {
+                                                message: 'Please supply your last name'
+                                            }
+                                        }
+                                    },
+                                    email: {
+                                        validators: {
+                                            notEmpty: {
+                                                message: 'Please supply your email address'
+                                            },
+                                            emailAddress: {
+                                                message: 'Please supply a valid email address'
+                                            }
+                                        }
+                                    },
+                                    phone: {
+                                        validators: {
+                                            notEmpty: {
+                                                message: 'Please supply your phone number'
+                                            },
+                                            phone: {
+                                                country: 'US',
+                                                message: 'Please supply a vaild phone number with area code'
+                                            }
+                                        }
+                                    },
+                                    address: {
+                                        validators: {
+                                             stringLength: {
+                                                min: 8,
+                                            },
+                                            notEmpty: {
+                                                message: 'Please supply your street address'
+                                            }
+                                        }
+                                    },
+                                    city: {
+                                        validators: {
+                                             stringLength: {
+                                                min: 4,
+                                            },
+                                            notEmpty: {
+                                                message: 'Please supply your city'
+                                            }
+                                        }
+                                    },
+                                    state: {
+                                        validators: {
+                                            notEmpty: {
+                                                message: 'Please select your state'
+                                            }
+                                        }
+                                    },
+                                    zip: {
+                                        validators: {
+                                            notEmpty: {
+                                                message: 'Please supply your zip code'
+                                            },
+                                            zipCode: {
+                                                country: 'US',
+                                                message: 'Please supply a vaild zip code'
+                                            }
+                                        }
+                                    },
+                                    comment: {
+                                        validators: {
+                                              stringLength: {
+                                                min: 10,
+                                                max: 200,
+                                                message:'Please enter at least 10 characters and no more than 200'
+                                            },
+                                            notEmpty: {
+                                                message: 'Please supply a description of your project'
+                                            }
+                                            }
+                                        }
+                                    }
+                                })
+                                .on('success.form.bv', function(e) {
+                                    $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+                                        $('#contact_form').data('bootstrapValidator').resetForm();
+
+                                    // Prevent form submission
+                                    e.preventDefault();
+
+                                    // Get the form instance
+                                    var $form = $(e.target);
+
+                                    // Get the BootstrapValidator instance
+                                    var bv = $form.data('bootstrapValidator');
+
+                                    // Use Ajax to submit form data
+                                    $.post($form.attr('action'), $form.serialize(), function(result) {
+                                        console.log(result);
+                                    }, 'json');
+                                });
+                        });
+
+
+                        </script>
+
+                </section> 										-->
+        </div>
+    </article>
+</div>
+

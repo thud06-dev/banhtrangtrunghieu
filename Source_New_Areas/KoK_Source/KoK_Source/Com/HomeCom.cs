@@ -13,7 +13,7 @@ namespace KoK_Source.Com
         public List<NewsModel> getListPost()
         {
             List<NewsModel> model = new List<NewsModel>();
-            var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 0).Take(5).OrderBy(m=>m.UPDATE_DATE);
+            var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 0).Take(5).OrderByDescending(m=>m.UPDATE_DATE);
             if(dt != null)
             {
                 foreach(var item in dt)
@@ -50,7 +50,7 @@ namespace KoK_Source.Com
         public List<ProductsModel> getListProducts()
         {
             List<ProductsModel> model = new List<ProductsModel>();
-            var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 1).Take(9).OrderBy(m => m.UPDATE_DATE);
+            var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 1).Take(9).OrderByDescending(m => m.UPDATE_DATE);
             if (dt != null)
             {
                 foreach (var item in dt)

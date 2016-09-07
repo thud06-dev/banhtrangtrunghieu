@@ -19,13 +19,24 @@ namespace KoK_Source.Controllers
                 var md = new PagedList();
                 md.currentPage = pageIndex == null ? 1 : pageIndex.Value;
 
-                md.numberPost = 9;//Số bài post trong 1 trang
+                md.numberPost = 2;//Số bài post trong 1 trang
                 int skip = pageIndex.Value * md.numberPost.Value;
-                List<ProductsModel> model = _productsCom.getPostOfCat(id, skip, md.numberPost.Value);
-                int countPost = _productsCom.getPostofCatAll(id).Count;
-                md.numberPage = countPost / md.numberPost.Value + countPost % md.numberPost.Value > 0 ? 1 : 0;
+                List<ProductsModel> model = null;
+                int countPost = 0;
+                if (!id.HasValue)
+                {
+                    model = _productsCom.getPostAll();
+                    countPost = model.Count;
+                    model = model.OrderByDescending(a => a.UPDATE_DATE).Skip(skip).Take(md.numberPost.Value).ToList();
+                }
+                else
+                {
+                    model = _productsCom.getPostOfCat(id, skip, md.numberPost.Value);
+                    countPost = _productsCom.getPostofCatAll(id).Count;
+                }
+                md.numberPage = countPost / md.numberPost.Value + (countPost % md.numberPost.Value > 0 ? 1 : 0);
                 ViewBag.Page = md;
-                ViewBag.MenuId = id == null ? 1 : id.Value;
+                ViewBag.MenuId = id == null ? id : id.Value;
                 ViewBag.PostRight = _productsCom.getListProducts(7);
                 return View(model);
             }

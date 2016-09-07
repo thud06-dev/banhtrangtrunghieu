@@ -92,13 +92,13 @@ namespace KoK_Source.Com
                     }
                 }
             }
-            model = model.OrderBy(o => o.UPDATE_DATE).ToList();
+            model = model.OrderByDescending(o => o.UPDATE_DATE).ToList();
             return model;
         }
-        public List<NewsModel> getPostOfCat(int? id,int? from,int? to)
+        public List<NewsModel> getPostOfCat(int? id,int? from,int? take)
         {
             List<NewsModel> model = new List<NewsModel>();
-            var cat = _kokDataEntities.KOK_NEWS_CAT.Where(a => a.CAT_ID == id).OrderBy(m=>m.UPDATE_DATE).Skip(from.Value).Take(to.Value).ToList();
+            var cat = _kokDataEntities.KOK_NEWS_CAT.Where(a => a.CAT_ID == id).OrderBy(m=>m.UPDATE_DATE).Skip(from.Value).Take(take.Value).ToList();
             if (cat != null)
             {
                 foreach(var item in cat)
@@ -133,7 +133,7 @@ namespace KoK_Source.Com
                     }
                 }
             }
-            model = model.OrderBy(o => o.UPDATE_DATE).ToList();
+            model = model.OrderByDescending(o => o.UPDATE_DATE).ToList();
             return model;
         }
 
@@ -144,7 +144,7 @@ namespace KoK_Source.Com
                 take = 4;
             }
             List<NewsModel> model = new List<NewsModel>();
-            var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 0).Take(take).OrderBy(o => o.UPDATE_DATE);
+            var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 0).Take(take).OrderByDescending(o => o.UPDATE_DATE);
             if (dt != null)
             {
                 foreach (var item in dt)
@@ -176,6 +176,45 @@ namespace KoK_Source.Com
                 }
             }
 
+            return model;
+        }
+        public List<NewsModel> getPostAll()
+        {
+            List<NewsModel> model = new List<NewsModel>();
+           
+            var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 0);//get all tin tức
+            if (dt != null)
+            {
+                foreach(var item in dt)
+                {
+                    NewsModel md = new NewsModel();
+                    md.NEWS_ID = item.NEWS_ID.ToString();
+                    md.NEWS_TITLE = item.NEWS_TITLE;
+                    md.NEWS_SEO_TITLE = item.NEWS_SEO_TITLE;
+                    md.NEWS_DESC = item.NEWS_DESC;
+                    md.NEWS_SEO_DESC = item.NEWS_SEO_DESC;
+                    md.NEWS_URL = item.NEWS_URL;
+                    md.NEWS_SEO_URL = item.NEWS_SEO_URL;
+                    md.NEWS_SEO_KEYWORD = item.NEWS_SEO_KEYWORD;
+                    md.NEWS_ORDER = item.NEWS_ORDER;
+                    md.NEWS_KEYWORD_ASCII = item.NEWS_KEYWORD_ASCII;
+                    md.POST_HTML = item.POST_HTML;
+                    md.THANH_PHAN = item.THANH_PHAN;
+                    md.GIA = item.GIA.GetValueOrDefault();
+                    md.NOTE = item.NOTE;
+                    md.LIST_ANH = item.LIST_ANH;
+                    md.ANH = item.ANH;
+                    md.BAO_QUAN = item.BAO_QUAN;
+                    md.CREATE_DATE = item.CREATE_DATE;
+                    md.UPDATE_DATE = item.UPDATE_DATE;
+                    md.CREATE_USER = item.CREATE_USER;
+                    md.UPDATE_USER = item.UPDATE_USER;
+                    md.ACTIVE = item.ACTIVE.GetValueOrDefault();
+                    model.Add(md);
+                }
+                
+            }
+            model = model.OrderByDescending(o => o.UPDATE_DATE).ToList();
             return model;
         }
     }

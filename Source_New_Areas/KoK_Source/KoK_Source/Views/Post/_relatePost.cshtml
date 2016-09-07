@@ -1,6 +1,9 @@
 ﻿@model List<KoK_Source.Models.NewsModel>
 @using KoK_Source.Models
-
+@using KoK_Source.Common
+@{
+    CommonCnv _com = new CommonCnv();
+}
 <div class="title-news">
     <h3><a href="">Tin Liên Quan</a></h3>
     <!--                    <span><a href="">Xem thêm</a></span>-->
@@ -35,7 +38,7 @@
                 </div>
                 <h5 class="sp-name"><a href="@Url.Action("DetailPost","Post", new { id_menu = string.Empty, id_post = item.NEWS_ID})">Tin tức A</a></h5>
                 <div class="sp-price"><small><i>@item.UPDATE_DATE</i></small></div>
-                <div class="sp-detail">@item.NEWS_DESC</div>
+                <div class="sp-detail">@_com.getMota(item.NEWS_DESC, 200)</div>
                 <a class="sp-viewmore hvr-float-shadow" href="@Url.Action("DetailPost","Post", new { id_menu = string.Empty, id_post = item.NEWS_ID})">Xem thêm</a>
             </li>
         }

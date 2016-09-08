@@ -19,7 +19,7 @@ namespace KoK_Source.Areas.Admin.Com
         public List<BannerModel> GetKokBanners()
         {
             List<BannerModel> model = new List<BannerModel>();
-            var dt = _kokDataEntities.KOK_BANNER.Where(m=>m.BANNER_TYPE == 1);//1 là SLIDER
+            var dt = _kokDataEntities.KOK_BANNER.Where(m=>m.BANNER_TYPE == 1).OrderByDescending(m=>m.UPDATE_DATE);//1 là SLIDER
             if (dt != null)
             {
                 foreach (var item in dt)

@@ -19,7 +19,7 @@ namespace KoK_Source.Areas.Admin.Com
         public List<ProductsModel> GetAllPost()
         {
             List<ProductsModel> model = new List<ProductsModel>();
-            var dt = _kokDataEntities.KOK_PRODUCTS.Where(m=>m.NEWS_TYPE == 0);
+            var dt = _kokDataEntities.KOK_PRODUCTS.Where(m=>m.NEWS_TYPE == 0).OrderByDescending(m => m.UPDATE_DATE);
             if (dt != null)
             {
                 foreach (var item in dt)

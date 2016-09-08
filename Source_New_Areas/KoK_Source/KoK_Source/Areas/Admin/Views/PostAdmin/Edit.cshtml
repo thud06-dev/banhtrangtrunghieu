@@ -27,6 +27,18 @@
                     <h3>@ViewBag.Title</h3>
                 </div>
             </header>
+            <div class="form-group">
+                <div class="btn-group pull-right">
+                    <button class="btn btn-sm btn-primary">
+                        <i class="ace-icon fa fa-floppy-o bigger-125"></i>
+                        Save
+                    </button>
+                    <a href="@Url.Action("Index")" class="btn btn-sm btn-primary">
+                        <i class="ace-icon fa fa-undo bigger-125"></i>
+                        Quay lại
+                    </a>
+                </div>
+            </div>
             <article class="widget widget__form">
                 <div class="form-group">
                     <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(m => m.NEWS_TITLE) </label>
@@ -240,7 +252,7 @@
                 </div>
 
                 <div class="btn-group pull-right">
-                    <button class="btn btn-sm btn-purple">
+                    <button class="btn btn-sm btn-primary">
                         <i class="ace-icon fa fa-floppy-o bigger-125"></i>
                         Save
                     </button>

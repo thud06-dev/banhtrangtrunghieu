@@ -18,7 +18,7 @@ namespace KoK_Source.Areas.Admin.Com
         public List<BannerModel> getAll()
         {
             List<BannerModel> model = new List<BannerModel>();
-            var dt = _kokDataEntities.KOK_BANNER;
+            var dt = _kokDataEntities.KOK_BANNER.OrderByDescending(m => m.UPDATE_DATE);
             if (dt != null)
             {
                 foreach (var item in dt)

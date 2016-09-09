@@ -42,7 +42,34 @@
                         <i class="pe-7f-paperclip"></i><span class="label">Attachment</span>
                     </div>
                         @*<button id="btnSaveData" data-request-url="@Url.Action("SaveData")">Save</button>*@
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">@Html.DisplayNameFor(m => m.BANNER_TYPE) </label>
+                    <div class="control-group col-sm-9">
+                        <label class="control-label bolder blue">Chọn kiểu hiển thị</label>
+
+                        <div class="radio">
+                            <label>
+                                <input name="BANNER_TYPE" @if (Model.BANNER_TYPE == "1") { @Html.Raw("checked"); } value="1" type="radio" class="ace">
+                                <span class="lbl"> SLIDER LEFT</span>
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input name="BANNER_TYPE" @if (Model.BANNER_TYPE == "2") { @Html.Raw("checked"); } value="2" type="radio" class="ace">
+                                <span class="lbl"> SLIDER RIGHT</span>
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input name="BANNER_TYPE" @if (Model.BANNER_TYPE == "3") { @Html.Raw("checked"); } value="3" type="radio" class="ace">
+                                <span class="lbl"> QUẢNG CÁO</span>
+                            </label>
+                        </div>
                     </div>
+                </div>
                 <div class="form-group">
                     <div class="col-sm-9 pull-right">
                         <a class="btn btn-sm btn-primary" id="btnBack">

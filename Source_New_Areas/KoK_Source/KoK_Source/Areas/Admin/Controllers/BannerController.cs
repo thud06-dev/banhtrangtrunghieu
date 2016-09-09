@@ -62,6 +62,7 @@ namespace KoK_Source.Areas.Admin.Controllers
                 model.BANNER_DESC = form["BANNER_DESC"].Trim();
                 model.BANNER_FILE = form["BANNER_FILE"].Trim();
                 model.BANNER_ID = form["BANNER_ID"].Trim();
+                model.BANNER_TYPE = form["BANNER_TYPE"].Trim();
                 if (Request.Files.Count > 0)
                 {
                     string result = string.Empty;

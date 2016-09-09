@@ -19,7 +19,7 @@ namespace KoK_Source.Areas.Admin.Com
         public List<BannerModel> GetKokBanners()
         {
             List<BannerModel> model = new List<BannerModel>();
-            var dt = _kokDataEntities.KOK_BANNER.Where(m=>m.BANNER_TYPE == 1).OrderByDescending(m=>m.UPDATE_DATE);//1 là SLIDER
+            var dt = _kokDataEntities.KOK_BANNER.OrderByDescending(m=>m.UPDATE_DATE);//1 là SLIDER
             if (dt != null)
             {
                 foreach (var item in dt)
@@ -33,6 +33,7 @@ namespace KoK_Source.Areas.Admin.Com
                     mod.CREATE_USER = item.CREATE_USER == null ? string.Empty : item.CREATE_USER;
                     mod.UPDATE_DATE = item.UPDATE_DATE == null ? string.Empty : item.UPDATE_DATE.ToString();
                     mod.UPDATE_USER = item.UPDATE_USER == null ? string.Empty : item.UPDATE_USER;
+                    mod.BANNER_TYPE = item.BANNER_TYPE.Value.ToString();
                     mod.ACTIVE = _commonCnv.CnvBool(item.ACTIVE);
                     model.Add(mod);
                 }
@@ -54,6 +55,7 @@ namespace KoK_Source.Areas.Admin.Com
                 model.CREATE_USER = item.CREATE_USER == null ? string.Empty : item.CREATE_USER;
                 model.UPDATE_DATE = item.UPDATE_DATE == null ? string.Empty : item.UPDATE_DATE.ToString();
                 model.UPDATE_USER = item.UPDATE_USER == null ? string.Empty : item.UPDATE_USER;
+                model.BANNER_TYPE = item.BANNER_TYPE.Value.ToString();
                 model.ACTIVE = _commonCnv.CnvBool(item.ACTIVE);
             }
             return model;
@@ -65,7 +67,7 @@ namespace KoK_Source.Areas.Admin.Com
             banner.BANNER_NAME = model.BANNER_NAME;
             banner.BANNER_DESC = model.BANNER_DESC;
             banner.BANNER_FILE = model.BANNER_FILE;
-            banner.BANNER_TYPE = 1;
+            banner.BANNER_TYPE = int.Parse(model.BANNER_TYPE);
             banner.ACTIVE = true;
             banner.CREATE_DATE = DateTime.Now;
             banner.UPDATE_DATE = DateTime.Now;
@@ -81,7 +83,7 @@ namespace KoK_Source.Areas.Admin.Com
             list.BANNER_DESC = model.BANNER_DESC;
             list.BANNER_NAME = model.BANNER_NAME;
             list.BANNER_FILE = model.BANNER_FILE;
-            list.BANNER_TYPE = 1;
+            list.BANNER_TYPE = int.Parse(model.BANNER_TYPE);
             list.UPDATE_DATE = DateTime.Now;
             _kokDataEntities.SaveChanges();
         }

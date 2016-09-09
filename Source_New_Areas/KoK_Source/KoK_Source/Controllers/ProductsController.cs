@@ -19,7 +19,7 @@ namespace KoK_Source.Controllers
                 var md = new PagedList();
                 md.currentPage = pageIndex == null ? 1 : pageIndex.Value;
 
-                md.numberPost = 2;//Số bài post trong 1 trang
+                md.numberPost = 9;//Số bài post trong 1 trang
                 int skip = pageIndex.Value * md.numberPost.Value;
                 List<ProductsModel> model = null;
                 int countPost = 0;

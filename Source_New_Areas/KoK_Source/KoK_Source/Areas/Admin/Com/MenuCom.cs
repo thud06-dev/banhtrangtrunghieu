@@ -33,7 +33,8 @@ namespace KoK_Source.Areas.Admin.Com
                     CreateUser = item.CREATE_USER ?? string.Empty,
                     UpdateDate = item.UPDATE_DATE?.ToString() ?? string.Empty,
                     UpdateUser = item.UPDATE_USER ?? string.Empty,
-                    Active = _commonCnv.CnvBool(item.ACTIVE)
+                    Active = _commonCnv.CnvBool(item.ACTIVE),
+                    CAT_TYPE = item.CAT_TYPE
                 });
             }
             Console.WriteLine(menu);

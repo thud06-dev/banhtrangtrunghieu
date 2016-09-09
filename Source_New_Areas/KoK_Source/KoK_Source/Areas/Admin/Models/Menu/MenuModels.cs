@@ -30,6 +30,7 @@ namespace KoK_Source.Areas.Admin.Models.Menu
         public string UpdateUser { get; set; }
         [DisplayName("State")]
         public bool Active { get; set; }
+        public int? CAT_TYPE { get; set; }
 
     }
 }

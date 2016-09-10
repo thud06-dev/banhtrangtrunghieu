@@ -1,0 +1,103 @@
+﻿@using KOKService
+@{
+    ViewBag.Title = "_slider";
+
+    KOK_DATAEntities _kokDataEntities = new KOK_DATAEntities();
+    var dt = _kokDataEntities.KOK_BANNER.Where(m => m.ACTIVE == true).DefaultIfEmpty().ToList();
+}
+
+<div class="header_bot container" style="padding-left:0px">
+    <div class="header_bot-left">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                @{
+                    int i = 0;
+                    foreach (var slider_right in dt)
+                    {
+                        if (slider_right.BANNER_TYPE == 1)
+                        {
+                        <div class="item @if (i == 0) { @Html.Raw("active"); } ">
+                            <img src="@Url.Content(slider_right.BANNER_FILE)" alt="" />
+                            <div class="carousel-caption">
+                                <h3>@slider_right.BANNER_NAME</h3>
+                                <p>@slider_right.BANNER_DESC</p>
+                            </div>
+                        </div>
+                        i++;
+                        }
+                    }
+                }
+                    
+                <!-- End Item -->
+            </div><!-- End Carousel Inner -->
+
+            <ul class="nav nav-pills nav-justified">
+                @{
+                    int y = 0;
+                    foreach (var slider_right in dt)
+                    {
+                        if (slider_right.BANNER_TYPE == 1)
+                        {
+                            <li data-target="#myCarousel" data-slide-to="@Html.Raw(y)" class="@if (y == 0) { @Html.Raw("active"); }">
+                                <a href="#">@slider_right.BANNER_NAME<small>@slider_right.BANNER_DESC</small></a>
+                            </li>
+                            y++;
+                        }
+                    }
+                }
+                
+            </ul>
+
+
+        </div><!-- End Carousel -->
+
+    </div>
+
+    <script src="~/Content/_Template/js/jquery-2.1.1.js"></script>
+    <script src="~/Content/_Template/js/bootstrap-3.1.1.js"></script>
+    <script>
+                            $(document).ready( function() {
+                $('#myCarousel').carousel({
+                    interval:   3000
+                });
+
+                    var clickEvent = false;
+                    $('#myCarousel').on('click', '.nav a', function() {
+                            clickEvent = true;
+                            $('.nav li').removeClass('active');
+                            $(this).parent().addClass('active');
+                    }).on('slid.bs.carousel', function(e) {
+                        if(!clickEvent) {
+                            var count = $('.nav').children().length -1;
+                            var current = $('.nav li.active');
+                            current.removeClass('active').next().addClass('active');
+                            var id = parseInt(current.data('slide-to'));
+                            if(count == id) {
+                                $('.nav li').first().addClass('active');
+                            }
+                        }
+                        clickEvent = false;
+                    });
+            });
+    </script>
+
+    <div class="header_bot-right">
+        @foreach (var slider_right in dt)
+        {
+            if (slider_right.BANNER_TYPE == 2)
+            {
+                
+                <a href="#">
+                    <div class="slider-right-caption">
+                        <h3>@slider_right.BANNER_NAME</h3>
+                        <p>@slider_right.BANNER_DESC</p>
+                    </div>
+                    <img src="@Url.Content(slider_right.BANNER_FILE)" alt="BÁNH TRÁNG" />
+                </a>
+            }
+        }
+    </div>
+</div>

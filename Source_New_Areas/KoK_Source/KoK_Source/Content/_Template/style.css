@@ -493,152 +493,18 @@ footer { background-color:#333; min-height:350px; font-family: 'Open Sans', sans
     float: right;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/*****footer******/
-
-/*****effect******/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.header_bot-right a {
+        display:inline-block;
+        position:relative;
+    }
+    .slider-right-caption {
+    position: absolute;
+    z-index: 1;
+    top: 20%;
+    left: 0;
+    right: 0;
+    /* bottom: 0; */
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 6px #000;
+}

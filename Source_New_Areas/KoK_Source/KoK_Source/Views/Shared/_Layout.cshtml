@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="content-language" content="vi" />
-    <meta name="author" content="Thái Bá Phát">
+    <meta name="author" content="@Request.Url.GetLeftPart(UriPartial.Authority)">
     <meta name="description" content="@ViewBag.NEWS_SEO_DESC">
     <meta name="keywords" content="@ViewBag.NEWS_SEO_KEYWORD">
     <!--facebook-->
@@ -12,7 +12,7 @@
     <meta property="og:title" content="@ViewBag.NEWS_TITLE" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="@Request.Url.ToString()" />
-    <meta property="og:image" content="@if (!string.IsNullOrEmpty(ViewBag.IMAGE)) { @Html.Raw(Url.Content(ViewBag.IMAGE))}" />
+    <meta property="og:image" content="@if (!string.IsNullOrEmpty(ViewBag.IMAGE)) { @Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority)+Url.Content(ViewBag.IMAGE))}" />
     <meta property="og:description" content="@ViewBag.NEWS_DESC" />
     <title>BÁNH TRÁNG @if (!string.IsNullOrEmpty(ViewBag.NEWS_TITLE)) { @Html.Raw(" - " + ViewBag.NEWS_TITLE);}</title>
 
@@ -109,47 +109,7 @@ new WOW().init();
                 <a href="#menu"></a>
             </div>
             <nav id="menu">
-                <ul>
-                    <li><a href="">Trang chủ</a></li>
-                    <li>
-                        <a href="">Bánh Tráng Xuất Khẩu</a>
-                        <ul>
-                            <li><a href="">Bánh 1</a></li>
-                            <li><a href="">Bánh 2</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="">Bánh Tráng Nội Địa</a>
-                        <ul>
-                            <li><a href="">Bánh 1</a></li>
-                            <li><a href="">Bánh 2</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="">Đặc sản Củ Chi</a>
-                        <ul>
-                            <li><a href="">Bánh 1</a></li>
-                            <li><a href="">Bánh 2</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="">Du lịch Củ Chi</a>
-                        <ul>
-                            <li><a href="">Bánh 1</a></li>
-                            <li><a href="">Bánh 2</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="">Liên hệ</a></li>
-                    <li><a href="">Giới thiệu</a></li>
-                </ul>
-                <div class="collapse nav navbar-nav nav-collapse slide-down slide-down-11" id="nav-collapse3">
-                    <form class="navbar-form navbar-right" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Bánh tráng trộn, . . ." />
-                        </div>
-                        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                    </form>
-                </div>
+                @Html.Partial("~/Views/Shared/_menuPageTopmobile.cshtml")
             </nav>
         </div>
         @*<div class="header_bot container">

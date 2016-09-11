@@ -1,0 +1,92 @@
+﻿@using KOKService
+@using KoK_Source.Common
+@{
+    KOK_DATAEntities _kokDataEntity = new KOK_DATAEntities();
+    CommonCnv _com = new CommonCnv();
+    var dt = _kokDataEntity.KOK_CATEGORIES.Where(m => m.ACTIVE == true).DefaultIfEmpty().ToList();
+}
+
+<ul>
+    <li><a href="@Request.Url.GetLeftPart(UriPartial.Authority)"></a></li>
+    <li><a href="@Request.Url.GetLeftPart(UriPartial.Authority)">TRANG CHỦ</a></li>
+    <li><a href="#">Giới Thiệu</a></li>
+    @foreach (var m1 in dt)
+    {
+        @*@Url.Action("Index", Controller, new { id = m1.CAT_ID, pageIndex = 0 })*@
+    string Controller = "danh-muc-bai-viet";
+    if (m1.CAT_TYPE == 1)//Product
+    {
+        //Controller = "Products";
+        Controller = "danh-muc-san-pham";
+    }
+    else
+    {
+        //Controller = "Post";
+        Controller = "danh-muc-bai-viet";
+    }
+    if (m1.CAT_RANK == 1)
+    {
+        <li>
+            <a href="@Url.Action(_com.ToAscii(m1.CAT_NAME)+"-"+m1.CAT_ID+"-"+"0", Controller)">@m1.CAT_NAME </a>
+            @if (dt.Count(item => item.CAT_PARENT_ID == m1.CAT_ID && item.CAT_RANK == 2) > 0)
+            {
+                <ul>
+                    @foreach (var m2 in dt)
+                    {
+                        if (m2.CAT_TYPE == 1)//Product
+                        {
+                            //Controller = "Products";
+                            Controller = "danh-muc-san-pham";
+                        }
+                        else
+                        {
+                            //Controller = "Post";
+                            Controller = "danh-muc-bai-viet";
+                        }
+                        if (m2.CAT_RANK == 2 && m2.CAT_PARENT_ID == m1.CAT_ID)
+                        {
+                            <li>
+                                <a href="@Url.Action(_com.ToAscii(m2.CAT_NAME)+"-"+m2.CAT_ID+"-"+"0", Controller)">@m2.CAT_NAME</a>
+                                @if (dt.Count(item => item.CAT_PARENT_ID == m2.CAT_ID && item.CAT_RANK == 3) > 0)
+                                {
+                                    <ul>
+                                        @foreach (var m3 in dt)
+                                        {
+                                            if (m3.CAT_TYPE == 1)//Product
+                                            {
+                                                //Controller = "Products";
+                                                Controller = "danh-muc-san-pham";
+                                            }
+                                            else
+                                            {
+                                                //Controller = "Post";
+                                                Controller = "danh-muc-bai-viet";
+                                            }
+                                            if (m3.CAT_RANK == 3 && m3.CAT_PARENT_ID == m2.CAT_ID)
+                                            {
+                                                <li>
+                                                    <a href="@Url.Action(_com.ToAscii(m3.CAT_NAME)+"-"+m3.CAT_ID+"-"+"0", Controller)">@m3.CAT_NAME</a>
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                }
+                            </li>
+                        }
+                    }
+                </ul>
+            }
+        </li>
+        }
+    }
+
+    <li><a href="@Url.Action("Index","Contact")">Liên Hệ</a></li>
+</ul>
+<div class="collapse nav navbar-nav nav-collapse slide-down slide-down-11" id="nav-collapse3">
+    <form action="@Url.Action("Index","Search")" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+            <input type="text" name="search" id="search" class="form-control" placeholder="Bánh tráng trộn, . . ." />
+        </div>
+        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+    </form>
+</div>

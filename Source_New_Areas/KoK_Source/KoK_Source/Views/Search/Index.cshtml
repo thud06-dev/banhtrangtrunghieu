@@ -15,15 +15,16 @@
         <div class="list-group">
             @foreach (var item in Model)
             {
-                var controller = item.NEWS_TYPE == 0 ? "Post" : "Products";
+                //action = Url.Action("DetailProducts", controller, new { id_menu = string.Empty, id_products = item.NEWS_ID });
+                var controller = item.NEWS_TYPE == 0 ? "bai-viet" : "san-pham";
                 var action = string.Empty;
                 if(item.NEWS_TYPE == 0)
                 {
-                    action = Url.Action("DetailPost", controller, new { id_menu = string.Empty, id_post = item.NEWS_ID });
+                    action = Url.Action(item.NEWS_SEO_URL + "-" + item.NEWS_ID, controller);
                 }
                 else
                 {
-                    action = Url.Action("DetailProducts", controller, new { id_menu = string.Empty, id_products = item.NEWS_ID });
+                    action = Url.Action(item.NEWS_SEO_URL + "-" + item.NEWS_ID, controller);
                 }
                 <a href="@action" class="list-group-item">
                     <div class="media col-md-3">

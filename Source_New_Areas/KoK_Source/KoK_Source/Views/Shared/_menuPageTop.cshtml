@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse nav-rela" id="navbar-collapse-3">
             <ul class="nav navbar-nav navbar-left">
                 <li><a href="@Request.Url.GetLeftPart(UriPartial.Authority)"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-                <li><a href="@Request.Url.GetLeftPart(UriPartial.Authority)">HOME</a></li>
+                <li><a href="@Request.Url.GetLeftPart(UriPartial.Authority)">TRANG CHỦ</a></li>
                 <li><a href="#">Giới Thiệu</a></li>
                 @foreach (var m1 in dt)
                 {
@@ -64,7 +64,7 @@
                                                         //Controller = "Post";
                                                         Controller = "danh-muc-bai-viet";
                                                     }
-                                                    if (m3.CAT_RANK == 3 && m3.CAT_PARENT_ID == m2.CAT_PARENT_ID)
+                                                    if (m3.CAT_RANK == 3 && m3.CAT_PARENT_ID == m2.CAT_ID)
                                                     {
                                                     <li>
                                                         <a href="@Url.Action(_com.ToAscii(m3.CAT_NAME)+"-"+m3.CAT_ID+"-"+"0", Controller)">@m3.CAT_NAME</a>

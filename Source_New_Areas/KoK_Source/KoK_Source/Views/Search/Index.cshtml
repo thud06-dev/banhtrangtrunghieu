@@ -1,0 +1,71 @@
+﻿@model List<KoK_Source.Models.NewsModel>
+@using KoK_Source.Common
+@using KoK_Source.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    CommonCnv _com = new CommonCnv();
+    PagedList page = ViewBag.Page;
+}
+<section class="contents">
+    <div class="form-group">
+        <h3>Kết quả tìm kiếm cho: @ViewBag.Param</h3>
+    </div>
+    <div class="contents_left">
+        <div class="list-group">
+            @foreach (var item in Model)
+            {
+                var controller = item.NEWS_TYPE == 0 ? "Post" : "Products";
+                var action = string.Empty;
+                if(item.NEWS_TYPE == 0)
+                {
+                    action = Url.Action("DetailPost", controller, new { id_menu = string.Empty, id_post = item.NEWS_ID });
+                }
+                else
+                {
+                    action = Url.Action("DetailProducts", controller, new { id_menu = string.Empty, id_products = item.NEWS_ID });
+                }
+                <a href="@action" class="list-group-item">
+                    <div class="media col-md-3">
+                        <figure class="pull-left">
+                            @if (!string.IsNullOrEmpty(item.ANH))
+                            {
+                                List<FileModel> fileAvatar = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<List<FileModel>>(item.ANH);
+                                if (fileAvatar != null)
+                                {
+                                    <img class="media-object img-rounded img-responsive" src="@Url.Content(fileAvatar.First().url)" alt="@fileAvatar.First().name">
+                                }
+                            }
+
+                        </figure>
+                    </div>
+                    <div class="col-md-9">
+                        <h4 class="list-group-item-heading"> @item.NEWS_TITLE </h4>
+                        <p class="list-group-item-text">
+                            @_com.getMota(item.NEWS_DESC, 200).ToString()
+                        </p><br>
+                        <button type="button" class="btn btn-danger btn-seemore btn-block"> Xem thêm </button>
+                    </div>
+                </a>
+            }
+
+
+            <center class="page-nation">
+                <ul class="pagination pagination-large">
+                    <li class="disabled"><span><<</span></li>
+                    @for (int i = 0; i < page.numberPage; i++)
+                    {
+                        <li class="@if (page.currentPage == i) { Html.Raw("active"); } "><a href="@Url.Action("Index","Search",new { search = ViewBag.Param, pageIndex = i})">@(i + 1)</a></li>
+                    }
+                    <li class="disabled"><span>>></span></li>
+                    @*<li><a rel="next" href="#">Next</a></li>*@
+
+                </ul>
+            </center>
+        </div>
+    </div>
+
+</section>
+
+
+

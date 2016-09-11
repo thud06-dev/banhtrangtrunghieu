@@ -56,7 +56,7 @@ namespace KoK_Source.Areas.Admin.Com
                 model.UPDATE_DATE = item.UPDATE_DATE == null ? string.Empty : item.UPDATE_DATE.ToString();
                 model.UPDATE_USER = item.UPDATE_USER == null ? string.Empty : item.UPDATE_USER;
                 model.BANNER_TYPE = item.BANNER_TYPE.Value.ToString();
-                model.ACTIVE = _commonCnv.CnvBool(item.ACTIVE);
+                model.ACTIVE = Convert.ToBoolean(item.ACTIVE);
             }
             return model;
         }

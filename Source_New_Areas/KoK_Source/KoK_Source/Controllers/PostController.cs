@@ -55,12 +55,34 @@ namespace KoK_Source.Controllers
                 model = _postCom.detailNews(id_menu, id_post);
                 model.ListPostsSidebar = _postCom.getListProducts(7);
                 model.ListPostsRelate = _postCom.getListProducts(4);
+                _postCom.CountView(int.Parse(id_post));
+                ViewBag.NEWS_SEO_TITLE = model.NEWS_SEO_TITLE;
+                ViewBag.NEWS_SEO_DESC = model.NEWS_SEO_DESC;
+                ViewBag.NEWS_DESC = model.NEWS_DESC;
+                ViewBag.NEWS_SEO_KEYWORD = model.NEWS_SEO_KEYWORD;
+                ViewBag.NEWS_TITLE = model.NEWS_TITLE;
+                if (!string.IsNullOrEmpty(model.ANH))
+                {
+                    List<FileModel> fileAvatar = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<List<FileModel>>(model.ANH);
+                    if (fileAvatar != null)
+                    {
+                        ViewBag.IMAGE = fileAvatar.First().url;
+                    }
+                    else
+                    {
+                        ViewBag.IMAGE = "~/Content/_Template/img/img.jpg";
+                    }
+                }
                 return View(model);
             }
             catch (Exception ex)
             {
                 return Json(new { Msg = ex.Message });
             }
+        }
+        public ActionResult ABC(string test)
+        {
+            return View();
         }
     }
 }

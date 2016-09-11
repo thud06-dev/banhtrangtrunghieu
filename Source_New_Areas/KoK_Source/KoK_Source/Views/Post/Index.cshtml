@@ -20,7 +20,7 @@
             <div class="list-group">
                 @foreach (var item in Model)
                 {
-                    <a href="@Url.Action("DetailPost","Post", new { id_menu = string.Empty, id_post = item.NEWS_ID})" class="list-group-item">
+                    <a href="@Url.Action(item.NEWS_SEO_URL+"-"+item.NEWS_ID,"bai-viet")" class="list-group-item">
                         <div class="media col-md-3">
                             <figure class="pull-left">
                                 @if (!string.IsNullOrEmpty(item.ANH))

@@ -36,6 +36,8 @@ namespace KoK_Source.Models
         public string ANH { get; set; }
         [DisplayName("Ảnh sản phẩm")]
         public string LIST_ANH { get; set; }
+        public int? NEWS_TYPE { get; set; }
+        public int? NEWS_COUNT { get; set; }
         public DateTime? CREATE_DATE { get; set; }
         [DisplayName("Update Date")]
         public DateTime? UPDATE_DATE { get; set; }

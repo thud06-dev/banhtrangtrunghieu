@@ -80,6 +80,7 @@ namespace KoK_Source.Areas.Admin.Controllers
                     CAT_PARENT_ID = 0,
                     CAT_ORDER = 0,
                     ACTIVE = model.Active,
+                    CAT_TYPE = model.CAT_TYPE,
                     CREATE_USER = model.CreateUser,
                     CREATE_DATE = DateTime.Now,
                     UPDATE_USER = model.UpdateUser,
@@ -112,6 +113,7 @@ namespace KoK_Source.Areas.Admin.Controllers
                 Id = categories.CAT_ID.ToString(),
                 MenuName = categories.CAT_NAME,
                 MenuLink = categories.CAT_URL,
+                CAT_TYPE = categories.CAT_TYPE
                 //MenuRank = categories.CAT_RANK.ToString(),
                 //MenuParentId = categories.CAT_PARENT_ID.ToString(),
                 //MenuOrder= categories.CAT_ORDER?.ToString()
@@ -156,6 +158,7 @@ namespace KoK_Source.Areas.Admin.Controllers
                 //categories.CAT_ORDER = 0;
                 //categories.CAT_RANK = 1;
                 //categories.CAT_PARENT_ID = 0;
+                categories.CAT_TYPE = model.CAT_TYPE;
                 categories.CREATE_USER = model.CreateUser;
                 categories.CREATE_DATE = DateTime.Now;
                 categories.UPDATE_USER = model.UpdateUser;

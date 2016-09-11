@@ -11,8 +11,12 @@
     </div>
     <section class="contents">
         <div class="contents_left">
-            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-            <script type="text/JavaScript" src="http://www.professorcloud.com/js/cloud-zoom.1.0.2.js"></script>
+            @*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>*@
+            <script src="@Url.Content("~/Content/_Template/js/jquery.min.js")"></script>
+            @*<script src="@Url.Content("~/Content/_Template/js/jquery-2.1.1.js")"></script>
+            <script src="~/Content/_Template/js/jquery.js"></script>*@
+            @*<script type="text/JavaScript" src="http://www.professorcloud.com/js/cloud-zoom.1.0.2.js"></script>*@
+            <script src="@Url.Content("~/Content/_Template/js/cloud-zoom.1.0.2.js")"></script>
             <div class="test-wrapper col-md-6">
                 <div class="main-pick">
                     @{
@@ -24,7 +28,7 @@
                             if (fileAvatar != null)
                             {
                                 <a href='@Url.Content(fileAvatar.First().url)' class='cloud-zoom' id='zoom1'>
-                                    <img width="320" src="@Url.Content(fileAvatar.First().url)" alt='@Url.Content(fileAvatar.First().name)' />
+                                    <img width="320" height="229" src="@Url.Content(fileAvatar.First().url)" alt='@Url.Content(fileAvatar.First().name)' />
                                 </a>
                             }
                         }
@@ -32,7 +36,7 @@
                         {
                             fileAvatar = null;
                             <a href='@Url.Content("~/Content/_Template/img/img.jpg")' class='cloud-zoom' id='zoom1'>
-                                <img width="320" src="@Url.Content("~/Content/_Template/img/img.jpg")" alt='' />
+                                <img width="320" height="229" src="@Url.Content("~/Content/_Template/img/img.jpg")" alt='' />
                             </a>
                         }
                     }
@@ -80,7 +84,7 @@
 
                 
                 <div class="btn-group wishlist">
-                    <div class="fb-like" data-href="https://www.facebook.com/raiinfodotcom" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                    <div class="fb-like" data-href="@Request.Url.ToString()" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                 </div>
                 
             </div>
@@ -89,7 +93,7 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#home">Chi tiết sản phẩm</a></li>
                     <li><a data-toggle="tab" href="#menu1">Giới thiệu</a></li>
-                    <li><a data-toggle="tab" href="#menu2">Hình ảnh</a></li>
+                    @*<li><a data-toggle="tab" href="#menu2">Hình ảnh</a></li>*@
                 </ul>
 
                 <div class="tab-content">
@@ -102,9 +106,9 @@
                     <div id="menu1" class="tab-pane fade">
                         @Html.Raw(Model.POST_HTML)
                     </div>
-                    <div id="menu2" class="tab-pane fade">
+                    @*<div id="menu2" class="tab-pane fade">
                         Đang cập nhật
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </div>
@@ -117,7 +121,7 @@
                 <!--                    <span><a href="">Xem thêm</a></span>-->
             </div>
             <br>
-            <div class="fb-comments" data-href="https://www.facebook.com/hohuynhlam" data-numposts="5"></div>
+            <div class="fb-comments" data-width="100%" data-href="https://www.facebook.com/hohuynhlam" data-numposts="5"></div>
         </div>
         <div class="contents_lefts contents_lefts-splq">
             @Html.Partial("_relateProducts", Model.ListProductsRelate)   

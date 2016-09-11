@@ -26,7 +26,7 @@ namespace KoK_Source.Com
             ProductsModel md = new ProductsModel();
             var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 1
             && a.NEWS_ID == p_id
-
+            && a.ACTIVE == false
             ).OrderBy(m => m.UPDATE_DATE).FirstOrDefault();
             if (dt != null)
             {
@@ -63,7 +63,7 @@ namespace KoK_Source.Com
             {
                 foreach (var item in cat)
                 {
-                    var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_ID == item.NEWS_ID).FirstOrDefault();
+                    var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_ID == item.NEWS_ID && a.ACTIVE == false).OrderByDescending(a => a.UPDATE_DATE).FirstOrDefault();
                     if (dt != null)
                     {
                         ProductsModel md = new ProductsModel();
@@ -104,7 +104,7 @@ namespace KoK_Source.Com
             {
                 foreach (var item in cat)
                 {
-                    var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_ID == item.NEWS_ID).FirstOrDefault();
+                    var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_ID == item.NEWS_ID && a.ACTIVE == false).OrderByDescending(a=>a.UPDATE_DATE).FirstOrDefault();
                     if (dt != null)
                     {
                         ProductsModel md = new ProductsModel();
@@ -144,7 +144,7 @@ namespace KoK_Source.Com
                 take = 4;
             }
             List<ProductsModel> model = new List<ProductsModel>();
-            var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 1).Take(take).OrderBy(o => o.UPDATE_DATE);
+            var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 1 && a.ACTIVE == false).Take(take).OrderByDescending(o => o.UPDATE_DATE);
             if (dt != null)
             {
                 foreach (var item in dt)
@@ -182,7 +182,7 @@ namespace KoK_Source.Com
         {
             List<ProductsModel> model = new List<ProductsModel>();
 
-            var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 1);//get all tin tức
+            var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 1 && a.ACTIVE == false);//get all tin tức
             if (dt != null)
             {
                 foreach (var item in dt)
@@ -216,6 +216,20 @@ namespace KoK_Source.Com
             }
             model = model.OrderByDescending(o => o.UPDATE_DATE).ToList();
             return model;
+        }
+        public void CountView(int id)
+        {
+            KOK_PRODUCTS dtOld = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_ID == id).FirstOrDefault();
+            if (dtOld.NEWS_COUNT != null)
+            {
+                dtOld.NEWS_COUNT = dtOld.NEWS_COUNT + 1;
+            }
+            else
+            {
+                dtOld.NEWS_COUNT = 1;
+            }
+            
+            _kokDataEntities.SaveChanges();
         }
     }
 }

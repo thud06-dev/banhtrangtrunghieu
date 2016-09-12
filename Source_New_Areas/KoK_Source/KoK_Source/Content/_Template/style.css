@@ -508,3 +508,15 @@ footer { background-color:#333; min-height:350px; font-family: 'Open Sans', sans
     color: #fff;
     text-shadow: 2px 2px 6px #000;
 }
+
+@media only screen and (max-width: 1024px){
+    header.header {
+    display: inline-block;
+    }
+    #page.tr_mobile.d_mneu_mobile{
+        z-index: 0;
+    }
+    nav#menu {
+        z-index : 1;
+    }
+}

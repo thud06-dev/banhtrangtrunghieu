@@ -2,7 +2,7 @@
 @using KoK_Source.Models
 
 <div class="title-news">
-    <h3><a href="">Sản Phẩm HOT</a></h3>
+    <h3><a href="">Sản Phẩm Mới</a></h3>
     <span><a href="@Url.Action("Index", "Products", new {id = string.Empty, pageIndex = 0})">Xem thêm</a></span>
 </div>
 <ul>
@@ -10,9 +10,10 @@
     {
         foreach (var item in Model)
         {
+            @*@Url.Action("DetailProducts", "Products", new { id_menu = string.Empty, id_products = item.NEWS_ID })*@
             <li>
-                <a href="@Url.Action("DetailProducts", "Products", new { id_menu = string.Empty, id_products = item.NEWS_ID})">
-                    <div class="tit-news">@item.NEWS_TITLE</div>
+                <a href="@Url.Action(item.NEWS_SEO_URL+"-"+item.NEWS_ID,"san-pham")">
+                    <div class="tit-news"><b>@item.NEWS_TITLE</b></div>
                     <div class="img-news">
                         @{
                             List<FileModel> fileAvatar;
@@ -31,7 +32,9 @@
                                 <img class="hvr-grow" src="@Url.Content("~/Content/_Template/img/img.jpg")" alt="" />
                             }
                         }
+                        
                     </div>
+                    <div class="tit-news">Giá: <i>@string.Format("{0:#0,0}", Convert.ToDecimal(item.GIA)) vnđ</i></div>
                 </a>
             </li>
         }

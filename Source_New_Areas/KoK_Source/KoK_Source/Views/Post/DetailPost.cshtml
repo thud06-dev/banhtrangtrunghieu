@@ -13,7 +13,10 @@
         <div class="contents_left">
             <h2>@Model.NEWS_TITLE</h2>
             <i>@Model.NEWS_DESC</i><br>
+            <i>Ngày đăng: @Model.CREATE_DATE.Value.ToLongDateString() </i><br>
+            <i>Thời gian: @Model.CREATE_DATE.Value.ToShortTimeString() </i><br>
             <hr>
+            <div class="fb-like" data-href="@Request.Url.ToString()" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
             @Html.Raw(Model.POST_HTML)
         </div>
         <div class="contents_right">
@@ -25,7 +28,7 @@
                 <!--                    <span><a href="">Xem thêm</a></span>-->
             </div>
             <br>
-            <div class="fb-comments" data-href="https://www.facebook.com/hohuynhlam" data-numposts="5"></div>
+            <div class="fb-comments" data-width="100%" data-href="https://www.facebook.com/hohuynhlam" data-numposts="5"></div>
         </div>
         <div class="contents_lefts contents_lefts-splq">
             @Html.Partial("_relatePost", Model.ListPostsRelate)

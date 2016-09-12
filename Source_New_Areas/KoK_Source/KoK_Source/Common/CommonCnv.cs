@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace KoK_Source.Common
@@ -97,6 +98,19 @@ namespace KoK_Source.Common
             {
                 return str.Substring(str.Length - maxlenght);
             }
+        }
+        public string ToAscii(string unicode)
+        {
+            unicode = Regex.Replace(unicode, "[áàảãạăắằẳẵặâấầẩẫậ]", "a");
+            unicode = Regex.Replace(unicode, "[óòỏõọôồốổỗộơớờởỡợ]", "o");
+            unicode = Regex.Replace(unicode, "[éèẻẽẹêếềểễệ]", "e");
+            unicode = Regex.Replace(unicode, "[íìỉĩị]", "i");
+            unicode = Regex.Replace(unicode, "[úùủũụưứừửữự]", "u");
+            unicode = Regex.Replace(unicode, "[ýỳỷỹỵ]", "y");
+            unicode = Regex.Replace(unicode, "[đ]", "d");
+            //unicode = Regex.Replace(unicode, "[-\\s+/]+", "-");
+            unicode = Regex.Replace(unicode, "\\W+", "_"); //Nếu bạn muốn thay dấu khoảng trắng thành dấu "_" hoặc dấu cách " " thì thay kí tự bạn muốn vào đấu "-"
+            return unicode;
         }
     }
 }

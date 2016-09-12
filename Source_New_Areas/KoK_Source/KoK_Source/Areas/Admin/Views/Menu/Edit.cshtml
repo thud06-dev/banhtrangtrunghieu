@@ -33,7 +33,20 @@
                 @Html.ValidationMessageFor(model => model.MenuLink, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CAT_TYPE, htmlAttributes: new { @class = "control-label col-md-2" })
 
+            <div class="radio">
+                <label>
+                    <input name="CAT_TYPE" checked @if (Model.CAT_TYPE == 0) { @Html.Raw("checked") ; } value="0" type="radio" class="ace">
+                    <span class="lbl"> Tin tức</span>
+                </label>
+                <label>
+                    <input name="CAT_TYPE" @if (Model.CAT_TYPE == 1) { @Html.Raw("checked")  ; } value="1" type="radio" class="ace">
+                    <span class="lbl"> Sản phẩm</span>
+                </label>
+            </div>
+        </div>
         @*<div class="form-group">
             @Html.LabelFor(model => model.MenuRank, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

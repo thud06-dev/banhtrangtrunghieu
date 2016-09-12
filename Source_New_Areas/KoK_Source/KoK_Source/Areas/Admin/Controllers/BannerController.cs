@@ -31,10 +31,11 @@ namespace KoK_Source.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                return Json(new { Msg = ex.Message });
+                return Json(new { Msg = ex.Message }, JsonRequestBehavior.AllowGet);
             }
 
         }
+        [HttpGet]
         public ActionResult Edit(BannerModel model)
         {
             try
@@ -49,7 +50,7 @@ namespace KoK_Source.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                return Json(new { Msg = ex.Message });
+                return Json(new { Msg = ex.Message }, JsonRequestBehavior.AllowGet);
             }
         }
         [HttpPost]
@@ -63,6 +64,8 @@ namespace KoK_Source.Areas.Admin.Controllers
                 model.BANNER_FILE = form["BANNER_FILE"].Trim();
                 model.BANNER_ID = form["BANNER_ID"].Trim();
                 model.BANNER_TYPE = form["BANNER_TYPE"].Trim();
+                model.BANNER_LINK = form["BANNER_LINK"].Trim();
+                model.ACTIVE = Convert.ToBoolean(form["ACTIVE"].Split(',')[0]);
                 if (Request.Files.Count > 0)
                 {
                     string result = string.Empty;
@@ -93,7 +96,7 @@ namespace KoK_Source.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                return Json(new { Msg = ex.Message });
+                return Json(new { Msg = ex.Message }, JsonRequestBehavior.AllowGet);
             }
 
         }
@@ -142,14 +145,14 @@ namespace KoK_Source.Areas.Admin.Controllers
                 return Json(new
                 {
                     returnCode = 1
-                });
+                }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
                 return Json(new
                 {
                     returnCode = 0
-                });
+                }, JsonRequestBehavior.AllowGet);
             }
         }
         [HttpPost]
@@ -170,7 +173,7 @@ namespace KoK_Source.Areas.Admin.Controllers
                 return Json(new
                 {
                     returnCode = 0
-                });
+                }, JsonRequestBehavior.AllowGet);
             }
         }
     }

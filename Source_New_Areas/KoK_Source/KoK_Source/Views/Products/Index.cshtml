@@ -21,7 +21,8 @@
             <div class="list-group">
                 @foreach (var item in Model)
                 {
-                    <a href="@Url.Action("DetailProducts","Products", new { id_menu = string.Empty, id_post = item.NEWS_ID})" class="list-group-item">
+                    @*@Url.Action("DetailProducts", "Products", new { id_menu = string.Empty, id_products = item.NEWS_ID })*@
+                    <a href="@Url.Action(item.NEWS_SEO_URL+"-"+item.NEWS_ID,"san-pham")" class="list-group-item">
                         <div class="media col-md-3">
                             <figure class="pull-left">
                                 @if (!string.IsNullOrEmpty(item.ANH))
@@ -40,7 +41,8 @@
                             <p class="list-group-item-text">
                                 @_com.getMota(item.NEWS_DESC, 200).ToString()
                             </p><br>
-                            <button type="button" class="btn btn-danger btn-seemore btn-block"> Xem thêm </button>
+                            <div>Giá: @string.Format("{0:#0,0}", Convert.ToDecimal(item.GIA)) vnđ</div>
+                            <button type="button" class="btn btn-seemore btn-success"> Xem thêm </button>
                         </div>
                     </a>
                 }

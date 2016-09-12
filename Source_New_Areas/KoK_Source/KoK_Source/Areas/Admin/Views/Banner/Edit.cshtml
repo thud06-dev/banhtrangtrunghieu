@@ -22,7 +22,7 @@
                     @Html.TextBoxFor(m => m.BANNER_FILE, Model.BANNER_FILE, new { @class = "stacked-input", @placeholder = "URL", @style = "display: none" })
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1">@Html.DisplayNameFor(m=>m.BANNER_NAME) </label>
                     <div class="col-sm-9">
-                        @Html.TextBoxFor(m => m.BANNER_NAME, Model.BANNER_NAME, new { @class = "col-xs-10 col-sm-5", @placeholder = "Name" })
+                        @Html.TextBoxFor(m => m.BANNER_NAME, Model.BANNER_NAME, new { @class = "col-xs-10 col-sm-10", @placeholder = "Name" })
                     </div>
                             
                 </div>
@@ -31,10 +31,16 @@
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1">@Html.DisplayNameFor(m => m.BANNER_DESC) </label>
 
                     <div class="col-sm-9">
-                        @Html.TextAreaFor(m => m.BANNER_DESC,3,20, new { @class = "col-xs-10 col-sm-5", @placeholder = "Name" })
+                        @Html.TextAreaFor(m => m.BANNER_DESC,3,20, new { @class = "col-xs-10 col-sm-10" })
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">@Html.DisplayNameFor(m => m.BANNER_LINK) </label>
 
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(m => m.BANNER_LINK, Model.BANNER_LINK, new { @class = "col-xs-10 col-sm-10" })
+                    </div>
+                </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1">@Html.DisplayNameFor(m => m.BANNER_FILE) </label>
                     <div class="col-sm-9">
@@ -44,13 +50,20 @@
                         @*<button id="btnSaveData" data-request-url="@Url.Action("SaveData")">Save</button>*@
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">@Html.DisplayNameFor(m => m.ACTIVE) </label>
+
+                    <div class="col-sm-9">
+                        @Html.CheckBoxFor(m => m.ACTIVE)
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1">@Html.DisplayNameFor(m => m.BANNER_TYPE) </label>
                     <div class="control-group col-sm-9">
                         <label class="control-label bolder blue">Chọn kiểu hiển thị</label>
 
                         <div class="radio">
                             <label>
-                                <input name="BANNER_TYPE" @if (Model.BANNER_TYPE == "1") { @Html.Raw("checked"); } value="1" type="radio" class="ace">
+                                <input name="BANNER_TYPE" @if (Model.BANNER_TYPE == "1"|| string.IsNullOrEmpty(Model.BANNER_TYPE)) { @Html.Raw("checked"); } value="1" type="radio" class="ace">
                                 <span class="lbl"> SLIDER LEFT</span>
                             </label>
                         </div>

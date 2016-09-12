@@ -14,9 +14,10 @@
     {
         foreach (var item in Model)
         {
+            @*@Url.Action("DetailPost", "Post", new { id_menu = string.Empty, id_post = item.NEWS_ID })*@
             <li>
                 <div class="sp-img">
-                    <a href="@Url.Action("DetailPost","Post", new { id_menu = string.Empty, id_post = item.NEWS_ID})">
+                    <a href="@Url.Action(item.NEWS_SEO_URL+"-"+item.NEWS_ID,"bai-viet")">
                         @{
                             List<FileModel> fileAvatar;
                             if (!String.IsNullOrEmpty(item.ANH))

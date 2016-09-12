@@ -3,30 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="author" content="Thái Bá Phát">
-    <meta name="description" content="Thái Bá Phát, HTML,CSS,XML,JavaScript,tbphat06.it@gmail.com">
-    <meta name="keywords" content="Thái Bá Phát, HTML,CSS,XML,JavaScript">
+    <meta http-equiv="content-language" content="vi" />
+    <meta name="author" content="@Request.Url.GetLeftPart(UriPartial.Authority)">
+    <meta name="description" content="@ViewBag.NEWS_SEO_DESC">
+    <meta name="keywords" content="@ViewBag.NEWS_SEO_KEYWORD">
+    <!--facebook-->
+    <meta property="og:site_name" content="@Request.Url.GetLeftPart(UriPartial.Authority)" />
+    <meta property="og:title" content="@ViewBag.NEWS_TITLE" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="@Request.Url.ToString()" />
+    <meta property="og:image" content="@if (!string.IsNullOrEmpty(ViewBag.IMAGE)) { @Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority)+Url.Content(ViewBag.IMAGE))}" />
+    <meta property="og:description" content="@ViewBag.NEWS_DESC" />
+    <title>BÁNH TRÁNG @if (!string.IsNullOrEmpty(ViewBag.NEWS_TITLE)) { @Html.Raw(" - " + ViewBag.NEWS_TITLE);}</title>
 
 
-    <title>BÁNH TRÁNG</title>
-    <!-------jquery------->
+<!-------jquery------->
 
-    <script src="@Url.Content("~/Content/_Template/js/jquery-1.11.3.min.js")"></script>
-    <!-----scroll-mouse--->
-    <script src="@Url.Content("~/Content/_Template/js/scroll-m.js")"></script>
-    <!-- RESPONSIVE MENU -->
-    <link href="@Url.Content("~/Content/_Template/js/menu-responsive/jquery.mmenu.all.css")" rel="stylesheet" />
-    <script type="text/javascript" src="@Url.Content("~/Content/_Template/js/menu-responsive/jquery.mmenu.min.all.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Content/_Template/js/menu-responsive/index-menu-rp.js")"></script>
-    <!----bootstrap------>
-    <link rel="stylesheet" href="@Url.Content("~/Content/_Template/css/bootstrap.css")" type="text/css" media="all" />
-    <script src="@Url.Content("~/Content/_Template/js/bootstrap.min.js")"></script>
-    <link href="@Url.Content("~/Content/_Template/fonts/roboto-light.css")" rel="stylesheet" />
-    <!---- animate ----->
-    <link rel="stylesheet" href="@Url.Content("~/Content/_Template/css/animate.css")" type="text/css" media="all" />
-    <script src="@Url.Content("~/Content/_Template/js/wow.min.js")"></script>
-    <script>
-        new WOW().init();
+
+<script src="@Url.Content("~/Content/_Template/js/jquery.min.js")"></script>
+
+
+<script src="@Url.Content("~/Content/_Template/js/jquery-1.11.3.min.js")"></script>
+
+
+<!-----scroll-mouse--->
+
+
+<script src="@Url.Content("~/Content/_Template/js/scroll-m.js")"></script>
+
+
+<!-- RESPONSIVE MENU -->
+
+
+<link href="@Url.Content("~/Content/_Template/js/menu-responsive/jquery.mmenu.all.css")" rel="stylesheet" />
+
+
+<script type="text/javascript" src="@Url.Content("~/Content/_Template/js/menu-responsive/jquery.mmenu.min.all.js")"></script>
+
+
+<script type="text/javascript" src="@Url.Content("~/Content/_Template/js/menu-responsive/index-menu-rp.js")"></script>
+
+
+<!----bootstrap------>
+
+
+<link rel="stylesheet" href="@Url.Content("~/Content/_Template/css/bootstrap.css")" type="text/css" media="all" />
+
+
+<script src="@Url.Content("~/Content/_Template/js/bootstrap.min.js")"></script>
+
+
+<link href="@Url.Content("~/Content/_Template/fonts/roboto-light.css")" rel="stylesheet" />
+
+
+<!---- animate ----->
+
+
+<link rel="stylesheet" href="@Url.Content("~/Content/_Template/css/animate.css")" type="text/css" media="all" />
+
+
+<script src="@Url.Content("~/Content/_Template/js/wow.min.js")"></script>
+
+
+<script>
+new WOW().init();
     </script>
     <!-- FONT AWESOME -->
     <link href="@Url.Content("~/Content/_Template/fonts/font-awesome.min.css")" rel="stylesheet" />
@@ -37,7 +77,8 @@
     <link href="@Url.Content("~/Content/_Template/style.css")" rel="stylesheet" />
     <link rel="stylesheet" href="@Url.Content("~/Content/_Template/responsive.css")" type="text/css" />
     <script src="@Url.Content("~/Content/Plugin/Jquery/jquery-2.2.2.min.js")"></script>
-    <script type="text/JavaScript" src="http://www.professorcloud.com/js/cloud-zoom.1.0.2.js"></script>
+    @*<script src="@Url.Content("~/Content/_Template/js/cloud-zoom.1.0.2.js")"></script>*@
+    @*<script type="text/JavaScript" src="http://www.professorcloud.com/js/cloud-zoom.1.0.2.js"></script>*@
     <script>
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -68,47 +109,7 @@
                 <a href="#menu"></a>
             </div>
             <nav id="menu">
-                <ul>
-                    <li><a href="">Trang chủ</a></li>
-                    <li>
-                        <a href="">Bánh Tráng Xuất Khẩu</a>
-                        <ul>
-                            <li><a href="">Bánh 1</a></li>
-                            <li><a href="">Bánh 2</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="">Bánh Tráng Nội Địa</a>
-                        <ul>
-                            <li><a href="">Bánh 1</a></li>
-                            <li><a href="">Bánh 2</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="">Đặc sản Củ Chi</a>
-                        <ul>
-                            <li><a href="">Bánh 1</a></li>
-                            <li><a href="">Bánh 2</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="">Du lịch Củ Chi</a>
-                        <ul>
-                            <li><a href="">Bánh 1</a></li>
-                            <li><a href="">Bánh 2</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="">Liên hệ</a></li>
-                    <li><a href="">Giới thiệu</a></li>
-                </ul>
-                <div class="collapse nav navbar-nav nav-collapse slide-down slide-down-11" id="nav-collapse3">
-                    <form class="navbar-form navbar-right" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Bánh tráng trộn, . . ." />
-                        </div>
-                        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                    </form>
-                </div>
+                @Html.Partial("~/Views/Shared/_menuPageTopmobile.cshtml")
             </nav>
         </div>
         @*<div class="header_bot container">
@@ -199,7 +200,7 @@
                 </div>
             </div>*@
     </header>
-    <div class="container">
+    <div class="container" style="border:1px ridge;padding:4px">
         @RenderBody()
         @*<!---------ads_1--------------->
             <section class="ads_1">
@@ -332,7 +333,7 @@
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-6 paddingtop-bottom ft-left-tr-mb">
-                    <div class="fb-page" data-href="https://www.facebook.com/raiinfodotcom" data-tabs="timeline" data-height="300" data-small-header="false" style="margin-bottom:15px;" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                    <div class="fb-page" data-href="https://www.facebook.com/raiinfodotcom" @*data-tabs="timeline"*@ data-height="300" data-small-header="false" style="margin-bottom:15px;" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
                         <div class="fb-xfbml-parse-ignore">
                             <blockquote cite="https://www.facebook.com/raiinfodotcom"><a href="https://www.facebook.com/raiinfodotcom">Facebook</a></blockquote>
                         </div>
@@ -355,8 +356,10 @@
         </div>
     </footer>
     <!--footer start from here-->
-
-
+    <div class="fbchatbox hidden-xs" style="position:fixed;right:5px;bottom:0px;z-index:9999">
+        <div class="fb-page fbchat" data-href="https://www.facebook.com/raiinfodotcom" data-small-header="true" data-adapt-container-width="false" data-height="300" data-width="300" data-hide-cover="true" data-show-facepile="true" data-show-posts="false" data-tabs="messages"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/raiinfodotcom"><a href="https://www.facebook.com/raiinfodotcom">Raiinfomation</a></blockquote></div></div>
+        <span id="closefbchat" style="white-space: nowrap;position:absolute;right:2px;bottom:299px;padding: 3px 15px;background: #44619D;color: #fff;cursor: pointer;">Tắt Chat</span>
+    </div>
 </body>
 </html>
 <script>
@@ -373,5 +376,19 @@
                     $('b', this).toggleClass("caret caret-up");
                 });
     });
-
+    if (localStorage.getItem("fbchatclose") == 1) {
+        jQuery('.fbchat').toggleClass('hide');
+        jQuery('#closefbchat').html('<i class="fa fa-comments fa-2x"></i> Chat Tư Vấn').css({ 'bottom': 0 });
+    }
+    jQuery('#closefbchat').click(function () {
+        jQuery('.fbchat').toggleClass('hide');
+        if (jQuery('.fbchat').hasClass('hide')) {
+            localStorage.setItem("fbchatclose", 1);
+            jQuery('#closefbchat').html('<i class="fa fa-comments fa-2x"></i> Chat Tư Vấn').css({ 'bottom': 0 });
+        }
+        else {
+            localStorage.setItem("fbchatclose", 0);
+            jQuery('#closefbchat').text('Tắt Chat').css({ 'bottom': 299 });
+        }
+    });
 </script>

@@ -13,6 +13,8 @@
         <div class="contents_left">
             <h2>@Model.NEWS_TITLE</h2>
             <i>@Model.NEWS_DESC</i><br>
+            <i>Ngày đăng: @Model.CREATE_DATE.Value.ToLongDateString() </i><br>
+            <i>Thời gian: @Model.CREATE_DATE.Value.ToShortTimeString() </i><br>
             <hr>
             <div class="fb-like" data-href="@Request.Url.ToString()" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
             @Html.Raw(Model.POST_HTML)

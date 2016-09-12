@@ -74,6 +74,7 @@ namespace KoK_Source.Com
                     md.LIST_ANH = item.LIST_ANH;
                     md.ANH = item.ANH;
                     md.BAO_QUAN = item.BAO_QUAN;
+                    md.NEWS_COUNT = item.NEWS_COUNT;
                     md.CREATE_DATE = item.CREATE_DATE;
                     md.UPDATE_DATE = item.UPDATE_DATE;
                     md.CREATE_USER = item.CREATE_USER;

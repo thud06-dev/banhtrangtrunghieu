@@ -31,5 +31,6 @@ namespace KoK_Source.Areas.Admin.Models.Banner
         public string UPDATE_USER { get; set; }
         [DisplayName("State")]
         public bool ACTIVE { get; set; }
+        public string BANNER_LINK { get; set; }
     }
 }

@@ -16,7 +16,7 @@
             //var url = "/bai-viet/" + item.NEWS_SEO_URL +"-"+item.NEWS_ID;
             <li>
                 <a href="@Url.Action(item.NEWS_SEO_URL+"-"+item.NEWS_ID,"bai-viet")">
-                    <div class="tit-news">@item.NEWS_TITLE  <i>@item.NEWS_COUNT Lượt xem</i></div>
+                    <div class="tit-news"><b>@item.NEWS_TITLE</b></div>
                     @{
                         List<FileModel> fileAvatar;
                         if (!String.IsNullOrEmpty(item.ANH))
@@ -34,7 +34,10 @@
                             <div class="img-news"><img class="hvr-grow" src="Content/_Template/img/img.jpg" alt="" /></div>
                         }
                     }
-                    
+                    <div class="sp-price"><small><i>@item.CREATE_DATE.Value.ToShortDateString()</i></small></div>
+                    <div class="tit-news">
+                        <i>@item.NEWS_COUNT Lượt xem</i>
+                    </div>
                 </a>
             </li>
         }

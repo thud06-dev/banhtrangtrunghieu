@@ -47,6 +47,7 @@ namespace KoK_Source.Com
                 md.LIST_ANH = dt.LIST_ANH;
                 md.ANH = dt.ANH;
                 md.BAO_QUAN = dt.BAO_QUAN;
+                md.NEWS_COUNT = dt.NEWS_COUNT;
                 md.CREATE_DATE = dt.CREATE_DATE;
                 md.UPDATE_DATE = dt.UPDATE_DATE;
                 md.CREATE_USER = dt.CREATE_USER;
@@ -84,6 +85,7 @@ namespace KoK_Source.Com
                         md.LIST_ANH = dt.LIST_ANH;
                         md.ANH = dt.ANH;
                         md.BAO_QUAN = dt.BAO_QUAN;
+                        md.NEWS_COUNT = dt.NEWS_COUNT;
                         md.CREATE_DATE = dt.CREATE_DATE;
                         md.UPDATE_DATE = dt.UPDATE_DATE;
                         md.CREATE_USER = dt.CREATE_USER;
@@ -125,6 +127,7 @@ namespace KoK_Source.Com
                         md.LIST_ANH = dt.LIST_ANH;
                         md.ANH = dt.ANH;
                         md.BAO_QUAN = dt.BAO_QUAN;
+                        md.NEWS_COUNT = dt.NEWS_COUNT;
                         md.CREATE_DATE = dt.CREATE_DATE;
                         md.UPDATE_DATE = dt.UPDATE_DATE;
                         md.CREATE_USER = dt.CREATE_USER;
@@ -167,6 +170,7 @@ namespace KoK_Source.Com
                     md.LIST_ANH = item.LIST_ANH;
                     md.ANH = item.ANH;
                     md.BAO_QUAN = item.BAO_QUAN;
+                    md.NEWS_COUNT = item.NEWS_COUNT;
                     md.CREATE_DATE = item.CREATE_DATE;
                     md.UPDATE_DATE = item.UPDATE_DATE;
                     md.CREATE_USER = item.CREATE_USER;
@@ -205,6 +209,7 @@ namespace KoK_Source.Com
                     md.LIST_ANH = item.LIST_ANH;
                     md.ANH = item.ANH;
                     md.BAO_QUAN = item.BAO_QUAN;
+                    md.NEWS_COUNT = item.NEWS_COUNT;
                     md.CREATE_DATE = item.CREATE_DATE;
                     md.UPDATE_DATE = item.UPDATE_DATE;
                     md.CREATE_USER = item.CREATE_USER;

@@ -32,7 +32,7 @@ a:hover{
     opacity:.7;
 }
 /*****responsive block and none******/
-.tr_mobile{display:none!important;}.tr_pc{display:block!important;background-color: #844204;}
+.tr_mobile{display:none!important;}.tr_pc{display:block!important;background-color: #028900;}
 .navbar-nav > li a{
     color:#fff!important;
 }
@@ -40,7 +40,7 @@ a:hover{
 padding:0!important;
 }
 .dropdown-menu >li{
-    background-color:#844204!important;
+    background-color:#028900!important;
 }
 .d_mneu_mobile{
     margin: 0px auto;
@@ -111,6 +111,27 @@ padding:0!important;
 }
 .header_bot{
     overflow: hidden;
+}
+.navbar-nav > li > .dropdown-menu  li ul{
+	display:none;
+}
+.navbar-nav > li > .dropdown-menu  li{
+	position:relative;
+}
+.navbar-nav > li > .dropdown-menu  li:hover ul{
+	display:block;
+	position:absolute;
+	top:0px;
+	left:100%;
+	min-width:200px;
+	background:#fff;
+}
+.navbar-nav > li > .dropdown-menu  li ul li{
+	padding:5px 10px;
+    background-color:#028900;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+    background-color:#028900!important;
 }
 .btn-search-abs{
     position: absolute;
@@ -200,9 +221,13 @@ padding:0!important;
   background: transparent;
   box-shadow: none;
   display:block;
+  width:90%!important;
 }
 .search-form .form-group input.form-control::-webkit-input-placeholder {
   display: none;
+}
+.form-control-feedback{
+    pointer-events:auto!important;
 }
 .search-form .form-group input.form-control:-moz-placeholder {
   /* Firefox 18- */
@@ -242,20 +267,23 @@ width: 95%;
 
 
 /*****content******/
-.ads_1-left{
+.a_12{
+    padding-top:10px;
+}
+.a_1-left{
     width: 50%;
     float: left;
     padding-right: 5px;
 }
-.ads_1-right{
+.a_1-right{
     width: 50%;
     float: right;
     padding-left: 5px;
 }
-.ads_1-left img{
+.a_1-left img{
     width: 100%;
 }
-.ads_1-right img{
+.a_1-right img{
     width: 100%;
 }
 .ads_1{
@@ -267,6 +295,7 @@ width: 95%;
     width: 695px;
     float: left;
     overflow: hidden;
+    padding-top:10px;
 }
 .contents_lefts ul{
     float: left;
@@ -322,6 +351,7 @@ width: 95%;
 .contents_right{
     width: 255px;
     float: right;
+    padding-top:10px;
 }
 .contents_right h3{
     margin-top: 0px;
@@ -516,4 +546,7 @@ footer { background-color:#028900; min-height:350px; font-family: 'Open Sans', s
     text-align: center;
     color: #fff;
     text-shadow: 2px 2px 6px #000;
+}
+#closefbchat{
+    position:fixed!important;
 }

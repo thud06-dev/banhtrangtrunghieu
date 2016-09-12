@@ -33,10 +33,33 @@
                     </a>
                 </div>
                 <h5 class="sp-name"><a href="@Url.Action(item.NEWS_SEO_URL+"-"+item.NEWS_ID,"san-pham")">@item.NEWS_TITLE</a></h5>
-                <div class="sp-price">$Giá:<span>100.000 đ</span></div>
-                <div class="sp-detail">@_com.getMota(item.NEWS_DESC, 200)</div>
-                <button class="sp-viewmore hvr-float-shadow">Mua ngay</button>
+                <div class="sp-price">$Giá: <span>@string.Format("{0:#0,0}", Convert.ToDecimal(item.GIA)) vnđ</span></div>
+                <div class="sp-detail">Mô tả: @_com.getMota(item.NEWS_DESC, 200)</div>
+                <button class="sp-viewmore hvr-float-shadow" data-toggle="modal" data-target="#myModal">Mua ngay</button>
             </li>
         }
     }
 </ul>
+<!-- Modal -->
+<div id="myModal" class="modal fade" style="z-index:9999!important" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Số điện thoại</h4>
+            </div>
+            <div class="modal-body">
+                <center>
+                    <a href="tel:0938118661"><button class="btn btn-info btn-lg">0938.118.661</button></a>
+                    <a href="tel:0938118661"><button class="btn btn-success btn-lg">0938.118.661</button></a>
+                </center>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+
+    </div>
+</div>

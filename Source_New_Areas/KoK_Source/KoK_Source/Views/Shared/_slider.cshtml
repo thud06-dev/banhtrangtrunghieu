@@ -20,11 +20,13 @@
                         if (slider_right.BANNER_TYPE == 1)
                         {
                         <div class="item @if (i == 0) { @Html.Raw("active"); } ">
-                            <img src="@Url.Content(slider_right.BANNER_FILE)" alt="" />
-                            <div class="carousel-caption">
-                                <h3>@slider_right.BANNER_NAME</h3>
-                                <p>@slider_right.BANNER_DESC</p>
-                            </div>
+                            <a href="@slider_right.BANNER_LINK">
+                                <img src="@Url.Content(slider_right.BANNER_FILE)" alt="" />
+                                <div class="carousel-caption">
+                                    <h3>@slider_right.BANNER_NAME</h3>
+                                    <p>@slider_right.BANNER_DESC</p>
+                                </div>
+                            </a>
                         </div>
                         i++;
                         }
@@ -90,7 +92,7 @@
             if (slider_right.BANNER_TYPE == 2)
             {
                 
-                <a href="#">
+                <a href="@slider_right.BANNER_LINK">
                     <div class="slider-right-caption">
                         <h3>@slider_right.BANNER_NAME</h3>
                         <p>@slider_right.BANNER_DESC</p>

@@ -39,7 +39,8 @@
                             <p class="list-group-item-text">
                                 @_com.getMota(item.NEWS_DESC,200).ToString()
                             </p><br>
-                            <button type="button" class="btn btn-danger btn-seemore btn-block"> Xem thêm </button>
+                            <div><i>@item.CREATE_DATE.Value.ToLongDateString()</i></div>
+                            <button type="button" class="btn btn-seemore btn-success"> Xem thêm </button>
                         </div>
                     </a>
                 }

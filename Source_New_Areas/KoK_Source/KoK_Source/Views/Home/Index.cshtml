@@ -8,16 +8,16 @@
    @Html.Partial("~/Views/Shared/_slider.cshtml")
 </div>
 <!---------ads_1--------------->
-    <section class="ads_1">
+    <section class="a_12">
         @if (dt.Count > 0)
         {
-            <div class="ads_1-left"><a><img width="477" height="151" src="@Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority)+Url.Content(dt.First().BANNER_FILE))" alt="" /></a></div>
-            <div class="ads_1-right"><a><img width="477" height="151" src="@Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority)+Url.Content(dt.Last().BANNER_FILE))" alt="" /></a></div>
+            <div class="a_1-left"><a href="@dt.First().BANNER_LINK"><img width="477" height="151" src="@Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority)+Url.Content(dt.First().BANNER_FILE))" alt="" /></a></div>
+            <div class="a_1-right"><a href="@dt.Last().BANNER_LINK"><img width="477" height="151" src="@Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority)+Url.Content(dt.Last().BANNER_FILE))" alt="" /></a></div>
         }
         
     </section>
     <!---------ads_1--------------->
-    <section class="contents">
+    <div class="contents" style="padding-top:10px">
         <div class="contents_left contents_lefts">
             @Html.Partial("_contentProducts", Model.ListProducts)
         </div>
@@ -25,4 +25,4 @@
             @Html.Partial("_sidebarTinTuc",Model.ListNews)
             @Html.Partial("_SPBanChay")
         </div>
-    </section>
+    </div>

@@ -19,7 +19,7 @@
                     {
                         if (slider_right.BANNER_TYPE == 1)
                         {
-                        <div class="item @if (i == 0) { @Html.Raw("active"); } ">
+                        @*<div class="item @if (i == 0) { @Html.Raw("active"); } grid">
                             <a href="@slider_right.BANNER_LINK">
                                 <img src="@Url.Content(slider_right.BANNER_FILE)" alt="" />
                                 <div class="carousel-caption">
@@ -27,8 +27,17 @@
                                     <p>@slider_right.BANNER_DESC</p>
                                 </div>
                             </a>
-                        </div>
-                        i++;
+                        </div>*@
+                            <div class="item @if (i == 0) { @Html.Raw("active"); } grid">
+                                <figure class="effect-layla">
+                                    <img src="@Url.Content(slider_right.BANNER_FILE)">
+                                    <figcaption>
+                                        <h3>@slider_right.BANNER_NAME</h3>
+                                        <p>@slider_right.BANNER_DESC <a href="@slider_right.BANNER_LINK" target="_blank" class="label label-danger">XEM THÊM</a></p>
+                                    </figcaption>
+                                </figure>
+                            </div><!-- End Item -->
+                            i++;
                         }
                     }
                 }
@@ -58,8 +67,8 @@
 
     </div>
 
-    <script src="~/Content/_Template/js/jquery-2.1.1.js"></script>
-    <script src="~/Content/_Template/js/bootstrap-3.1.1.js"></script>
+    <script src="@Url.Content("~/Content/_Template/js/jquery-2.1.1.js")"></script>
+    <script src="@Url.Content("~/Content/_Template/js/bootstrap-3.1.1.js")"></script>
     <script>
                             $(document).ready( function() {
                 $('#myCarousel').carousel({

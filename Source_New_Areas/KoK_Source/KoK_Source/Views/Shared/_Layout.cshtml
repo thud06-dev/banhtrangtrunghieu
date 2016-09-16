@@ -16,7 +16,12 @@
     <meta property="og:description" content="@ViewBag.NEWS_DESC" />
     <title>BÁNH TRÁNG @if (!string.IsNullOrEmpty(ViewBag.NEWS_TITLE)) { @Html.Raw(" - " + ViewBag.NEWS_TITLE);}</title>
 
-
+    <!-- HOVER -->
+    <link href="@Url.Content("~/Content/_Template/css/demo-page.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/_Template/css/hover.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/_Template/css/set1.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/_Template/css/normalize.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/_Template/css/animate.css")" rel="stylesheet" />
 <!-------jquery------->
 
 
@@ -70,9 +75,7 @@ new WOW().init();
     </script>
     <!-- FONT AWESOME -->
     <link href="@Url.Content("~/Content/_Template/fonts/font-awesome.min.css")" rel="stylesheet" />
-    <!-- HOVER -->
-    <link href="@Url.Content("~/Content/_Template/css/demo-page.css")" rel="stylesheet" media="all">
-    <link href="@Url.Content("~/Content/_Template/css/hover.css")" rel="stylesheet" media="all">
+    
     <!-- style -->
     <link href="@Url.Content("~/Content/_Template/style.css")" rel="stylesheet" />
     <link rel="stylesheet" href="@Url.Content("~/Content/_Template/responsive.css")" type="text/css" />
@@ -84,7 +87,7 @@ new WOW().init();
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7&appId=1561573834114960";
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
@@ -112,201 +115,9 @@ new WOW().init();
                 @Html.Partial("~/Views/Shared/_menuPageTopmobile.cshtml")
             </nav>
         </div>
-        @*<div class="header_bot container">
-                <div class="header_bot-left">
-                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-
-                            <div class="item active">
-                                <img src="@Url.Content("Content/_Template/img/slide.jpg">
-                                <div class="carousel-caption">
-                                    <h3>Headline</h3>
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. <a href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank" class="label label-danger">Bootstrap 3 - Carousel Collection</a></p>
-                                </div>
-                            </div><!-- End Item -->
-
-                            <div class="item">
-                                <img src="@Url.Content("Content/_Template/img/slide.jpg">
-                                <div class="carousel-caption">
-                                    <h3>Headline</h3>
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. <a href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank" class="label label-danger">Bootstrap 3 - Carousel Collection</a></p>
-                                </div>
-                            </div><!-- End Item -->
-
-                            <div class="item">
-                                <img src="@Url.Content("Content/_Template/img/slide.jpg">
-                                <div class="carousel-caption">
-                                    <h3>Headline</h3>
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. <a href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank" class="label label-danger">Bootstrap 3 - Carousel Collection</a></p>
-                                </div>
-                            </div><!-- End Item -->
-
-                            <div class="item">
-                                <img src="@Url.Content("Content/_Template/img/slide.jpg">
-                                <div class="carousel-caption">
-                                    <h3>Headline</h3>
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                                </div>
-                            </div><!-- End Item -->
-
-                        </div><!-- End Carousel Inner -->
-
-
-                        <ul class="nav nav-pills nav-justified">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"><a href="#">About<small>Lorem ipsum dolor sit</small></a></li>
-                            <li data-target="#myCarousel" data-slide-to="1"><a href="#">Projects<small>Lorem ipsum dolor sit</small></a></li>
-                            <li data-target="#myCarousel" data-slide-to="2"><a href="#">Portfolio<small>Lorem ipsum dolor sit</small></a></li>
-                            <li data-target="#myCarousel" data-slide-to="3"><a href="#">Services<small>Lorem ipsum dolor sit</small></a></li>
-                        </ul>
-
-
-                    </div><!-- End Carousel -->
-
-                </div>
-
-                <script src="@Url.Content("~/Content/_Template/js/jquery-2.1.1.js")"></script>
-                <script src="@Url.Content("~/Content/_Template/js/bootstrap-3.1.1.js")"></script>
-                <script>
-                                        $(document).ready( function() {
-                            $('#myCarousel').carousel({
-                                interval:   3000
-                            });
-
-                                var clickEvent = false;
-                                $('#myCarousel').on('click', '.nav a', function() {
-                                        clickEvent = true;
-                                        $('.nav li').removeClass('active');
-                                        $(this).parent().addClass('active');
-                                }).on('slid.bs.carousel', function(e) {
-                                    if(!clickEvent) {
-                                        var count = $('.nav').children().length -1;
-                                        var current = $('.nav li.active');
-                                        current.removeClass('active').next().addClass('active');
-                                        var id = parseInt(current.data('slide-to'));
-                                        if(count == id) {
-                                            $('.nav li').first().addClass('active');
-                                        }
-                                    }
-                                    clickEvent = false;
-                                });
-                        });
-                </script>
-
-                <div class="header_bot-right">
-                    <a href=""><img src="@Url.Content("Content/_Template/img/banner1.jpg" alt="BÁNH TRÁNG" /></a>
-                    <a href=""><img src="@Url.Content("Content/_Template/img/banner1.jpg" alt="BÁNH TRÁNG" /></a>
-                </div>
-            </div>*@
     </header>
     <div class="container" style="border:1px ridge;padding:4px">
         @RenderBody()
-        @*<!---------ads_1--------------->
-            <section class="ads_1">
-                <div class="ads_1-left"><a href=""><img src="@Url.Content("Content/_Template/img/banner_ngang.jpg" alt="" /></a></div>
-                <div class="ads_1-right"><a href=""><img src="@Url.Content("Content/_Template/img/banner_ngang.jpg" alt="" /></a></div>
-            </section>
-            <!---------ads_1--------------->
-            <section class="contents">
-                <div class="contents_left contents_lefts">
-                    <ul>
-                        <li>
-                            <div class="sp-img"><a href=""><img class="hvr-grow" src="@Url.Content("Content/_Template/img/img.jpg" alt=""></a></div>
-                            <h5 class="sp-name"><a href="">Bánh tráng Trung Hiếu</a></h5>
-                            <div class="sp-price">Giá: <span>100.000 đ</span></div>
-                            <div class="sp-detail">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
-                            <button class="sp-viewmore hvr-float-shadow">Mua ngay</button>
-                        </li>
-                        <li>
-                            <div class="sp-img"><a href=""><img class="hvr-grow" src="@Url.Content("Content/_Template/img/img.jpg" alt=""></a></div>
-                            <h5 class="sp-name"><a href="">Bánh tráng Trung Hiếu</a></h5>
-                            <div class="sp-price">Giá: <span>100.000 đ</span></div>
-                            <div class="sp-detail">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
-                            <button class="sp-viewmore hvr-float-shadow">Mua ngay</button>
-                        </li>
-                        <li>
-                            <div class="sp-img"><a href=""><img class="hvr-grow" src="@Url.Content("Content/_Template/img/img.jpg" alt=""></a></div>
-                            <h5 class="sp-name"><a href="">Bánh tráng Trung Hiếu</a></h5>
-                            <div class="sp-price">Giá: <span>100.000 đ</span></div>
-                            <div class="sp-detail">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
-                            <button class="sp-viewmore hvr-float-shadow">Mua ngay</button>
-                        </li>
-                        <li>
-                            <div class="sp-img"><a href=""><img class="hvr-grow" src="@Url.Content("Content/_Template/img/img.jpg" alt=""></a></div>
-                            <h5 class="sp-name"><a href="">Bánh tráng Trung Hiếu</a></h5>
-                            <div class="sp-price">Giá: <span>100.000 đ</span></div>
-                            <div class="sp-detail">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
-                            <button class="sp-viewmore hvr-float-shadow">Mua ngay</button>
-                        </li>
-                        <li>
-                            <div class="sp-img"><a href=""><img class="hvr-grow" src="@Url.Content("Content/_Template/img/img.jpg" alt=""></a></div>
-                            <h5 class="sp-name"><a href="">Bánh tráng Trung Hiếu</a></h5>
-                            <div class="sp-price">Giá: <span>100.000 đ</span></div>
-                            <div class="sp-detail">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
-                            <button class="sp-viewmore hvr-float-shadow">Mua ngay</button>
-                        </li>
-                        <li>
-                            <div class="sp-img"><a href=""><img class="hvr-grow" src="@Url.Content("Content/_Template/img/img.jpg" alt=""></a></div>
-                            <h5 class="sp-name"><a href="">Bánh tráng Trung Hiếu</a></h5>
-                            <div class="sp-price">Giá: <span>100.000 đ</span></div>
-                            <div class="sp-detail">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
-                            <button class="sp-viewmore hvr-float-shadow">Mua ngay</button>
-                        </li>
-                    </ul>
-                </div>
-                <div class="contents_right">
-                    <div class="title-news">
-                        <h3><a href="">TIN TỨC</a></h3>
-                        <span><a href="">Xem thêm</a></span>
-                    </div>
-                    <ul>
-                        <li>
-                            <a href="">
-                                <div class="tit-news">Du lịch sinh thái Củ Chi vào những ngày hè.</div>
-                                <div class="img-news"><img class="hvr-grow" src="@Url.Content("Content/_Template/img/img.jpg" alt="" /></div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div class="tit-news">Du lịch sinh thái Củ Chi vào những ngày hè.</div>
-                                <div class="img-news"><img class="hvr-grow" src="@Url.Content("Content/_Template/img/img.jpg" alt="" /></div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div class="tit-news">Du lịch sinh thái Củ Chi vào những ngày hè.</div>
-                                <div class="img-news"><img class="hvr-grow" src="@Url.Content("Content/_Template/img/img.jpg" alt="" /></div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div class="tit-news">Du lịch sinh thái Củ Chi vào những ngày hè.</div>
-                                <div class="img-news"><img class="hvr-grow" src="@Url.Content("Content/_Template/img/img.jpg" alt="" /></div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div class="tit-news">Du lịch sinh thái Củ Chi vào những ngày hè.</div>
-                                <div class="img-news"><img class="hvr-grow" src="@Url.Content("Content/_Template/img/img.jpg" alt="" /></div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div class="tit-news">Du lịch sinh thái Củ Chi vào những ngày hè.</div>
-                                <div class="img-news"><img class="hvr-grow" src="@Url.Content("Content/_Template/img/img.jpg" alt="" /></div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div class="tit-news">Du lịch sinh thái Củ Chi vào những ngày hè.</div>
-                                <div class="img-news"><img src="@Url.Content("Content/_Template/img/img.jpg" alt="" /></div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </section>*@
-
     </div>
 
     <footer>

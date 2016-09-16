@@ -4,20 +4,18 @@
     KOK_DATAEntities _kokDataEntity = new KOK_DATAEntities();
     var dt = _kokDataEntity.KOK_BANNER.Where(a => a.ACTIVE == true && a.BANNER_TYPE == 3).OrderByDescending(a=>a.UPDATE_DATE).Take(2).ToList();
 }
-<div class="header_bot container" style="padding-left:0px">
    @Html.Partial("~/Views/Shared/_slider.cshtml")
-</div>
 <!---------ads_1--------------->
     <section class="a_12">
         @if (dt.Count > 0)
         {
-            <div class="a_1-left"><a href="@dt.First().BANNER_LINK"><img width="477" height="151" src="@Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority)+Url.Content(dt.First().BANNER_FILE))" alt="" /></a></div>
-            <div class="a_1-right"><a href="@dt.Last().BANNER_LINK"><img width="477" height="151" src="@Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority)+Url.Content(dt.Last().BANNER_FILE))" alt="" /></a></div>
+            <div class="a_1-left hvr-icon-forward"><a href="@dt.First().BANNER_LINK"></a><img width="477" height="151" src="@Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority)+Url.Content(dt.First().BANNER_FILE))" alt="" /></div>
+            <div class="a_1-right hvr-icon-forward"><a href="@dt.Last().BANNER_LINK"></a><img width="477" height="151" src="@Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority)+Url.Content(dt.Last().BANNER_FILE))" alt="" /></div>
         }
         
     </section>
     <!---------ads_1--------------->
-    <div class="contents" style="padding-top:10px">
+    <div class="contents">
         <div class="contents_left contents_lefts">
             @Html.Partial("_contentProducts", Model.ListProducts)
         </div>

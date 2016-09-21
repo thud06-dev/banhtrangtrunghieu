@@ -13,24 +13,25 @@ namespace KoK_Source.Areas.Admin.Models.Banner
     {
         [DisplayName("ID")]
         public string BANNER_ID { get; set; }
-        [DisplayName("NAME")]
+        [DisplayName("Tên")]
         public string BANNER_NAME { get; set; }
-        [DisplayName("Descreption")]
+        [DisplayName("Mô tả")]
         public string BANNER_DESC { get; set; }
-        [DisplayName("Url")]
+        [DisplayName("Đường dẫn")]
         public string BANNER_FILE { get; set; }
-        [DisplayName("Type")]
+        [DisplayName("Loại")]
         public string BANNER_TYPE { get; set; }
-        [DisplayName("Create Date")]
+        [DisplayName("Ngày tạo")]
         public string CREATE_DATE { get; set; }
-        [DisplayName("Update Date")]
+        [DisplayName("Ngày cập nhật")]
         public string UPDATE_DATE { get; set; }
-        [DisplayName("Create User")]
+        [DisplayName("Người tạo")]
         public string CREATE_USER { get; set; }
-        [DisplayName("Update User")]
+        [DisplayName("Người cập nhật")]
         public string UPDATE_USER { get; set; }
-        [DisplayName("State")]
+        [DisplayName("Hiển thị")]
         public bool ACTIVE { get; set; }
+        [DisplayName("Liên kết")]
         public string BANNER_LINK { get; set; }
     }
 }

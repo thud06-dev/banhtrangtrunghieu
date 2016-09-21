@@ -96,17 +96,16 @@
     </script>
 
     <div class="header_bot-right">
-        @foreach (var slider_right in dt)
+        @foreach (var slider_right in dt.Where(a=>a.BANNER_TYPE==2).Take(2))
         {
             if (slider_right.BANNER_TYPE == 2)
             {
-                
                 <a href="@slider_right.BANNER_LINK">
                     <div class="slider-right-caption">
                         <h3>@slider_right.BANNER_NAME</h3>
                         <p>@slider_right.BANNER_DESC</p>
                     </div>
-                    <img width="264" height="190" src="@Url.Content(slider_right.BANNER_FILE)" alt="BÁNH TRÁNG" />
+                    <img width="264" height="192" src="@Url.Content(slider_right.BANNER_FILE)" alt="BÁNH TRÁNG" />
                 </a>
             }
         }

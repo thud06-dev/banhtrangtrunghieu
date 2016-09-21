@@ -35,7 +35,7 @@
                             <th width="150px">@Html.LabelFor(m => m.First().ANH)</th>
                             <th width="150px">@Html.LabelFor(m => m.First().UPDATE_DATE)</th>
                             <th width="5%">@Html.LabelFor(m => m.First().ACTIVE)</th>
-                            <th width="5%">Del</th>
+                            <th width="5%">Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -83,7 +83,7 @@
                                     <label class="switch blue" for="@item.NEWS_ID"></label>
                                 </td>
                                 <td>
-                                    <a href="#" onclick="AjaxRemove(this,@item.NEWS_ID)" class="post__del"><i class="pe-7f-close"></i>#</a>
+                                    <a href="#" onclick="AjaxRemove(this,@item.NEWS_ID)" class="post__del">Xóa</a>
                                 </td>
                             </tr>
                             }

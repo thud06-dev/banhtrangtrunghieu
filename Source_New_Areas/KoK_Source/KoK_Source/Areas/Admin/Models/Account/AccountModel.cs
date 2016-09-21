@@ -32,7 +32,7 @@ namespace KoK_Source.Areas.Admin.Models.Account
         [DisplayName("State")]
         public bool Active { get; set; }
 
-        [DisplayName("Create_Date")]
+        [DisplayName("Create Date")]
         public string CreateDate { get; set; }
 
         [DisplayName("Update Date")]

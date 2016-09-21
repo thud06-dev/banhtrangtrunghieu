@@ -32,11 +32,12 @@
                     <thead>
                         <tr>
                             <th>@Html.LabelFor(m => m.First().NEWS_TITLE)</th>
+                            <th>@Html.LabelFor(m => m.First().GIA)</th>
                             <th>@Html.LabelFor(m => m.First().NEWS_DESC)</th>
                             <th width="150px">@Html.LabelFor(m => m.First().ANH)</th>
                             <th width="150px">@Html.LabelFor(m => m.First().UPDATE_DATE)</th>
                             <th width="5%">@Html.LabelFor(m => m.First().ACTIVE)</th>
-                            <th width="5%">Del</th>
+                            <th width="5%">Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,6 +50,9 @@
                                         <a href="@Url.Action("Edit", "ProductsAdmin", new ProductsModel { NEWS_ID = item.NEWS_ID })">
                                             @item.NEWS_TITLE
                                         </a>
+                                    </td>
+                                    <td>
+                                        @string.Format("{0:#0,0}", Convert.ToDecimal(item.GIA)) vnđ
                                     </td>
                                     <td>
                                         <p class="">@item.NEWS_DESC</p>
@@ -84,7 +88,7 @@
                                         <label class="switch blue" for="@item.NEWS_ID"></label>
                                     </td>
                                     <td>
-                                        <a href="#" onclick="AjaxRemove(this,@item.NEWS_ID)" class="post__del"><i class="pe-7f-close"></i>#</a>
+                                        <a href="#" onclick="AjaxRemove(this,@item.NEWS_ID)" class="">Xóa</a>
                                     </td>
                                 </tr>
                             }

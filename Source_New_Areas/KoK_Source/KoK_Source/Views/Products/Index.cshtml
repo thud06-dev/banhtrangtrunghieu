@@ -17,54 +17,100 @@
         </ul>
     </div>
     <section class="contents">
-        <div class="contents_left">
+        <div class="contents_left contents_lefts">
             <div class="list-group">
-                @foreach (var item in Model)
-                {
-                    @*@Url.Action("DetailProducts", "Products", new { id_menu = string.Empty, id_products = item.NEWS_ID })*@
-                    <a href="@Url.Action(item.NEWS_SEO_URL+"-"+item.NEWS_ID,"san-pham")" class="list-group-item">
-                        <div class="media col-md-3">
-                            <figure class="pull-left">
-                                @if (!string.IsNullOrEmpty(item.ANH))
-                                {
-                                    List<FileModel> fileAvatar = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<List<FileModel>>(item.ANH);
-                                    if (fileAvatar != null)
-                                    {
-                                        <img class="media-object img-rounded img-responsive" src="@Url.Content(fileAvatar.First().url)" alt="@fileAvatar.First().name">
-                                    }
-                                }
-
-                            </figure>
-                        </div>
-                        <div class="col-md-9">
-                            <h4 class="list-group-item-heading"> @item.NEWS_TITLE </h4>
-                            <p class="list-group-item-text">
-                                @_com.getMota(item.NEWS_DESC, 200).ToString()
-                            </p><br>
-                            <div>Giá: @string.Format("{0:#0,0}", Convert.ToDecimal(item.GIA)) vnđ</div>
-                            <button type="button" class="btn btn-seemore btn-success"> Xem thêm </button>
-                        </div>
-                    </a>
-                }
-
-
-                <center class="page-nation">
-                    <ul class="pagination pagination-large">
-                        <li class="disabled"><span><<</span></li>
-                        @for (int i = 0; i < page.numberPage; i++)
+                <ul>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
                         {
-                            <li class="@if (page.currentPage == i) { Html.Raw("active"); } "><a href="@Url.Action("Index","Products",new { id = ViewBag.MenuId, pageIndex = i})">@(i + 1)</a></li>
-                        }
-                        <li class="disabled"><span>>></span></li>
-                        @*<li><a rel="next" href="#">Next</a></li>*@
+                            @*@Url.Action("DetailProducts", "Products", new { id_menu = string.Empty, id_products = item.NEWS_ID })*@
+                            <li>
+                                <div class="hovereffect">
+                                    <div class="sp-img">
+                                        <a href="@Url.Action(item.NEWS_SEO_URL+"-"+item.NEWS_ID,"san-pham")">
+                                            @{
+                                                List<FileModel> fileAvatar;
+                                                if (!String.IsNullOrEmpty(item.ANH))
+                                                {
+                                                    /*convert FILI_LINK là json thành list file name*/
+                                                    fileAvatar = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<List<FileModel>>(item.ANH);
+                                                    if (fileAvatar != null)
+                                                    {
+                                                        <img class="hvr-grow" src="@Url.Content(fileAvatar.First().url)" alt="" />
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    fileAvatar = null;
+                                                    <img class="hvr-grow" src="@Url.Content("~/Content/_Template/img/img.jpg")" alt="" />
+                                                }
+                                            }
+                                        </a>
+                                    </div>
+                                    <h5 class="sp-name"><a href="@Url.Action(item.NEWS_SEO_URL+"-"+item.NEWS_ID,"san-pham")">@item.NEWS_TITLE</a></h5>
+                                    <div class="sp-price">$Giá: <span>@string.Format("{0:#0,0}", Convert.ToDecimal(item.GIA)) vnđ</span></div>
+                                    <div class="sp-detail">Mô tả: @_com.getMota(item.NEWS_DESC, 200)</div>
+                                    <button class="sp-viewmore hvr-float-shadow" data-toggle="modal" data-target="#myModal">Mua ngay</button>
+                                    <!-- Modal -->
+                                    <div id="myModal" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
 
-                    </ul>
-                </center>
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">Số điện thoại</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <center>
+                                                        <a href="tel:0938118661"><button class="btn btn-info btn-lg">0938.118.661</button></a>
+                                                        <a href="tel:0938118661"><button class="btn btn-success btn-lg">0938.118.661</button></a>
+                                                    </center>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="overlay">
+                                        <a href="@Url.Action(item.NEWS_SEO_URL+"-"+item.NEWS_ID,"san-pham")">
+                                            <h2>@item.NEWS_TITLE</h2>
+                                            <div class="sp-price"><span> Giá: @string.Format("{0:#0,0}", Convert.ToDecimal(item.GIA)) vnđ</span></div>
+                                            <div class="sp-detail sp-details1">@_com.getMota(item.NEWS_DESC, 200)</div>
+                                        </a>
+                                        <center>
+                                            <a href="tel:0938118661"><button class="btn btn-info btn-lg">0938.118.661</button></a>
+                                            <a href="tel:0938118661"><button class="btn btn-success btn-lg">0938.118.661</button></a>
+                                        </center>
+                                    </div>
+                                </div>
+                            </li>
+                                                    }
+                                                }
+                </ul>
+                
             </div>
         </div>
         <div class="contents_right">
             @Html.Partial("_sidebarProducts", postRight)
         </div>
+       <div class="contents_left">
+           <center class="page-nation">
+               <ul class="pagination pagination-large">
+                   <li class="disabled"><span><<</span></li>
+                   @for (int i = 0; i < page.numberPage; i++)
+                   {
+                       <li class="@if (page.currentPage == i) { Html.Raw("active"); } "><a href="@Url.Action("Index","Products",new { id = ViewBag.MenuId, pageIndex = i})">@(i + 1)</a></li>
+                   }
+                   <li class="disabled"><span>>></span></li>
+                   @*<li><a rel="next" href="#">Next</a></li>*@
+               </ul>
+           </center>
+       </div>
+        
 
     </section>
 

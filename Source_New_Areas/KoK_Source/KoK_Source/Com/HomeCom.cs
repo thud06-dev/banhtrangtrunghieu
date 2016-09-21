@@ -51,7 +51,7 @@ namespace KoK_Source.Com
         public List<ProductsModel> getListProducts()
         {
             List<ProductsModel> model = new List<ProductsModel>();
-            var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 1 && a.ACTIVE == false).Take(9).OrderByDescending(m => m.UPDATE_DATE);
+            var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 1 && a.ACTIVE == false).Take(12).OrderByDescending(m => m.UPDATE_DATE);
             if (dt != null)
             {
                 foreach (var item in dt)

@@ -41,5 +41,14 @@ namespace KoK_Source.Areas.Admin.Controllers
             }
             return View();
         }
+
+        public ActionResult Logout()
+        {
+            //Session["UserId"] = dt.ID.ToString();
+            //Session["UserName"] = dt.UserName;
+            Session.Clear();
+            return RedirectToAction("Login", "Login");
+        }
+
     }
 }

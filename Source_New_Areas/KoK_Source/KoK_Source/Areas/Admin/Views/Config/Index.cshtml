@@ -1,181 +1,144 @@
-﻿@model List<KoK_Source.Areas.Admin.Models.Config.ConfigModel>
-@{
-    ViewBag.Title = "Index";
-    
-}
-<script type="text/javascript">
-    if ('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
-</script>
-<script src="~/assets/js/jquery-2.1.4.min.js"></script>
-<script src="~/assets/js/bootstrap.min.js"></script>
-<script src="~/assets/js/jquery.dataTables.min.js"></script>
-<script src="~/assets/js/jquery.dataTables.bootstrap.min.js"></script>
-<script src="~/assets/js/dataTables.buttons.min.js"></script>
-<script src="~/assets/js/buttons.flash.min.js"></script>
-<script src="~/assets/js/buttons.html5.min.js"></script>
-<script src="~/assets/js/buttons.print.min.js"></script>
-<script src="~/assets/js/buttons.colVis.min.js"></script>
-<script src="~/assets/js/dataTables.select.min.js"></script>
+﻿@model KoK_Source.Areas.Admin.Models.Config.ConfigModel
 
-<script src="~/assets/js/ace-elements.min.js"></script>
-<script src="~/assets/js/ace.min.js"></script>
-
-@using (Html.BeginForm("Index", "Config", FormMethod.Post, new { id = "ConfigtId" }))
+@using (Html.BeginForm("Edit","Config",FormMethod.Post))
 {
-    <div class="row">
-        <div class="col-md-12">
+    @Html.AntiForgeryToken()
 
-
-            <h3 class="header smaller lighter blue">Infor Config</h3>
-
-            <div class="clearfix">
-                <div class="pull-right tableTools-container"></div>
+    <div class="form-horizontal">
+        <h4>ConfigModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfigTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ConfigTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ConfigTitle, "", new { @class = "text-danger" })
             </div>
-            <div class="table-header">
-                Table Config
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfigKeyword, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ConfigKeyword, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ConfigKeyword, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfigDecription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ConfigDecription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ConfigDecription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfigField1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ConfigField1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ConfigField1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfigField2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ConfigField2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ConfigField2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfigField3, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ConfigField3, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ConfigField3, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfigField4, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ConfigField4, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ConfigField4, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfigField5, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ConfigField5, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ConfigField5, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CONFIG_KEYWORD_EN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CONFIG_KEYWORD_EN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CONFIG_KEYWORD_EN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CONFIG_DESCRIPTION_EN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CONFIG_DESCRIPTION_EN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CONFIG_DESCRIPTION_EN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.ConfigFavicon, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ConfigFavicon, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ConfigFavicon, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Active)
+                    @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.CreateDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
+                </div>
             </div>
 
-            <div>
-                <table id="dynamic_table" class="table table-striped table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>
-                                @Html.LabelFor(model => model.First().Id)
-                            </th>
-                            <th>
-                                @Html.LabelFor(model => model.First().ConfigTitle)
-                            </th>
-                            <th>
-                                @Html.LabelFor(model => model.First().ConfigKeyword)
-                            </th>
-                            <th>
-                                @Html.LabelFor(model => model.First().ConfigDecription)
-                            </th>
-                            <th>
-                                @Html.LabelFor(model => model.First().ConfigHitCounter)
-                            </th>
-                           
-                            <th>
-                                @Html.LabelFor(model => model.First().Active)
-                            </th>
-                            @*<th>
-                                    @Html.LabelFor(model => model.First().CreateUser)
-                                </th>
-                                <th>
-                                    @Html.LabelFor(model => model.First().CreateDate)
-                                </th>
-                                <th>
-                                    @Html.LabelFor(model => model.First().UpdateUser)
-                                </th>
-                                <th>
-                                    @Html.LabelFor(model => model.First().UpdateDate)
-                                </th>*@
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Id)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ConfigTitle)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ConfigKeyword)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ConfigDecription)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ConfigHitCounter)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Active)
-                                </td>
-                                
-                                @*<td>
-                                        @Html.DisplayFor(modelItem => item.CreateUser)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.CreateDate)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.UpdateUser)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.UpdateDate)
-                                    </td>*@
-                                <td>
-                                    <div class="hidden-sm hidden-xs action-buttons">
-                                        @*<a class="blue" href="#">
-                                                <i class="ace-icon fa fa-search-plus bigger-130"></i>
-                                            </a>*@
-
-                                        <a class="green" href="@Url.Action("Edit", "Config", new {id = item.Id})">
-                                            <i class="ace-icon fa fa-pencil bigger-130"></i>
-                                        </a>
-
-                                        <a class="red" href="@Url.Action("Delete", "Config", new {id = item.Id})">
-                                            <i class="ace-icon fa fa-trash-o bigger-130"></i>
-                                        </a>
-                                    </div>
-
-                                    <div class="hidden-md hidden-lg">
-                                        <div class="inline pos-rel">
-                                            <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
-                                                <i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
-                                            </button>
-
-                                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-                                                @*<li>
-                                                        <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-                                                            <span class="blue">
-                                                                <i class="ace-icon fa fa-search-plus bigger-120"></i>
-                                                            </span>
-                                                        </a>
-                                                    </li>*@
-
-                                                <li>
-                                                    <a href="@Url.Action("Edit", "Config", new {id = item.Id})" class="tooltip-success" data-rel="tooltip" title="Edit">
-                                                        <span class="green">
-                                                            <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-                                                        </span>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="@Url.Action("Delete", "Config", new {id = item.Id})" class="tooltip-error" data-rel="tooltip" title="Delete">
-                                                        <span class="red">
-                                                            <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
+            <div class="form-group">
+                @Html.LabelFor(model => model.UpdateDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UpdateDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UpdateDate, "", new { @class = "text-danger" })
+                </div>
             </div>
-            <div class="btn-group">
-                @*@Html.ActionLink("THÊM MỚI", "", null, new { @class = "btn blue inverse glyphicon glyphicon-plus", @id = "btnAdd" })*@
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CreateUser, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CreateUser, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CreateUser, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UpdateUser, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UpdateUser, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UpdateUser, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Cập nhật" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<script src="/assets/js/jquery-ui.min.js"></script>
-
-<script type="text/javascript">
-    jQuery(function ($) {
-        //initiate dataTables plugin
-        $('#dynamic_table').DataTable({
-
-        });
-    });
-</script>
+@*<div>
+    @Html.ActionLink("Cập nhật", "Index")
+</div>*@

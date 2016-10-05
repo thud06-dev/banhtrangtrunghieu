@@ -44,7 +44,7 @@ padding:0!important;
 }
 .d_mneu_mobile{
     margin: 0px auto;
-    background: #333 repeat-x;
+    background: #028900 repeat-x;
     width: 100%;
     margin-top: 15px;
     float: left;
@@ -241,6 +241,9 @@ transition-delay:.2s;
 .navbar-nav > li > .dropdown-menu  li ul li:hover{
     background-color:#002900;
 	width:100%;
+}
+.navbar-nav > li > .dropdown-menu  li ul li a:hover{
+    text-decoration:none;
 }
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
     background-color:#000!important;
@@ -483,14 +486,14 @@ width: 95%;
 }
 .contents_lefts ul li .sp-price span{
     font-weight: bold;
-    color: #2098d1;
+    color: #367517;
 }
 .contents_lefts ul li .sp-viewmore{
     position: absolute;
     bottom: 0px;
     right: 0px;
-    border: 1px solid #2098d1;
-    color: #2098d1;
+    border: 1px solid #367517;
+    color: #367517;
     padding: 5px 15px;
     background: none;
     transition: all .3s ease-out;
@@ -504,7 +507,7 @@ width: 95%;
 	background:#000;
 } 
 .contents_lefts ul li .sp-viewmore:hover{
-    background: #2098d1;
+    background: #5BBD2B;
     color: #fff;
 }   
 .contents_right{
@@ -516,7 +519,7 @@ width: 95%;
     margin-top: 0px;
 }
 .title-news {
-    border-bottom: 2px solid #2098d1;
+    border-bottom: 2px solid #367517;
     overflow: hidden;
 }
 .title-news h3 {
@@ -528,7 +531,7 @@ width: 95%;
     font-size: 17px;
     line-height: 30px;
     margin-bottom: 0px;
-    background: #2098d1;
+    background: #5BBD2B;
     padding-left: 10px;
 }
 .title-news h3 a{
@@ -540,7 +543,7 @@ width: 95%;
     height: 0;
     border-left: 0 solid transparent;
     border-right: 15px solid transparent;
-    border-bottom: 30px solid rgb(8, 125, 166);
+    border-bottom: 30px solid rgb(54, 117, 23);
 }
 .title-news span{
     float: right;
@@ -573,7 +576,7 @@ width: 95%;
 .contents_right ul li:nth-last-child(1){
     border-bottom: 0px;
 }
-footer { background-color:#028900; min-height:300px; font-family: 'Open Sans', sans-serif; overflow: hidden; width: 100%;}
+footer { background-color:#028900; /*min-height:300px;*/ font-family: 'Open Sans', sans-serif; overflow: hidden; width: 100%;}
 .footerleft { margin-top:10px; padding:0 36px; }
 .logofooter { margin-bottom:10px; font-size:25px; color:#fff; font-weight:700;}
 

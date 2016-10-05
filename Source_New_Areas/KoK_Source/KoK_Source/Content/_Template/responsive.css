@@ -10,6 +10,22 @@
 #menu{
 	z-index:9999999;
 }
+.sp-detail{
+	padding-bottom:35px;
+}
+.contents_lefts ul li .sp-img {
+    height: auto;
+}
+.header_bot-right a {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+.header_bot-right img {
+    width: 100%;
+    float: left;
+	height:auto;
+}
 .header_bot-left {
     width: 100%;
     float: left;
@@ -19,11 +35,7 @@
     float: right;
 	margin-top:10px;
 }
-.header_bot-right img {
-    width: 50%;
-    border: 1px solid #ccc;
-    float: left;
-}
+
 .contents_left {
     width: 100%;
     float: left;
@@ -49,6 +61,7 @@
 .img-news {
     width: 25%;
     float: left;
+	margin-right: 5%;
 }
 .copyright p {
     text-align: left;
@@ -73,11 +86,52 @@
 .paddingtop-bottom{
 	    padding-left: 30px;
 }
+#mm-0{
+	width:100%;
+	overflow:hidden;
+}
+.header_bot {
+	padding-left:0px;
+	padding-right:0px;
+}
+.list-group-item-heading{
+	margin-top:10px;
+}
+.contents_left img{
+	max-width:100%;
+	margin:0 auto;
+}
+.block-img {
+    border: none;
+    text-align: center;
+    margin-top: 15px;
+}
+.contents_left ul li .sp-viewmore {
+    width: 100%;
+}	
+.product-details-1 .nav li{
+	width: 100%;
+    text-align: center;
+    padding-bottom: 0px;
+    margin-bottom: 10px !important;
+    margin-top: 10px !important;
+    background: #ccc;	
+}
+.product-details-1 .nav li a{
+	border:none;
+}
+.product-details-1 .nav li.active{
+    background: #f00;	
+}
+.product-details-1 .nav li.active a{
+    background: none;	
+}
 }
 @media screen and (min-device-width: 481px) and (max-device-width: 767px) { 
 }
 
 @media only screen and (max-width: 480px){
+	
 .header_bot-right img {
     width: 100%;
     border: 1px solid #ccc;
@@ -89,6 +143,18 @@
     padding-left: 0px;
     margin-bottom: 10px;
 }
+.a_1-left {
+    width: 100%;
+    float: left;
+    padding-right: 0px;
+}
+.a_1-right {
+    width: 100%;
+    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 10px;
+}
 .contents_left ul li {
     float: none;
     width: 100%;
@@ -99,16 +165,11 @@
     margin-bottom: 15px !important;
 	padding-bottom:20px;
 }
-.sp-detail{
-	padding-bottom:35px;
-}
+
 .contents_left ul li .sp-img img {
     width: 100%;
     height: auto;
 }
-.contents_left ul li .sp-viewmore {
-    width: 100%;
-}	
 .ft-left-tr-mb{
 	margin-top: 50px;
     padding: 0 36px;

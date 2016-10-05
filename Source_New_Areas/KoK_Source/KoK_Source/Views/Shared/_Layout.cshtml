@@ -1,20 +1,26 @@
-﻿<!DOCTYPE html>
+﻿@using KoK_Source.Areas.Admin.Models.Config
+@using KOKService
+@{
+    ConfigModel configModel = new ConfigModel();
+    ConfigModel config = configModel.GetConfig();
+}
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="content-language" content="vi" />
     <meta name="author" content="@Request.Url.GetLeftPart(UriPartial.Authority)">
-    <meta name="description" content="@ViewBag.NEWS_SEO_DESC">
-    <meta name="keywords" content="@ViewBag.NEWS_SEO_KEYWORD">
+    <meta name="description" content="@if (string.IsNullOrEmpty(ViewBag.NEWS_SEO_DESC)) { @Html.Raw(config.ConfigDecription); }else { @Html.Raw(ViewBag.NEWS_SEO_DESC);}">
+    <meta name="keywords" content="@if (string.IsNullOrEmpty(ViewBag.NEWS_SEO_KEYWORD)) { @Html.Raw(config.ConfigKeyword); }else { @Html.Raw(ViewBag.NEWS_SEO_KEYWORD);}">
     <!--facebook-->
     <meta property="og:site_name" content="@Request.Url.GetLeftPart(UriPartial.Authority)" />
-    <meta property="og:title" content="@ViewBag.NEWS_TITLE" />
+    <meta property="og:title" content="@if (string.IsNullOrEmpty(ViewBag.NEWS_TITLE)) { @Html.Raw(config.ConfigTitle); }else { @Html.Raw(ViewBag.NEWS_TITLE);}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="@Request.Url.ToString()" />
     <meta property="og:image" content="@if (!string.IsNullOrEmpty(ViewBag.IMAGE)) { @Html.Raw(Request.Url.GetLeftPart(UriPartial.Authority)+Url.Content(ViewBag.IMAGE))}" />
     <meta property="og:description" content="@ViewBag.NEWS_DESC" />
-    <title>BÁNH TRÁNG @if (!string.IsNullOrEmpty(ViewBag.NEWS_TITLE)) { @Html.Raw(" - " + ViewBag.NEWS_TITLE);}</title>
+    <title>@config.ConfigTitle @if (!string.IsNullOrEmpty(ViewBag.NEWS_TITLE)) { @Html.Raw(" - " + ViewBag.NEWS_TITLE);}</title>
 
     <!-- HOVER -->
     <link href="@Url.Content("~/Content/_Template/css/demo-page.css")" rel="stylesheet">
@@ -100,8 +106,8 @@ new WOW().init();
     <!---------header--------------->
     <header class="header">
         <div class="header_top container">
-            <div class="header_top-logo"><a href="@Request.Url.GetLeftPart(UriPartial.Authority)"><img src="@Url.Content("~/Content/_Template/img/logo.png")" alt="BÁNH TRÁNG" width="100%" /></a></div>
-            <div class="header_top-banner"><a href="@Request.Url.GetLeftPart(UriPartial.Authority)"><img src="@Url.Content("~/Content/_Template/img/banner.png")" alt="BANNER BÁNH TRÁNG" /></a></div>
+            <div class="header_top-logo"><a href="@Request.Url.GetLeftPart(UriPartial.Authority)"><img src="@config.CONFIG_KEYWORD_EN" alt="BÁNH TRÁNG" width="100%" /></a></div>
+            <div class="header_top-banner"><a href="@Request.Url.GetLeftPart(UriPartial.Authority)"><img src="@config.CONFIG_DESCRIPTION_EN" alt="BANNER BÁNH TRÁNG" /></a></div>
         </div>
         <!--Menu-->
         @Html.Partial("~/Views/Shared/_menuPageTop.cshtml")
@@ -116,7 +122,7 @@ new WOW().init();
             </nav>
         </div>
     </header>
-    <div class="container" style="border:1px ridge;padding:4px">
+    <div class="container" style="border:1px ridge;padding:4px;background-color:@config.ConfigField5">
         @RenderBody()
     </div>
 
@@ -124,29 +130,23 @@ new WOW().init();
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-12 footerleft ">
-                    <div class="logofooter"> BÁNH TRÁNG TRUNG HIẾU</div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
-                    <p><i class="fa fa-map-pin"></i> 210, Aggarwal Tower, Rohini sec 9, New Delhi -        110085, INDIA</p>
-                    <p><i class="fa fa-phone"></i> Phone (India) : +91 9999 878 398</p>
-                    <p><i class="fa fa-envelope"></i> E-mail : info@webenlance.com</p>
+                    <div class="logofooter"> @config.ConfigTitle</div>
+                    <p>@config.ConfigDecription</p>
+                    <p><i class="fa fa-map-pin"></i> @config.ConfigField3</p>
+                    <p><i class="fa fa-phone"></i> Phone : @config.ConfigField2</p>
+                    <p><i class="fa fa-envelope"></i> E-mail : @config.ConfigField4</p>
 
                 </div>
                 <div class="col-md-3 col-sm-6 paddingtop-bottom ft-left-tr-mb">
                     <h6 class="heading7">LIÊN KẾT</h6>
                     <ul class="footer-ul">
-                        <li><a href="#"> Career</a></li>
-                        <li><a href="#"> Privacy Policy</a></li>
-                        <li><a href="#"> Terms & Conditions</a></li>
-                        <li><a href="#"> Client Gateway</a></li>
-                        <li><a href="#"> Ranking</a></li>
-                        <li><a href="#"> Case Studies</a></li>
-                        <li><a href="#"> Frequently Ask Questions</a></li>
+                        <li><a href="@config.ConfigField1"> FACEBOOK</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-6 paddingtop-bottom ft-left-tr-mb">
-                    <div class="fb-page" data-href="https://www.facebook.com/raiinfodotcom" @*data-tabs="timeline"*@ data-height="300" data-small-header="false" style="margin-bottom:15px;" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                    <div class="fb-page" data-href="@config.ConfigField1" @*data-tabs="timeline"*@ data-height="300" data-small-header="false" style="margin-bottom:15px;" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
                         <div class="fb-xfbml-parse-ignore">
-                            <blockquote cite="https://www.facebook.com/raiinfodotcom"><a href="https://www.facebook.com/raiinfodotcom">Facebook</a></blockquote>
+                            <blockquote cite="@config.ConfigField1"><a href="@config.ConfigField1">Facebook</a></blockquote>
                         </div>
                     </div>
                 </div>
@@ -168,7 +168,7 @@ new WOW().init();
     </footer>
     <!--footer start from here-->
     <div class="fbchatbox hidden-xs" style="position:fixed;right:5px;bottom:0px;z-index:9999">
-        <div class="fb-page fbchat" data-href="https://www.facebook.com/raiinfodotcom" data-small-header="true" data-adapt-container-width="false" data-height="300" data-width="300" data-hide-cover="true" data-show-facepile="true" data-show-posts="false" data-tabs="messages"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/raiinfodotcom"><a href="https://www.facebook.com/raiinfodotcom">Raiinfomation</a></blockquote></div></div>
+        <div class="fb-page fbchat" data-href="@config.ConfigField1" data-small-header="true" data-adapt-container-width="false" data-height="300" data-width="300" data-hide-cover="true" data-show-facepile="true" data-show-posts="false" data-tabs="messages"><div class="fb-xfbml-parse-ignore"><blockquote cite="@config.ConfigField1"><a href="@config.ConfigField1">Raiinfomation</a></blockquote></div></div>
         <span id="closefbchat" style="white-space: nowrap;position:absolute;right:2px;bottom:299px;padding: 3px 15px;background: #44619D;color: #fff;cursor: pointer;">Tắt Chat</span>
     </div>
 </body>

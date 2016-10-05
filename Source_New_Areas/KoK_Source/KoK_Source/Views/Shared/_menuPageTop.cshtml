@@ -29,7 +29,7 @@
                 if (m1.CAT_RANK == 1)
                 {
                     <li class="@if (dt.Count(item => item.CAT_PARENT_ID == m1.CAT_ID && item.CAT_RANK == 2) > 0) { @Html.Raw("dropdown")}">
-                        <a href="@Url.Action(_com.ToAscii(m1.CAT_NAME)+"-"+m1.CAT_ID+"-"+"0", Controller)" class="dropdown-toggle" data-toggle="dropdown" >@m1.CAT_NAME @if (dt.Count(item => item.CAT_PARENT_ID == m1.CAT_ID && item.CAT_RANK == 2) > 0) { @Html.Raw("<b class='caret'></b>")}</a>
+                        <a href="@Url.Action(_com.ToAscii(m1.CAT_NAME)+"-"+m1.CAT_ID+"-"+"0", Controller)">@m1.CAT_NAME @if (dt.Count(item => item.CAT_PARENT_ID == m1.CAT_ID && item.CAT_RANK == 2) > 0) { @Html.Raw("<b class='caret'></b>")}</a>
                         @if (dt.Count(item => item.CAT_PARENT_ID == m1.CAT_ID && item.CAT_RANK == 2) > 0)
                         {
                             <ul class="dropdown-menu">

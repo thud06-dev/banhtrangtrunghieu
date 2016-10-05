@@ -19,7 +19,7 @@ namespace KoK_Source.Areas.Admin.Controllers
         // GET: Admin/Config
         public ActionResult Index()
         {
-            List<ConfigModel> ls = _config.GetAllConfig();
+            ConfigModel ls = _config.GetConfig();
             return View(ls);
         }
 
@@ -71,17 +71,43 @@ namespace KoK_Source.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var config = db.KOK_CONFIG.FirstOrDefault(x => x.CONFIG_ID == model.Id);
-                if (config != null)
-                {
-                    config.CONFIG_TITLE = model.ConfigTitle;
-                    config.CONFIG_KEYWORD = model.ConfigKeyword;
-                    config.CONFIG_DESCRIPTION = model.ConfigDecription;
-                }
+                //var config = db.KOK_CONFIG.FirstOrDefault(x => x.CONFIG_ID == model.Id);
+               
 
                 try
                 {
-                    db.Entry(config).State = EntityState.Modified;
+                    var config = new KOK_CONFIG();
+                    config = db.KOK_CONFIG.FirstOrDefault();
+                    if (config == null)
+                    {
+                        config = new KOK_CONFIG();
+                        config.CONFIG_TITLE = model.ConfigTitle;
+                        config.CONFIG_KEYWORD = model.ConfigKeyword;
+                        config.CONFIG_DESCRIPTION = model.ConfigDecription;
+                        config.CONFIG_FIELD1 = model.ConfigField1;
+                        config.CONFIG_FIELD2 = model.ConfigField2;
+                        config.CONFIG_FIELD3 = model.ConfigField3;
+                        config.CONFIG_FIELD4 = model.ConfigField4;
+                        config.CONFIG_FIELD5 = model.ConfigField5;
+                        config.CONFIG_KEYWORD_EN = "~" + model.CONFIG_KEYWORD_EN;
+                        config.CONFIG_DESCRIPTION_EN = "~" + model.CONFIG_DESCRIPTION_EN;
+                        //db.Entry(config).State = EntityState.Modified;
+                        db.KOK_CONFIG.Add(config);
+                    }
+                    else
+                    {
+                        config.CONFIG_TITLE = model.ConfigTitle;
+                        config.CONFIG_KEYWORD = model.ConfigKeyword;
+                        config.CONFIG_DESCRIPTION = model.ConfigDecription;
+                        config.CONFIG_FIELD1 = model.ConfigField1;
+                        config.CONFIG_FIELD2 = model.ConfigField2;
+                        config.CONFIG_FIELD3 = model.ConfigField3;
+                        config.CONFIG_FIELD4 = model.ConfigField4;
+                        config.CONFIG_FIELD5 = model.ConfigField5;
+                        config.CONFIG_KEYWORD_EN = model.CONFIG_KEYWORD_EN;
+                        config.CONFIG_DESCRIPTION_EN = model.CONFIG_DESCRIPTION_EN;
+                        //db.Entry(config).State = EntityState.Modified;
+                    }
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -90,7 +116,7 @@ namespace KoK_Source.Areas.Admin.Controllers
                     Console.WriteLine(ex.Message);
                 }
             }
-            return View();
+            return View("Index");
         }
 
         public ActionResult Delete(int? id)

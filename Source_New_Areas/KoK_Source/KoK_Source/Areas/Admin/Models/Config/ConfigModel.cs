@@ -16,10 +16,10 @@ namespace KoK_Source.Areas.Admin.Models.Config
         [Key]
         public int Id { get; set; }
 
-        [DisplayName("Tiêu đề")]
+        [DisplayName("Tiêu đề website")]
         public string ConfigTitle { get; set; }
 
-        [DisplayName("Tiêu đề")]
+        [DisplayName("Keyword")]
         public string ConfigKeyword { get; set; }
 
         [DisplayName("Mô tả website")]
@@ -34,25 +34,28 @@ namespace KoK_Source.Areas.Admin.Models.Config
         //public int ConfigOrder { get; set; }
 
         //public string ConfigLanguage { get; set; }
-
-        //public string ConfigField1 { get; set; }
-
-        //public string ConfigField2 { get; set; }
-
-        //public string ConfigField3 { get; set; }
-
-        //public string ConfigField4 { get; set; }
-
-        //public string ConfigFielf5 { get; set; }
-
+        [DisplayName("Trang Facebook")]
+        public string ConfigField1 { get; set; }
+        [DisplayName("Số điện thoại")]
+        public string ConfigField2 { get; set; }
+        [DisplayName("Địa chỉ liên hệ")]
+        public string ConfigField3 { get; set; }
+        [DisplayName("Email liên hệ")]
+        public string ConfigField4 { get; set; }
+        [DisplayName("Màu background")]
+        public string ConfigField5 { get; set; }
+        [DisplayName("Logo Website")]
+        public string CONFIG_KEYWORD_EN { get; set; }
+        [DisplayName("Banner Website")]
+        public string CONFIG_DESCRIPTION_EN { get; set; }
         [DisplayName("State")]
         public bool Active { get; set; }
 
         [DisplayName("Create_Date")]
-        public string CreateDate { get; set; }
+        public DateTime? CreateDate { get; set; }
 
         [DisplayName("Update Date")]
-        public string UpdateDate { get; set; }
+        public DateTime? UpdateDate { get; set; }
 
         [DisplayName("Create User")]
         public string CreateUser { get; set; }
@@ -64,27 +67,31 @@ namespace KoK_Source.Areas.Admin.Models.Config
         private KOK_DATAEntities db = new KOK_DATAEntities();
         private CommonCnv _commonCnv = new CommonCnv();
 
-        public List<ConfigModel> GetAllConfig()
+        public ConfigModel GetConfig()
         {
-            var data = db.KOK_CONFIG.ToList();
-            List<ConfigModel> config = new List<ConfigModel>();
-            foreach (var item in data)
+            var data = db.KOK_CONFIG.FirstOrDefault();
+            ConfigModel config = new ConfigModel();
+            if (data != null)
             {
-                config.Add(new ConfigModel
-                {
-                    Id = item.CONFIG_ID,
-                    ConfigTitle = item.CONFIG_TITLE ?? string.Empty,
-                    ConfigKeyword = item.CONFIG_KEYWORD ?? string.Empty,
-                    ConfigDecription = item.CONFIG_DESCRIPTION ?? string.Empty,
-                    ConfigHitCounter = item.CONFIG_HITCOUNTER ?? 0,
-                    ConfigFavicon = item.CONFIG_FAVICON ?? string.Empty,
-                    CreateDate = item.CREATE_DATE?.ToString() ?? string.Empty,
-                    CreateUser = item.CREATE_USER ?? string.Empty,
-                    UpdateDate = item.UPDATE_DATE?.ToString() ?? string.Empty,
-                    UpdateUser = item.UPDATE_USER ?? string.Empty,
-                    Active = _commonCnv.CnvBool(item.ACTIVE)
-                });
+                config.Id = data.CONFIG_ID;
+                config.ConfigTitle = data.CONFIG_TITLE;
+                config.ConfigKeyword = data.CONFIG_KEYWORD;
+                config.ConfigDecription = data.CONFIG_DESCRIPTION;
+                //config.ConfigHitCounter = data.CONFIG_HITCOUNTER.Value;
+                config.ConfigFavicon = data.CONFIG_FAVICON;
+                config.ConfigField1 = data.CONFIG_FIELD1;
+                config.ConfigField2 = data.CONFIG_FIELD2;
+                config.ConfigField3 = data.CONFIG_FIELD3;
+                config.ConfigField4 = data.CONFIG_FIELD4;
+                config.ConfigField5 = data.CONFIG_FIELD5;
+                config.CONFIG_KEYWORD_EN = data.CONFIG_KEYWORD_EN;
+                config.CONFIG_DESCRIPTION_EN = data.CONFIG_DESCRIPTION_EN;
+                config.CreateDate = data.CREATE_DATE;
+                config.UpdateDate = data.UPDATE_DATE;
+                config.CreateUser = data.CREATE_USER;
+                config.UpdateUser = data.UPDATE_USER;
             }
+            
             Console.WriteLine(config);
             return config;
         }

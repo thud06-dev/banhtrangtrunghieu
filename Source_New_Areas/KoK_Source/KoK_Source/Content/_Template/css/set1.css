@@ -13,6 +13,7 @@
 	text-align: center;
 	cursor: pointer;
 	height:323px;
+	min-width:100%;
 }
 
 .grid figure img {
@@ -20,7 +21,7 @@
 	display: block;
 	min-height: 100%;
 	max-width: 100%;
-	opacity: 0.8;
+	opacity: 1;
 }
 
 .grid figure figcaption {
@@ -482,6 +483,7 @@ figure.effect-layla img,
 figure.effect-layla h2 {
 	-webkit-transform: translate3d(0,-30px,0);
 	transform: translate3d(0,-30px,0);
+	    margin: 0 auto;
 }
 
 figure.effect-layla img,

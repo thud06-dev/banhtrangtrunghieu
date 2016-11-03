@@ -92,6 +92,7 @@ namespace KoK_Source.Areas.Admin.Controllers
                     account.UserName = model.UserName;
                     account.FirstName = model.FirstName;
                     account.LastName = model.LastName;
+                    account.UserPass = _sha1.Mahoa(model.UserPass);
                     account.UPDATE_USER = "admin";
                     account.UPDATE_DATE = DateTime.Now;
                 }

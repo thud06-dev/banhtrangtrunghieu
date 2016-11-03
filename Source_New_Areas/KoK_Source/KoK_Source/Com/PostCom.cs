@@ -23,7 +23,8 @@ namespace KoK_Source.Com
                 p_id = int.Parse(id_post);
             }
             NewsModel md = new NewsModel();
-            var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 0
+            var dt = _kokDataEntities.KOK_PRODUCTS.Where(a => (a.NEWS_TYPE == 0
+            || a.NEWS_TYPE == 3)
             && a.NEWS_ID == p_id
             && a.ACTIVE == false
             ).OrderBy(m => m.UPDATE_DATE).FirstOrDefault();
@@ -235,6 +236,18 @@ namespace KoK_Source.Com
             }
 
             _kokDataEntities.SaveChanges();
+        }
+        public string getGioiThieu()
+        {
+            KOK_PRODUCTS dtOld = _kokDataEntities.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 3).FirstOrDefault();
+            if (dtOld != null)
+            {
+                return dtOld.NEWS_ID.ToString();
+            }
+            else
+            {
+                return string.Empty;
+            }
         }
     }
 }

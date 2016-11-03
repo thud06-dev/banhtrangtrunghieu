@@ -11,7 +11,7 @@
             <ul class="nav navbar-nav navbar-left">
                 <li><a href="@Request.Url.GetLeftPart(UriPartial.Authority)"><i class="fa fa-home" aria-hidden="true"></i></a></li>
                 <li><a href="@Request.Url.GetLeftPart(UriPartial.Authority)">TRANG CHỦ</a></li>
-                <li><a href="#">Giới Thiệu</a></li>
+                <li><a href="@Url.Action("Index","Info")">Giới Thiệu</a></li>
                 @foreach (var m1 in dt)
                 {
                     @*@Url.Action("Index", Controller, new { id = m1.CAT_ID, pageIndex = 0 })*@

@@ -21,26 +21,9 @@
         }
     });
 }
-function AjaxRemove(thisme, id) {
-    var postData = {
-        id: id
-    }
-    var requestUrl = $('#UrlAjaxDelete').data('request-url');
-    $.ajax({
-        url: requestUrl,
-        type: "POST",
-        data: JSON.stringify(postData),
-        contentType: 'application/json; charset=utf-8',
-        success: function (response) {
-            if (response.returnCode != 0) {
-                $(thisme).closest('tr').prev().remove();
-                $(thisme).closest('tr').remove();
-            }
-        },
-        error: function (er) {
-            return;
-        }
-    });
+function AjaxRemove(id) {
+    $('#deleteModal').modal();
+    $('#deleteButton').html('<a class="btn btn-danger" onclick="deleteData(' + id + ')">Có</a>');
 }
 function remove_unicode(str) {
     str = str.toLowerCase();
@@ -57,4 +40,31 @@ function remove_unicode(str) {
     str = str.replace(/^\-+|\-+$/g, "");
 
     return str;
+}
+function confirmDeleteModal(id) {
+    $('#deleteModal').modal();
+    $('#deleteButton').html('<a class="btn btn-danger" onclick="deleteData(' + id + ')">Delete</a>');
+}
+function deleteData(id) {
+    // do your stuffs with id
+    var postData = {
+        id: id
+    };
+    var requestUrl = $('#UrlAjaxDelete').data('request-url');
+    $.ajax({
+        url: requestUrl,
+        type: "POST",
+        data: JSON.stringify(postData),
+        contentType: 'application/json; charset=utf-8',
+        success: function (response) {
+            if (response.returnCode != 0) {
+                //$('#' + id).closest('tr').prev().remove();
+                $('#' + id).closest('tr').remove();
+            }
+        },
+        error: function (er) {
+            return;
+        }
+    });
+    $('#deleteModal').modal('hide'); // now close modal
 }

@@ -67,11 +67,11 @@ namespace KoK_Source.Areas.Admin.Controllers
                 if (!string.IsNullOrEmpty(model.NEWS_ID))
                 {
                     model.UPDATE_DATE = DateTime.Now;
-                    _productsCom.UpdateProducts(model);
+                    var oldModel = _productsCom.GetProductsByID(int.Parse(model.NEWS_ID));
                     //get old list anh
-                    if (!String.IsNullOrEmpty(model.LIST_ANH))
+                    if (!String.IsNullOrEmpty(oldModel.LIST_ANH))
                     {
-                        var lsFileName = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<List<FileModel>>(model.LIST_ANH);
+                        var lsFileName = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<List<FileModel>>(oldModel.LIST_ANH);
                         foreach (var item in lsFileName)
                         {
                             lsFile.Add(new FileModel { name = item.name, url = item.url });
@@ -140,11 +140,11 @@ namespace KoK_Source.Areas.Admin.Controllers
                             }
                         }
                     }
-                    if (Request.Files["file-att-list"].ContentLength > 0)
-                    {
+                    //if (Request.Files["file-att-list"].ContentLength > 0)
+                    //{
                         //add link to LIST_ANH
                         model.LIST_ANH = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(lsFile);
-                    }
+                    //}
                     _productsCom.UpdateProducts(model);//update ANH and LIST_ANH
 
                 }

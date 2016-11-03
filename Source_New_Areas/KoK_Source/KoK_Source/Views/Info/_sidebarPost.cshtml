@@ -1,0 +1,41 @@
+﻿@model List<KoK_Source.Models.NewsModel>
+@using KoK_Source.Models
+
+<div class="title-news">
+    <h3><a href="#">Tin HOT</a></h3>
+    @*<b></b>*@
+    <span><a href="@Url.Action("Index", "Post", new {id = string.Empty, pageIndex = 0})">Xem thêm</a></span>
+</div>
+<ul>
+    @if (Model.Count != 0)
+    {
+        foreach (var item in Model)
+        {
+            <li>
+                <a href="@Url.Action(item.NEWS_SEO_URL+"-"+item.NEWS_ID,"bai-viet")">
+                    <div class="tit-news"><b>@item.NEWS_TITLE</b></div>
+                    @{
+                        List<FileModel> fileAvatar;
+                        if (!String.IsNullOrEmpty(item.ANH))
+                        {
+                            /*convert FILI_LINK là json thành list file name*/
+                            fileAvatar = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<List<FileModel>>(item.ANH);
+                            if (fileAvatar != null)
+                            {
+                                <div class="img-news"><img class="hvr-grow" src="@Url.Content(fileAvatar.First().url)" alt="" /></div>
+                            }
+                        }
+                        else
+                        {
+                            fileAvatar = null;
+                            <div class="img-news"><img class="hvr-grow" src="@Url.Content("~/Content/_Template/img/img.jpg")" alt="" /></div>
+                        }
+                    }
+                    <div class="sp-price"><small><i>@item.CREATE_DATE.Value.ToShortDateString()</i></small></div>
+                    <i>@item.NEWS_COUNT Lượt xem</i>
+                </a>
+            </li>
+        }
+    }
+    
+</ul>

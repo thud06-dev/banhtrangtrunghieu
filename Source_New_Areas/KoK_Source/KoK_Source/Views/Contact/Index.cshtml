@@ -1,4 +1,9 @@
-﻿
+﻿@using KoK_Source.Areas.Admin.Models.Config
+@using KOKService
+@{
+    ConfigModel configModel = new ConfigModel();
+    ConfigModel config = configModel.GetConfig();
+}
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -72,40 +77,42 @@
                 </header>
                 <section class="rbText clearfix autop" style="line-height:20px">
                     <h4>   </h4>
-                    <b><i class="fa fa-map-marker" aria-hidden="true"></i> Địa chỉ :</b><i> 831 Trường Chinh, P.Tây Thạnh, Tân Phú, TP HCM </i><br>
-                    <b><i class="fa fa-phone" aria-hidden="true"></i> Điện thoại: </b> <i> 0934 057 095 - 0937 165 589 </i><br>
-                    <b><i class="fa fa-envelope-o" aria-hidden="true"></i> Email:</b> <i> dpntrang@benthanhford.com.vn </i><br>
+                    <b><i class="fa fa-map-marker" aria-hidden="true"></i> Địa chỉ :</b><i> @config.ConfigField3 </i><br>
+                    <b><i class="fa fa-phone" aria-hidden="true"></i> Điện thoại: </b> <i> @config.ConfigField2 </i><br>
+                    <b><i class="fa fa-envelope-o" aria-hidden="true"></i> Email:</b> <i> <a href="mailto:'@config.ConfigField4'">@config.ConfigField4</a> </i><br>
+                    <b><i class="" aria-hidden="true"></i> Gửi mail cho chúng tôi:</b> <i> <a href="mailto:'@config.ConfigField4'">@config.ConfigField4</a></i><br>
 
                 </section>
             </div>
-            <div class="column_container form">
+            <div style="display:none" class="column_container form">
                 <section class="rbForm full autop">
                     <div id="contact-form-121">
                         <form action="#" method="post" class="contact-form commentsblock">
 
                             <div>
-                                <label for="g121-name" class="grunion-field-label name">Name<span>(yêu cầu)</span></label>
-                                <input type="text" name="g121-name" id="g121-name" value="" class="name" required="" aria-required="true">
+                                <label for="g121-name" class="grunion-field-label name">Tên khách hàng<span>(yêu cầu)</span></label>
+                                <input type="text" name="name" id="g121-name" value="" class="name" required="" aria-required="true">
                             </div>
 
                             <div>
                                 <label for="g121-email" class="grunion-field-label email">Email<span>(yêu cầu)</span></label>
-                                <input type="email" name="g121-email" id="g121-email" value="" class="email" required="" aria-required="true">
+                                <input type="email" name="email" id="g121-email" value="" class="email" required="" aria-required="true">
                             </div>
 
                             <div>
-                                <label for="g121-website" class="grunion-field-label url">Website</label>
-                                <input type="text" name="g121-website" id="g121-website" value="" class="url">
+                                <label for="g121-website" class="grunion-field-label url">Số điện thoại</label>
+                                <input type="text" name="phonenumber" id="g121-website" value="" class="url">
                             </div>
 
                             <div>
-                                <label for="contact-form-comment-g121-phnhi" class="grunion-field-label textarea">Phản hồi<span>(yêu cầu)</span></label>
-                                <textarea name="g121-phnhi" id="contact-form-comment-g121-phnhi" rows="20" class="textarea" required="" aria-required="true"></textarea>
+                                <label for="contact-form-comment-g121-phnhi" class="grunion-field-label textarea">Nội dung<span>(yêu cầu)</span></label>
+                                <textarea name="content" id="contact-form-comment-g121-phnhi" rows="20" class="textarea" required="" aria-required="true"></textarea>
                             </div>
+                            
                             <p class="contact-submit">
                                 <input type="submit" value="Gửi »" class="pushbutton-wide">
-                                <input type="hidden" name="contact-form-id" value="121">
-                                <input type="hidden" name="action" value="grunion-contact-form">
+                                @*<input type="hidden" name="contact-form-id" value="121">
+                                <input type="hidden" name="action" value="grunion-contact-form">*@
                             </p>
                         </form>
                     </div>

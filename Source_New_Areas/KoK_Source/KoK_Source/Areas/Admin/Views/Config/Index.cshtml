@@ -1,5 +1,19 @@
 ﻿@model KoK_Source.Areas.Admin.Models.Config.ConfigModel
-
+@using KOKService
+@using KoK_Source.Models
+@{
+    KOK_DATAEntities data = new KOK_DATAEntities();
+    string idGioiThieu = string.Empty;
+    KOK_PRODUCTS dtOld = data.KOK_PRODUCTS.Where(a => a.NEWS_TYPE == 3).FirstOrDefault();
+    if (dtOld != null)
+    {
+        idGioiThieu = dtOld.NEWS_ID.ToString();
+    }
+    else
+    {
+        idGioiThieu = string.Empty;
+    }
+}
 @using (Html.BeginForm("Edit","Config",FormMethod.Post))
 {
     @Html.AntiForgeryToken()
@@ -15,7 +29,12 @@
                 @Html.ValidationMessageFor(model => model.ConfigTitle, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <div class="form-group">
+            <label class="control-label col-md-2">Giới thiệu</label>
+            <div class="col-md-10">
+                <a href="@Url.Action("Edit", "PostAdmin", new ProductsModel { NEWS_ID = idGioiThieu })">Chỉnh sửa giới thiệu</a>
+            </div>
+        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.ConfigKeyword, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

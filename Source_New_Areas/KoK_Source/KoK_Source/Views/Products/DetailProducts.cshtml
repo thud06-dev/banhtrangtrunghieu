@@ -1,5 +1,10 @@
 ﻿@model KoK_Source.Models.ProductsModel
+@using KoK_Source.Areas.Admin.Models.Config
 @using KoK_Source.Models
+@{ 
+    ConfigModel configModel = new ConfigModel();
+    ConfigModel config = configModel.GetConfig();
+}
 <!---------brc--------------->
 <div class="container">
     @*<div class="brc">
@@ -28,7 +33,7 @@
                             if (fileAvatar != null)
                             {
                                 <a href='@Url.Content(fileAvatar.First().url)' class='cloud-zoom' id='zoom1'>
-                                    <img width="320" height="229" src="@Url.Content(fileAvatar.First().url)" alt='@Url.Content(fileAvatar.First().name)' />
+                                    <img width="397" height="229" src="@Url.Content(fileAvatar.First().url)" alt='@Url.Content(fileAvatar.First().name)' />
                                 </a>
                             }
                         }
@@ -36,7 +41,7 @@
                         {
                             fileAvatar = null;
                             <a href='@Url.Content("~/Content/_Template/img/img.jpg")' class='cloud-zoom' id='zoom1'>
-                                <img width="320" height="229" src="@Url.Content("~/Content/_Template/img/img.jpg")" alt='' />
+                                <img width="397" height="229" src="@Url.Content("~/Content/_Template/img/img.jpg")" alt='' />
                             </a>
                         }
                     }
@@ -52,7 +57,7 @@
                                 foreach (var item_img in fileAvatar)
                                 {
                                     <a href='@Url.Content(item_img.url)' class='cloud-zoom-gallery' title='@Url.Content(item_img.name)' rel="useZoom: 'zoom1', smallImage: '@Url.Content(item_img.url)' ">
-                                        <img src="@Url.Content(item_img.url)" width="80" height="80" alt="@Url.Content(item_img.name)" />
+                                        <img src="@Url.Content(item_img.url)" width="76" height="76" alt="@Url.Content(item_img.name)" />
                                     </a>
                                 }
 
@@ -62,7 +67,7 @@
                         {
                             fileAvatar = null;
                             <a href='@Url.Content("~/Content/_Template/img/img.jpg")' class='cloud-zoom-gallery' title='Thumbnail 1' rel="useZoom: 'zoom1', smallImage: '@Url.Content("~/Content/_Template/img/img.jpg")' ">
-                                <img src="@Url.Content("~/Content/_Template/img/img.jpg")" width="80" height="80" alt="Thumbnail 123123" />
+                                <img src="@Url.Content("~/Content/_Template/img/img.jpg")" width="76" height="76" alt="Thumbnail 123123" />
                             </a>
                         }
                     }
@@ -73,7 +78,7 @@
                 <div class="product-desc">@Model.NEWS_DESC</div>
                 <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
                 <hr>
-                <div class="product-price">$Giá: @Model.GIA VNĐ</div>
+                <div class="product-price">$Giá: @string.Format("{0:#0,0}", Convert.ToDecimal(Model.GIA)) VNĐ</div>
                 <!--					<div class="product-stock">In Stock</div>-->
                 <hr>
                 <div class="btn-group cart">
@@ -85,6 +90,7 @@
                 
                 <div class="btn-group wishlist">
                     <div class="fb-like" data-href="@Request.Url.ToString()" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                    <g:plusone></g:plusone>
                 </div>
                 
             </div>
@@ -128,26 +134,5 @@
         </div>
     </section>
     <!-- Modal -->
-    <div id="myModal" class="modal fade" style="z-index:9999!important" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Số điện thoại</h4>
-                </div>
-                <div class="modal-body">
-                    <center>
-                        <a href="tel:0938118661"><button class="btn btn-info btn-lg">0938.118.661</button></a>
-                        <a href="tel:0938118661"><button class="btn btn-success btn-lg">0938.118.661</button></a>
-                    </center>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    
 </div>	

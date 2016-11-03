@@ -74,8 +74,8 @@
 
 
 <script src="@Url.Content("~/Content/_Template/js/wow.min.js")"></script>
-
-
+    <script src="@Url.Content("~/Scripts/kok_source/plusone.js")"></script>
+    
 <script>
 new WOW().init();
     </script>
@@ -107,7 +107,7 @@ new WOW().init();
     <header class="header">
         <div class="header_top container">
             <div class="header_top-logo"><a href="@Request.Url.GetLeftPart(UriPartial.Authority)"><img src="@config.CONFIG_KEYWORD_EN" alt="BÁNH TRÁNG" width="100%" /></a></div>
-            <div class="header_top-banner"><a href="@Request.Url.GetLeftPart(UriPartial.Authority)"><img src="@config.CONFIG_DESCRIPTION_EN" alt="BANNER BÁNH TRÁNG" /></a></div>
+            <div class="header_top-banner"><img src="@config.CONFIG_DESCRIPTION_EN" alt="BANNER BÁNH TRÁNG" /></div>
         </div>
         <!--Menu-->
         @Html.Partial("~/Views/Shared/_menuPageTop.cshtml")
@@ -134,7 +134,7 @@ new WOW().init();
                     <p>@config.ConfigDecription</p>
                     <p><i class="fa fa-map-pin"></i> @config.ConfigField3</p>
                     <p><i class="fa fa-phone"></i> Phone : @config.ConfigField2</p>
-                    <p><i class="fa fa-envelope"></i> E-mail : @config.ConfigField4</p>
+                    <p><i class="fa fa-envelope"></i> E-mail : <a style="color:white" href="mailto:'@config.ConfigField4'">@config.ConfigField4</a></p>
 
                 </div>
                 <div class="col-md-3 col-sm-6 paddingtop-bottom ft-left-tr-mb">
@@ -170,6 +170,28 @@ new WOW().init();
     <div class="fbchatbox hidden-xs" style="position:fixed;right:5px;bottom:0px;z-index:9999">
         <div class="fb-page fbchat" data-href="@config.ConfigField1" data-small-header="true" data-adapt-container-width="false" data-height="300" data-width="300" data-hide-cover="true" data-show-facepile="true" data-show-posts="false" data-tabs="messages"><div class="fb-xfbml-parse-ignore"><blockquote cite="@config.ConfigField1"><a href="@config.ConfigField1">Raiinfomation</a></blockquote></div></div>
         <span id="closefbchat" style="white-space: nowrap;position:absolute;right:2px;bottom:299px;padding: 3px 15px;background: #44619D;color: #fff;cursor: pointer;">Tắt Chat</span>
+    </div>
+    <div id="myModal" class="modal fade" role="dialog" style="z-index:9999!important">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Số điện thoại</h4>
+                </div>
+                <div class="modal-body">
+                    <center>
+                        <a href="tel:@config.ConfigField2"><button class="btn btn-info btn-lg">@config.ConfigField2</button></a>
+                        @*<a href="tel:0938118661"><button class="btn btn-success btn-lg">0938.118.661</button></a>*@
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 </body>
 </html>

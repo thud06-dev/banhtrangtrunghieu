@@ -88,7 +88,7 @@
                                         <label class="switch blue" for="@item.NEWS_ID"></label>
                                     </td>
                                     <td>
-                                        <a href="#" onclick="AjaxRemove(this,@item.NEWS_ID)" class="">Xóa</a>
+                                        <a id="@item.NEWS_ID" href="#" onclick="AjaxRemove(@item.NEWS_ID)" class="">Xóa</a>
                                     </td>
                                 </tr>
                             }

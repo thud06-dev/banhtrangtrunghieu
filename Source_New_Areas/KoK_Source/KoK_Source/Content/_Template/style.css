@@ -56,7 +56,6 @@ padding:0!important;
 .nav-pills>li[data-slide-to="2"].active a { background-color: #2980b9; }
 .nav-pills>li[data-slide-to="3"].active a { background-color: #8e44ad; }
 .header_top-logo{
-    width: 20%;
     float: left;
     overflow: hidden;   
 position: absolute; 
@@ -576,6 +575,10 @@ width: 95%;
 }
 .contents_right ul li:nth-last-child(1){
     border-bottom: 0px;
+}
+.contents_right ul li a:hover{
+    opacity: 1;
+    color: forestgreen;
 }
 footer { background-color:#028900; /*min-height:300px;*/ font-family: 'Open Sans', sans-serif; overflow: hidden; width: 100%;}
 .footerleft { margin-top:10px; padding:0 36px; }

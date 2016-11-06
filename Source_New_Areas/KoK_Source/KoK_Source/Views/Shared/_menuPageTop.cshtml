@@ -3,7 +3,7 @@
 @{ 
     KOK_DATAEntities _kokDataEntity = new KOK_DATAEntities();
     CommonCnv _com = new CommonCnv();
-    var dt = _kokDataEntity.KOK_CATEGORIES.Where(m => m.ACTIVE == true).DefaultIfEmpty().ToList().OrderBy(x => x.CAT_ORDER);
+    var dt = _kokDataEntity.KOK_CATEGORIES.Where(m => m.ACTIVE == false).DefaultIfEmpty().ToList().OrderBy(x => x.CAT_ORDER);
 }
 <nav class="navbar navbar-inverse nav-mgb-0 tr_pc">
     <div class="container">

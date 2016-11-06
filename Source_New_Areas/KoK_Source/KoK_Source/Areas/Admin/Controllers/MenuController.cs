@@ -155,6 +155,7 @@ namespace KoK_Source.Areas.Admin.Controllers
                 KOK_CATEGORIES categories = db.KOK_CATEGORIES.Find(Int32.Parse(model.Id));
                 categories.CAT_NAME = model.MenuName;
                 categories.CAT_URL = model.MenuLink;
+                categories.ACTIVE = model.Active;
                 //categories.CAT_ORDER = 0;
                 //categories.CAT_RANK = 1;
                 //categories.CAT_PARENT_ID = 0;

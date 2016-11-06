@@ -28,7 +28,7 @@ namespace KoK_Source.Areas.Admin.Models.Menu
         public string CreateUser { get; set; }
         [DisplayName("Người cập nhật")]
         public string UpdateUser { get; set; }
-        [DisplayName("Hiển thị")]
+        [DisplayName("Xóa")]
         public bool Active { get; set; }
         [DisplayName("Loại Menu")]
         public int? CAT_TYPE { get; set; }

@@ -17,7 +17,7 @@ namespace KoK_Source.Areas.Admin.Com
 
         public List<MenuModels> GetAllMenu()
         {
-            var data = _db.KOK_CATEGORIES.Where(x => x.ACTIVE == true).OrderBy(x => x.CAT_ORDER).ToList();
+            var data = _db.KOK_CATEGORIES.Where(x => x.ACTIVE == false).OrderBy(x => x.CAT_ORDER).ToList();
             List<MenuModels> menu = new List<MenuModels>();
             foreach (var item in data)
             {

@@ -34,5 +34,6 @@ namespace KOKService
         public string CREATE_USER { get; set; }
         public string UPDATE_USER { get; set; }
         public string BANNER_NAME { get; set; }
+        public string BANNER_LINK { get; set; }
     }
 }

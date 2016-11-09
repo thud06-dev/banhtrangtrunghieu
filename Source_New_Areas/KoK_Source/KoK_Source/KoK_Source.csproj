@@ -132,6 +132,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Com\BannerCom.cs" />
+    <Compile Include="Areas\Admin\Com\ContactCom.cs" />
     <Compile Include="Areas\Admin\Com\Default.cs" />
     <Compile Include="Areas\Admin\Com\GalleryCom.cs" />
     <Compile Include="Areas\Admin\Com\MenuCom.cs" />
@@ -140,6 +141,7 @@
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\BannerController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ConfigController.cs" />
     <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
     <Compile Include="Areas\Admin\Controllers\GalleryController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
@@ -151,6 +153,7 @@
     <Compile Include="Areas\Admin\Controllers\testController.cs" />
     <Compile Include="Areas\Admin\Models\Account\AccountModel.cs" />
     <Compile Include="Areas\Admin\Models\Banner\BannerModel.cs" />
+    <Compile Include="Areas\Admin\Models\Config\ConfigModel.cs" />
     <Compile Include="Areas\Admin\Models\File\FileModel.cs" />
     <Compile Include="Areas\Admin\Models\Menu\MenuModels.cs" />
     <Compile Include="Areas\Admin\Models\Post\PostModel.cs" />
@@ -158,9 +161,15 @@
     <Compile Include="Com\HomeCom.cs" />
     <Compile Include="Com\PostCom.cs" />
     <Compile Include="Com\ProductsCom.cs" />
+    <Compile Include="Com\SearchCom.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\CpanelController.cs" />
+    <Compile Include="Controllers\DefaultPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
@@ -1138,6 +1147,10 @@
     <Content Include="Views\Products\_sidebarProducts.cshtml" />
     <Content Include="Views\Shared\_menuPageTop.cshtml" />
     <Content Include="Views\Post\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Config\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Config\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Config\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Config\Delete.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1167,12 +1180,20 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_sidePostRight.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Shared\_slider.cshtml" />
+    <Content Include="Views\Shared\_SPBanChay.cshtml" />
+    <Content Include="Views\Shared\_menuPageTopmobile.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Info\Index.cshtml" />
+    <Content Include="Views\Info\_sidebarPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="Areas\Admin\Views\test\" />
     <Folder Include="data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
